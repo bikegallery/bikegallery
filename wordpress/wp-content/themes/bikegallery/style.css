@@ -1,0 +1,64 @@
+/*
+Theme Name: Epic Tri Shop
+Theme URI: none
+Description: Custom theme for Epic Tri Shop
+Version: 0.1
+Author: Jason Britton
+Tags: clean, basic
+*/
+
+@import "css/reset.css";
+@import "css/grid.css";
+
+/* Body and general styling _________________________________*/
+
+body {
+	background: #fff; 
+	color: #000;
+	font-family: 'Trebuchet MS', Helvetica, sans-serif;
+	font-size: 16px;
+	margin: 0;
+}
+
+
+
+/* Container and general _________________________________*/
+
+.container {
+	/* -moz-box-shadow: 0 0 10px #333; */
+}
+
+
+/* Header _________________________________*/
+
+.header .search {
+	text-align: right;
+}
+
+.header .screen-reader-text {
+	display: none;
+}
+
+
+
+/* Location Bar _________________________________*/
+
+.location_bar {
+	text-align: center;
+}
+
+
+/* Sidebar and Content _________________________________*/
+
+
+
+
+/* Footer _________________________________*/
+
+
+
+
+
+
+
+
