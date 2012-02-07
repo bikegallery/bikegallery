@@ -1,0 +1,106 @@
+/*
+*
+*	This file contains my changes to the smartetailing site. 
+*	jasonbritton@bikegallery.com
+*
+*/
+
+
+body {
+	background: #333;
+	font-family: 'Trebuchet MS',Helvetica,sans-serif;
+	font-size: 16px;
+}
+
+a,
+a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+
+a:hover,
+a:active {
+	
+}
+
+.header ul li {
+	list-style-type: none;
+}
+
+#secontainer {
+	-webkit-box-shadow: 0 0 10px #000;
+	-moz-box-shadow: 0 0 10px #000;
+	-o-box-shadow: 0 0 10px #000;
+	box-shadow: 0 0 10px #000;
+}
+
+#sesection1,
+#sesection2 {
+	background: #000;
+}
+
+#sesection2 {
+	border: none;
+}
+
+#sesection3 {
+	display: none;
+}
+
+.seobjdiv p {
+	color: #fff;
+	margin: 0;
+}
+
+#secontainer {
+	border: none;
+}
+
+.grid_3, .grid_9, .grid_12 {
+	display: inline;
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+	position: relative;
+}
+
+.grid_3 {
+	width: 245px;
+}
+
+.grid_9 {
+	width: 815px;
+}
+
+.grid_12 {
+	width: 1120px;
+}
+
+.logo {
+	text-align: center;
+}
+
+.logo img {
+	max-width: 100%;
+}
+
+.location_bar {
+	padding-top: 5px;
+	text-align: center;
+}
+
+.nav ul {
+	margin: 0;
+	padding: 10px 0;
+	text-align: center;
+}
+
+.nav ul li {
+	display: inline-block;
+	padding: 0 10px;
+}
+
+
+
+
+

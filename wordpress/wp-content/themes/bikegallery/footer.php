@@ -11,9 +11,9 @@
  */
 ?>
 
-			</section><!-- .sixcol .content -->
+			</section><!-- .grid_6 .content -->
 
-			<section class="threecol last sidebar">
+			<section class="grid_3 sidebar">
 				<?php if ( is_active_sidebar('primary-widget-area') ) : ?>
 
 				<ul class="xoxo">
@@ -21,13 +21,14 @@
 				</ul>
 
 				<?php endif; ?>
-			</section><!-- .threecol .last -->
-		</section><!-- .row .general_body -->
-
-		<footer class="row footer">
-			<p>Part of the <a href="http://bikegallery.com" class="bikegallery_link" title="Bike Gallery">Bike Gallery</a> family</p>
+			</section><!-- .grid_3 .sidebar -->
+		<footer class="grid_12 footer">
+			<p>&copy;2012 Bike Gallery. All rights reserved.</p>
 <!--			<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform" rel="generator">Proudly powered by WordPress </a> -->
-		</footer><!-- .row -->
+		</footer><!-- .grid_12 .footer -->
+			<div class="clear">&nbsp;</div>
+		</section><!-- .viewer -->
+
 	</section><!-- .container -->
 
 <?php wp_footer(); ?>

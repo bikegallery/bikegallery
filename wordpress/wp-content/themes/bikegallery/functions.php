@@ -367,9 +367,9 @@ endif;
 function twentyten_widgets_init() {
 	// Area 1, located in the header
 	register_sidebar( array(
-		'name' => __( 'Header Widget Area', 'twentyten' ),
-		'id' => 'header-widget-area',
-		'description' => __( 'The header widget area', 'twentyten' ),
+		'name' => __( 'Left Sidebar Widget Area', 'twentyten' ),
+		'id' => 'left-sidebar-widget-area',
+		'description' => __( 'The left sidebar widget area', 'twentyten' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',

@@ -29,35 +29,37 @@
 	<section class="container_12">
 		<header class="header">
 			<section class="grid_3 logo">
-				<a href="/"><img src="http://www.bikegallery.com/logos/BG%20logo%20(color).gif" alt="Bike Gallery" /></a>
+				<a href="/"><img src="http://www.bikegallery.com/logos/bikegallery_logo_thin_border.png" alt="Bike Gallery" /></a>
 			</section><!-- .grid_3 .logo -->
 
 			<section class="grid_9">
-				<div class="search">
-					<?php if (is_active_sidebar('header-widget-area') ) : ?>
-					<ul class="xoxo">
-						<?php dynamic_sidebar('header-widget-area'); ?>
-					</ul>
-					<?php endif; ?>
-				</div><!-- .search -->
-<!--				<p><?php bloginfo( 'description' ); ?></p> -->
 
 			</section><!-- .grid_9 -->
 
 			<div class="grid_12 location_bar">
-				Bike Gallery  •  Your local, family-owned bike store since 1974  •  Six neighborhood locations in and around Portland, Oregon
+				<p><?php bloginfo( 'description' ); ?></p>
+				<!-- Bike Gallery  •  Your local, family-owned bike store since 1974  •  Six neighborhood locations in and around Portland, Oregon -->
 			</div><!-- .grid_12 .location_bar -->
 
-			<nav class="nav">
+			<nav class="grid_12 nav">
 				<?php wp_nav_menu(); ?>
-			</nav><!-- .nav -->
+			</nav><!-- .grid_12 .nav -->
 
+			<div class="clear">&nbsp;</div>
 		</header><!-- .header -->
 
 		<section class="viewer">
 
 			<section class="grid_3 featured_brands">
+				<div class="search">
+					<?php if (is_active_sidebar('left-sidebar-widget-area') ) : ?>
+					<ul class="xoxo">
+						<?php dynamic_sidebar('left-sidebar-widget-area'); ?>
+					</ul>
+					<?php endif; ?>
+				</div><!-- .search -->
 
+				<img src="http://bikegallery.com/images/accolades.png" alt="Accolades" title="Bike Gallery Accolades" />
 			</section><!-- .grid_3 .featured_brands -->
 
 			<section class="grid_6 content">
