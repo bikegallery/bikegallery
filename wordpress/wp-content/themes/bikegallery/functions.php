@@ -378,9 +378,9 @@ function twentyten_widgets_init() {
 
 	// Area 2, located on the right side of the page.
 	register_sidebar( array(
-		'name' => __( 'Sidebar Widget Area', 'twentyten' ),
-		'id' => 'primary-widget-area',
-		'description' => __( 'The primary widget area', 'twentyten' ),
+		'name' => __( 'Right Sidebar Widget Area', 'twentyten' ),
+		'id' => 'right-sidebar-widget-area',
+		'description' => __( 'The right sidebar widget area', 'twentyten' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',

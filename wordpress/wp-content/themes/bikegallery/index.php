@@ -22,6 +22,6 @@ get_header(); ?>
 			 */
 			 get_template_part( 'loop', 'index' );
 			?>
+			</section><!-- .grid_8 .content -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
