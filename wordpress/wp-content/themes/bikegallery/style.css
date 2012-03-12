@@ -45,6 +45,10 @@ h3 {
 	font-size: 1em;
 }
 
+em {
+	font-style: italic;
+}
+
 
 /* Container and general _________________________________*/
 
@@ -146,7 +150,7 @@ h3 {
 }
 
 .nav ul {
-	padding: 10px 0;
+	padding: 10px 0 0;
 	position: relative;
 }
 
@@ -185,6 +189,20 @@ h3 {
 .nav ul ul li {
 	display: block;
 	margin-bottom: 5px;
+	padding: 0;
+}
+
+.nav ul ul li:hover {
+	background: #fc0;
+}
+
+.nav ul ul li:hover a {
+	color: #0a0a0a;
+}
+
+.nav ul ul li a {
+	-moz-transition: none;
+	padding: 0 10px;
 }
 
 .social_icons {
@@ -228,8 +246,13 @@ h3 {
 	padding: 3px 5px 3px 18px;
 }
 
+.left_sidebar .widget_text {
+	text-align: center;
+}
+
 .left_sidebar img {
-	max-width: 140px;
+	margin-bottom: 15px;
+	max-width: 100px;
 }
 
 
@@ -246,6 +269,10 @@ h3 {
 	color: #fff;
 	margin-bottom: 12px;
 	padding: 8px 5px;
+}
+
+.post p {
+	margin-bottom: 10px;
 }
 
 /* Content Slider */

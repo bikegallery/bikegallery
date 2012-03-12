@@ -13,6 +13,11 @@
  */
 
 get_header(); ?>
+			<div class="grid_10">
+				<?php wp_content_slider(); ?>
+			</div><!-- .grid_10 -->
+
+			<section class="grid_8 content">
 
 				<div class="posts">
 					<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>

@@ -147,9 +147,3 @@
 
 			</section><!-- .grid_2 .left_sidebar -->
 
-			<div class="grid_10">
-				<?php wp_content_slider(); ?>
-			</div><!-- .grid_10 -->
-
-			<section class="grid_8 content">
-
