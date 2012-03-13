@@ -271,6 +271,11 @@ em {
 	padding: 8px 5px;
 }
 
+.post em {
+	color: #666;
+	font-size: .9em;
+}
+
 .post p {
 	margin-bottom: 10px;
 }
