@@ -34,20 +34,27 @@ a:active {
 }
 
 h1 {
-	font-size: 1.5em;
+	font-size: 1.75em;
 }
 
 h2 {
-	font-size: 1.25em;
+	font-size: 1.15em;
 }
 
 h3 {
 	font-size: 1em;
 }
 
+h4 {
+	font-weight: bold;
+}
+
 em {
 	font-style: italic;
 }
+
+
+/* Container and general _________________________________*/
 
 
 /* Container and general _________________________________*/
@@ -265,14 +272,28 @@ em {
 }
 
 .post h1 {
-	background: #5c5c5c;
-	color: #fff;
-	margin-bottom: 12px;
-	padding: 8px 5px;
+	color: #5c5c5c;
+}
+
+.post h3 {
+	background: #f5f4eb;
+	color: #666;
+	font: 1.4em Georgia,'Times New Roman',serif;
+	margin-bottom: .5em;
+	padding: .25em;
+}
+
+.post img {
+	max-width: 100%;
+}
+
+.post ul {
+	margin-bottom: 1em;
 }
 
 ul.page_sublinks {
 	display: inline-block;
+	margin-bottom: .5em;
 	width: 100%;
 }
 
@@ -287,6 +308,21 @@ ul.page_sublinks li {
 
 .post p {
 	margin-bottom: 10px;
+}
+
+.with_bullets li {
+	list-style: disc;
+	margin-left: 2em;
+}
+
+.post .aligncenter {
+	margin: 0 auto;
+}
+
+.wp-caption-text {
+	font-size: .8em;
+	font-style: italic;
+	text-align: center;
 }
 
 /* Content Slider */
@@ -355,7 +391,7 @@ ul.page_sublinks li {
 }
 
 .copyright {
-	font-size: .8em;
+	font-size: 1em;
 	text-align: center;
 }
 

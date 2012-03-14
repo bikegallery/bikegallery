@@ -18,116 +18,44 @@
 		<footer class="footer">
 
 			<div class="prefix_1 grid_2">
-				<ul>
-					<li>
-						<h3>Bike Gallery</h3>
-					</li>
-
-					<li>
-						<a href="">Our Story</a>
-					</li>
-
-					<li>
-						<a href="">Employees</a>
-					</li>
-
-					<li>
-						<a href="">A Message from Jay</a>
-					</li>
-
-					<li>
-						<a href="">Our Guarantees</a>
-					</li>
-
-				</ul>
+				<?php if ( is_active_sidebar( 'first-footer-widget-area' ) ) : ?>
+					<ul class="xoxo">
+						<?php dynamic_sidebar( 'first-footer-widget-area' ); ?>
+					</ul>
+				<?php endif; ?>
 			</div><!-- .grid_3 -->
 
 			<div class="grid_2">
-				<ul>
-					<li>
-						<h3>Locations</h3>
-					</li>
-
-					<li>
-						<ul class="footer_locations locations_left">
-							<li>
-								<a href="/downtown">Downtown</a>
-							</li>
-
-							<li>
-								<a href="/hollywood">Hollywood</a>
-							</li>
-
-							<li>
-								<a href="/Woodstock">Woodstock</a>
-							</li>
-
-						</ul>
-
-						<ul class="footer_locations">
-							<li>
-								<a href="/division">Division</a>
-							</li>
-
-							<li>
-								<a href="/lake-oswego">Lake Oswego</a>
-							</li>
-
-							<li>
-								<a href="/beaverton">Beaverton</a>
-							</li>
-
-						</ul>
-					</li>
-
-				</ul>
+				<?php if ( is_active_sidebar( 'second-footer-widget-area' ) ) : ?>
+					<ul class="xoxo">
+						<?php dynamic_sidebar( 'second-footer-widget-area' ); ?>
+					</ul>
+				<?php endif; ?>
 			</div><!-- .grid_2 -->
 
 
 			<div class="grid_2">
-				<ul>
-					<li>
-						<h3>Services</h3>
-					</li>
-
-					<li>
-						<a href="">Service Menu</a>
-					</li>
-
-					<li>
-						<a href="">Professional Fit Services</a>
-					</li>
-
-					<li>
-						<a href="">30 Day Riding Guarantee</a>
-					</li>
-				</ul>
+				<?php if ( is_active_sidebar( 'third-footer-widget-area' ) ) : ?>
+					<ul class="xoxo">
+						<?php dynamic_sidebar( 'third-footer-widget-area' ); ?>
+					</ul>
+				<?php endif; ?>
 			</div><!-- .grid_2 -->
 
 			<div class="grid_2">
-				<ul>
-					<li>
-						<h3>Find Us</h3>
-					</li>
-
-					<li>
-						<a href="">Twitter</a>
-					</li>
-
-					<li>
-						<a href="">Facebook</a>
-					</li>
-
-					<li>
-						<a href="">Facebook &mdash; Mtb</a>
-					</li>
-				</ul>
+				<?php if ( is_active_sidebar( 'fourth-footer-widget-area' ) ) : ?>
+					<ul class="xoxo">
+						<?php dynamic_sidebar( 'fourth-footer-widget-area' ); ?>
+					</ul>
+				<?php endif; ?>
 			</div><!-- .grid_2 -->
 
 			<div class="grid_2 suffix_1 copyright">
-				<a href="/"><img src="/wordpress/wp-content/themes/bikegallery/images/outlined_logo.png" alt="Bike Gallery" /></a>
-				&copy;2012 Bike Gallery<br />
-				All rights reserved
+				<?php if ( is_active_sidebar( 'fifth-footer-widget-area' ) ) : ?>
+					<ul class="xoxo">
+						<?php dynamic_sidebar( 'fifth-footer-widget-area' ); ?>
+					</ul>
+				<?php endif; ?>
 			</div><!-- .grid_3 .suffix_1 .copyright -->
 
 			<div class="clear">&nbsp;</div>
