@@ -11,14 +11,6 @@
  */
 ?>
 
-			<section class="grid_2 right_sidebar">
-				<?php if ( is_active_sidebar( 'right-sidebar-widget-area' ) ) : ?>
-					<ul class="xoxo">
-						<?php dynamic_sidebar( 'right-sidebar-widget-area' ); ?>
-					</ul>
-				<?php endif; ?>
-			</section><!-- .grid_2 .right_sidebar -->
-
 		</section><!-- .viewer -->
 
 		<div class="clear">&nbsp;</div>

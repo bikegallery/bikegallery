@@ -35,4 +35,12 @@ get_header(); ?>
 
 			</section><!-- .grid_8 .content -->
 
+			<section class="grid_2 right_sidebar">
+				<?php if ( is_active_sidebar( 'right-sidebar-widget-area' ) ) : ?>
+					<ul class="xoxo">
+						<?php dynamic_sidebar( 'right-sidebar-widget-area' ); ?>
+					</ul>
+				<?php endif; ?>
+			</section><!-- .grid_2 .right_sidebar -->
+
 <?php get_footer(); ?>
