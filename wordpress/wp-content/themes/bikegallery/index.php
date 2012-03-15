@@ -15,13 +15,26 @@
 
 get_header(); ?>
 
-			<?php
-			/* Run the loop to output the posts.
-			 * If you want to overload this in a child theme then include a file
-			 * called loop-index.php and that will be used instead.
-			 */
-			 get_template_part( 'loop', 'index' );
-			?>
+			<section class="grid_8 content">
+
+				<div class="posts">
+					<?php
+					/* Run the loop to output the posts.
+					 * If you want to overload this in a child theme then include a file
+					 * called loop-index.php and that will be used instead.
+					 */
+					 get_template_part( 'loop', 'post' );
+					?>
+				</div><!-- .posts -->
+
 			</section><!-- .grid_8 .content -->
+
+			<section class="grid_2 right_sidebar">
+				<?php if ( is_active_sidebar( 'right-sidebar-widget-area' ) ) : ?>
+					<ul class="xoxo">
+						<?php dynamic_sidebar( 'right-sidebar-widget-area' ); ?>
+					</ul>
+				<?php endif; ?>
+			</section><!-- .grid_2 .right_sidebar -->
 
 <?php get_footer(); ?>
