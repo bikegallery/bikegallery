@@ -1,0 +1,13 @@
+body {
+	height:100%;
+	overflow-y:visible;
+}
+
+html {
+	overflow-x:visible; 
+	overflow-y:scroll;
+} 
+
+#takeMeUpContainer {
+	position: absolute;
+}

@@ -1,0 +1,20 @@
+#takeMeUpContainer {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 0 1px #0a0a0a;
+	-moz-box-shadow: 0 0 1px #0a0a0a;
+	-o-box-shadow: 0 0 1px #0a0a0a;
+	box-shadow: 0 0 1px #0a0a0a;
+	bottom: 5px;
+	cursor: pointer;
+	display: block;
+	font-size: 1em;
+	font-weight: bold;
+	padding: 7px 7px 7px 10px;
+	position: fixed;
+	text-align: center;
+	text-decoration: none;
+	width: 90px;
+}

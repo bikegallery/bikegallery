@@ -24,9 +24,12 @@
 		wp_head();
 	?>
 
+<script type="text/javascript">'article aside canvas figcaption figure footer header hgroup nav section time'.replace(/\w+/g,function(n){document.createElement(n)})</script>
 
 <script type='text/javascript' src="/wordpress/wp-content/themes/bikegallery/js/jquery.js"></script>
 <script type='text/javascript' src="/wordpress/wp-content/themes/bikegallery/js/clear_input.js"></script>
+<script type='text/javascript' src="/wordpress/wp-content/themes/bikegallery/js/jquery.bxSlider.js"></script>
+<script type='text/javascript' src="/wordpress/wp-content/themes/bikegallery/js/jquery.easing.js"></script>
 
 <script type='text/javascript'>
 
@@ -38,6 +41,23 @@
 		$j('input').clearInput();
 		
 	});
+
+	$j(function() {
+            $j('.page_sublinks a').bind('click',function(event){
+                var $janchor = $j(this);
+                
+                $j('html, body').stop().animate({
+                    scrollTop: $j($janchor.attr('href')).offset().top
+                }, 1500,'easeInOutExpo');
+                /*
+                if you don't want to use the easing effects:
+                $('html, body').stop().animate({
+                    scrollTop: $($anchor.attr('href')).offset().top
+                }, 1000);
+                */
+                event.preventDefault();
+            });
+        });
 
 </script>
 
