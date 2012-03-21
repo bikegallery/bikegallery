@@ -17,7 +17,7 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-	<link rel="stylesheet" type="text/css" media="all" href="/wordpress/wp-content/themes/bikegallery/style_left.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="/wordpress/wp-content/themes/bikegallery/style-left.css" />
 
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<?php if ( is_singular() && get_option( 'thread_comments' ) )

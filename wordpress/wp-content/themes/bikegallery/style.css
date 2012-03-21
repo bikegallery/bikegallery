@@ -24,6 +24,7 @@ body {
 a,
 a:visited {
 	color: #a43406;
+	color: #004;
 	-moz-transition: all .2s ease-in-out;
 	text-decoration: none;
 }
@@ -52,6 +53,11 @@ h4 {
 
 em {
 	font-style: italic;
+}
+
+cite {
+	font-style: italic;
+	font-weight: bold;
 }
 
 
@@ -108,7 +114,7 @@ em {
 
 .locations {
 	border-bottom: 1px solid #fff;
-	font-size: .75em;
+	font-size: .77em;
 }
 
 .locations,
@@ -119,9 +125,9 @@ em {
 
 .tagline {
 	color: #999;
-	font-family: Georgia, serif;
-	font-size: .75em;
-	padding: 5px;
+	font-family: Arial;
+	font-size: .95em;
+	padding: 7px;
 }
 
 .locations li {
@@ -165,14 +171,21 @@ em {
 	padding-left: 10px;
 }
 
+#menu-main-menu {
+	height: 40px;
+}
+
 .nav ul {
-	padding: 10px 0 0;
 	position: relative;
 }
 
 .nav li {
 	display: inline-block;
-	padding: 0 10px;
+	padding: 11px 10px 11px;
+}
+
+.nav ul li.current-menu-item a {
+	color: #fff;
 }
 
 .nav ul li a {
@@ -301,6 +314,7 @@ em {
 	margin-bottom: .5em;
 }
 
+.posts h3,
 .post h3,
 #reply-title {
 	background: #f5f4eb;
@@ -392,6 +406,44 @@ img.alignright {
 
 #cs-button-wpcontent_slider-5 {
 	margin-right: 5px;
+}
+
+/* Comments */
+.comment {
+	list-style: decimal;
+	margin-bottom: 2em;
+} 
+
+/* Page Specific Items */
+.location_image {
+	border: 10px solid #c0c0c0;
+	box-shadow: 0 3px 3px 1px #333;
+	width: 282px;
+}
+
+.location_list_info {
+	margin-bottom: 2em;
+}
+
+.page-template-subnav-no-sidebar-php h1.sub_nav {
+	display: none;
+}
+
+/* Service Menu */
+.service_menu {
+	border: 1px solid #c0c0c0;
+}
+
+.service_menu td {
+	border-bottom: 1px solid #c0c0c0;
+	padding: 1em;
+}
+
+.service_price {
+	margin: .25em .25em 0 0;
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 
 /* Search Form and Results */
