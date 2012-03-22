@@ -60,6 +60,10 @@ cite {
 	font-weight: bold;
 }
 
+li {
+	margin-bottom: .5em;
+}
+
 
 /* Misc _________________________________*/
 
@@ -328,10 +332,6 @@ cite {
 	max-width: 100%;
 }
 
-.post ul {
-	margin-bottom: 1em;
-}
-
 ul.page_sublinks {
 	display: inline-block;
 	margin-bottom: 1em;
@@ -431,6 +431,11 @@ img.alignright {
 
 /* Service Menu */
 .service_menu {
+	margin-bottom: 2em;
+}
+
+.service_menu,
+.a_la_carte_menu {
 	border: 1px solid #c0c0c0;
 }
 
@@ -439,11 +444,27 @@ img.alignright {
 	padding: 1em;
 }
 
+.service_menu em {
+	display: block;
+	margin-bottom: 1em;
+}
+
 .service_price {
+	float: right;
 	margin: .25em .25em 0 0;
-	position: absolute;
-	right: 0;
-	top: 0;
+	position: relative;
+}
+
+.service_package ul {
+	margin: 0 0 1em 4em;
+}
+
+.a_la_carte_menu tr.even_row {
+	background: #e8eff7;
+}
+
+.a_la_carte_menu td {
+	padding: .5em;
 }
 
 /* Search Form and Results */
