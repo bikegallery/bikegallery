@@ -34,5 +34,5 @@ get_header(); ?>
 
 					<?php endwhile; ?>
 				</div><!-- .posts -->
-			</section><!-- .grid_8 .content -->
+			</section><!-- .grid_9 .content -->
 <?php get_footer(); ?>

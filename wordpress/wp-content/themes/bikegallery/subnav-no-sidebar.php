@@ -13,7 +13,7 @@
  */
 
 get_header(); ?>
-			<section class="grid_10 content">
+			<section class="grid_9 content">
 
 				<div class="posts">
 					<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
@@ -33,6 +33,6 @@ get_header(); ?>
 					<?php endwhile; ?>
 				</div><!-- .posts -->
 
-			</section><!-- .grid_10 .content -->
+			</section><!-- .grid_9 .content -->
 
 <?php get_footer(); ?>

@@ -81,7 +81,7 @@
 		<header class="header">
 
 			<section class="grid_3 logo">
-				<a href="/"><img src="/wordpress/wp-content/themes/bikegallery/images/bikegallery_logo_220px.png" alt="Bike Gallery" /></a>
+				<a href="/"><img src="/wordpress/wp-content/themes/bikegallery/images/outlined_logo.png" alt="Bike Gallery" /></a>
 			</section><!-- .grid_3 .logo -->
 
 			<section class="grid_9">
@@ -157,7 +157,7 @@
 
 		<section class="viewer">
 
-			<section class="grid_2 left_sidebar">
+			<section class="grid_3 left_sidebar">
 				<div class="search">
 					<?php if (is_active_sidebar('left-sidebar-widget-area') ) : ?>
 					<ul class="xoxo">
@@ -165,5 +165,5 @@
 					</ul>
 					<?php endif; ?>
 				</div><!-- .search -->
-			</section><!-- .grid_2 .left_sidebar -->
+			</section><!-- .grid_3 .left_sidebar -->
 

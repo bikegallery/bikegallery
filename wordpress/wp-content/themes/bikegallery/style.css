@@ -34,7 +34,7 @@ a:active {
 }
 
 h1 {
-	font-family: Economica, sans-serif;
+	font-family: 'Economica', sans-serif;
 	font-size: 3em;
 	font-weight: bold;
 	margin-bottom: .5em;
@@ -51,6 +51,11 @@ h3 {
 
 h4 {
 	font-weight: bold;
+}
+
+p {
+	font-size: 1.2em;
+	line-height: 1.4em;
 }
 
 em {
@@ -205,7 +210,7 @@ cite {
 .widget_search input[type="text"] {
 	background: url(/wordpress/wp-content/themes/bikegallery/images/search.png) no-repeat center left;
 	border: 1px solid #333;
-	max-width: 115px;
+	max-width: 195px;
 	padding: 3px 5px 3px 18px;
 }
 
@@ -213,9 +218,13 @@ cite {
 	text-align: center;
 }
 
+.left_sidebar .textwidget a {
+	display: block;
+}
+
 .left_sidebar img {
-	margin-bottom: 15px;
-	max-width: 100px;
+	margin: 0 0 2em 10px;
+	max-width: 150px;
 }
 
 

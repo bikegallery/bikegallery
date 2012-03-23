@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-			<section class="grid_8 content">
+			<section class="grid_7 content">
 
 				<div class="posts search_results">
 					<h1><?php
@@ -26,7 +26,7 @@ get_header(); ?>
 					 */
 					get_template_part( 'loop', 'post' );
 					?>
-			</section><!-- .grid_8 .content -->
+			</section><!-- .grid_7 .content -->
 
 			<section class="grid_2 right_sidebar">
 				<?php if ( is_active_sidebar( 'right-sidebar-widget-area' ) ) : ?>

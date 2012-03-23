@@ -159,12 +159,12 @@
 
 		<section class="viewer">
 
-			<section class="grid_2 left_sidebar">
+			<section class="grid_3 left_sidebar">
 				<?php if (is_active_sidebar('left-sidebar-widget-area') ) : ?>
 					<ul class="xoxo">
 						<?php dynamic_sidebar('left-sidebar-widget-area'); ?>
 					</ul>
 				<?php endif; ?>
 
-			</section><!-- .grid_2 .left_sidebar -->
+			</section><!-- .grid_3 .left_sidebar -->
 

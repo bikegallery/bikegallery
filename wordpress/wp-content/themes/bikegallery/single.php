@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-			<section class="grid_8 content">
+			<section class="grid_7 content">
 
 				<div class="posts">
 
@@ -50,7 +50,7 @@ get_header(); ?>
 
 					<?php endwhile; // end of the loop. ?>
 
-			</section><!-- .grid_8 .content -->
+			</section><!-- .grid_7 .content -->
 
 			<section class="grid_2 right_sidebar">
 				<?php if ( is_active_sidebar( 'right-sidebar-widget-area' ) ) : ?>
