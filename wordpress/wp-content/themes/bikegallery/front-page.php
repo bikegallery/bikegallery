@@ -13,33 +13,19 @@
  */
 
 get_header(); ?>
-			<div class="grid_10">
-				<?php wp_content_slider(); ?>
-			</div><!-- .grid_10 -->
 
-			<section class="grid_8 content">
+	<section class="grid_10 content">
 
-				<div class="posts">
-					<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+		<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-						<article class="post">
-							<h1><?php the_title(); ?></h1>
-							<?php the_content(); ?>
-							<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'twentyten' ), 'after' => '' ) ); ?>
-							<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?>
-						</article><!-- .post -->
+			<article class="post">
+				<?php the_content(); ?>
+				<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'twentyten' ), 'after' => '' ) ); ?>
+				<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?>
+			</article><!-- .post -->
 
-					<?php endwhile; ?>
-				</div><!-- .posts -->
+		<?php endwhile; ?>
 
-			</section><!-- .grid_8 .content -->
-
-			<section class="grid_2 right_sidebar">
-				<?php if ( is_active_sidebar( 'right-sidebar-widget-area' ) ) : ?>
-					<ul class="xoxo">
-						<?php dynamic_sidebar( 'right-sidebar-widget-area' ); ?>
-					</ul>
-				<?php endif; ?>
-			</section><!-- .grid_2 .right_sidebar -->
+	</section><!-- .grid_10 .content -->
 
 <?php get_footer(); ?>

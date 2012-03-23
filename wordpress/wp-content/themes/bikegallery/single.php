@@ -15,16 +15,12 @@ get_header(); ?>
 
 					<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-						<div class="post_nav">
-							<div class="float_left"><?php previous_post_link( '%link', '' . _x( '&larr;', 'Previous post link', 'twentyten' ) . ' %title' ); ?></div>
-							<div class="float_right"><?php next_post_link( '%link', '%title ' . _x( '&rarr;', 'Next post link', 'twentyten' ) . '' ); ?></div>
-							<div class="clear">&nbsp;</div>
-						</div><!-- .post_nav -->
-
 						<article class="post">
 							<h1><?php the_title(); ?></h1>
 
-							<?php twentyten_posted_on(); ?>
+							<div class="post_meta">
+								<a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a>&nbsp;|&nbsp;<a href=""><?php comments_number(); ?></a>&nbsp;|&nbsp;posted by <?php the_author_posts_link();?>&nbsp;|&nbsp;<?php the_category(', '); ?>
+							</div><!-- .post_meta -->
 
 							<?php the_content(); ?>
 							<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'twentyten' ), 'after' => '' ) ); ?>

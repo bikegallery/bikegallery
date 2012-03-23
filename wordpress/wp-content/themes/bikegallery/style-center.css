@@ -26,7 +26,7 @@
 
 .locations {
 	border-bottom: 1px solid #fff;
-	font-size: .77em;
+	font-size: .65em;
 }
 
 .locations,
@@ -68,3 +68,5 @@
 	position: relative;
 	top: -60px;
 }
+
+

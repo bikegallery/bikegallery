@@ -17,7 +17,7 @@ get_header(); ?>
 
 			<section class="grid_8 content">
 
-				<div class="posts">
+				<div class="posts list_of_posts">
 					<?php
 					/* Run the loop to output the posts.
 					 * If you want to overload this in a child theme then include a file

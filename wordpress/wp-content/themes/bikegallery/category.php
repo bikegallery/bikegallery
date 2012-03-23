@@ -13,7 +13,7 @@ get_header(); ?>
 
 				<div class="posts search_results">
 					<h1><?php
-						printf( __( 'Category Posts: %s', 'twentyten' ), '' . single_cat_title( '', false ) . '' );
+						printf( __( 'Category : %s', 'twentyten' ), '' . single_cat_title( '', false ) . '' );
 					?></h1>
 					<?php
 						$category_description = category_description();

@@ -365,6 +365,17 @@ endif;
  * @uses register_sidebar
  */
 function twentyten_widgets_init() {
+	// Alert Widget for comany announcements
+	register_sidebar( array(
+		'name' => __( 'Alert Widget Area', 'twentyten' ),
+		'id' => 'alert-widget-area',
+		'description' => __( 'The alert widget area', 'twentyten' ),
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</li>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+
 	// Area 1, located in the header
 	register_sidebar( array(
 		'name' => __( 'Left Sidebar Widget Area', 'twentyten' ),
