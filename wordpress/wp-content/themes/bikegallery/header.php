@@ -17,7 +17,7 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-	<link rel="stylesheet" type="text/css" media="all" href="/wordpress/wp-content/themes/bikegallery/style-left.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="/wordpress/wp-content/themes/bikegallery/style-full.css" />
 	<link href='http://fonts.googleapis.com/css?family=Economica:700,700italic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Telex' rel='stylesheet' type='text/css'>
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
@@ -80,11 +80,11 @@
 	<section class="container_12">
 		<header class="header">
 
-			<section class="grid_3 logo">
+			<section class="grid_2 logo">
 				<a href="/"><img src="/wordpress/wp-content/themes/bikegallery/images/outlined_logo.png" alt="Bike Gallery" /></a>
-			</section><!-- .grid_3 .logo -->
+			</section><!-- .grid_2 .logo -->
 
-			<section class="grid_9">
+			<section class="grid_10">
 				<ul class="locations">
 					<li>
 						Downtown<br />
@@ -126,26 +126,28 @@
 				<div class="tagline">
 					Your local, family-owned bike store since 1974 &bull; Six neighborhood locations in and around Portland, Oregon
 				</div><!-- tagline -->
-			</section><!-- .grid_9 .locations -->
+			</section><!-- .grid_10 .locations -->
 
 			<div class="clear">&nbsp;</div>
 
-			<div class="photo_credit">
-				<a href="http://www.flickr.com/photos/brujo/collections/">photo by Jose Sandoval</a>
-			</div><!-- .photo_credit -->
+			<section class="nav_social">
+				<nav class="alpha grid_11 nav nav_social">
+					<?php wp_nav_menu(); ?>
+				</nav><!-- .nav -->
+
+				<div class="grid_1 omega social_icons">
+					<a href=""><img src="/wordpress/wp-content/themes/bikegallery/images/facebook_icon.png" alt="Bike Gallery Facebook" title="Facebook" /></a>
+					<a href=""><img src="/wordpress/wp-content/themes/bikegallery/images/twitter_icon.png" alt="Bike Gallery Twitter" title="Twitter" /></a>
+				</div><!-- .social_icons -->
+			</section><!-- .nav_social -->
+
+			<div class="clear">&nbsp;</div>
+
+			<?php if ( is_front_page() ) { ?>
+				<?php echo do_shortcode('[nivoslider id="1792"]'); ?>
+			<?php } ?>				
 
 		</header><!-- .header -->
-
-		<section class="nav_social">
-			<nav class="alpha grid_11 nav">
-				<?php wp_nav_menu(); ?>
-			</nav><!-- .nav -->
-
-			<div class="grid_1 omega social_icons">
-				<a href=""><img src="/wordpress/wp-content/themes/bikegallery/images/facebook_icon.png" alt="Bike Gallery Facebook" title="Facebook" /></a>
-				<a href=""><img src="/wordpress/wp-content/themes/bikegallery/images/twitter_icon.png" alt="Bike Gallery Twitter" title="Twitter" /></a>
-			</div><!-- .social_icons -->
-		</section><!-- .nav_social -->
 
 		<section class="site_alerts">
 			<?php if (is_active_sidebar('alert-widget-area') ) : ?>
@@ -157,13 +159,15 @@
 
 		<section class="viewer">
 
-			<section class="grid_3 left_sidebar">
-				<div class="search">
-					<?php if (is_active_sidebar('left-sidebar-widget-area') ) : ?>
-					<ul class="xoxo">
-						<?php dynamic_sidebar('left-sidebar-widget-area'); ?>
-					</ul>
-					<?php endif; ?>
-				</div><!-- .search -->
-			</section><!-- .grid_3 .left_sidebar -->
+			<?php if ( is_front_page() ) { ?>
+				<section class="grid_3 left_sidebar">
+					<div class="search">
+						<?php if (is_active_sidebar('left-sidebar-widget-area') ) : ?>
+						<ul class="xoxo">
+							<?php dynamic_sidebar('left-sidebar-widget-area'); ?>
+						</ul>
+						<?php endif; ?>
+					</div><!-- .search -->
+				</section><!-- .grid_3 .left_sidebar -->
+			<?php } ?>				
 

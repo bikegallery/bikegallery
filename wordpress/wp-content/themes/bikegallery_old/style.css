@@ -1,0 +1,485 @@
+/*
+Theme Name: Bike Gallery
+Theme URI: none
+Description: Custom theme for Bike Gallery
+Version: 0.1
+Author: Jason Britton
+Tags: clean, basic
+*/
+
+@import "css/reset.css";
+@import "css/grid.css";
+
+/* Body and general styling _________________________________*/
+
+body {
+/*	background: #fc0 url(/wordpress/wp-content/themes/bikegallery/images/alt_bg.jpg) no-repeat center top; */
+	background: #fc0;
+	color: #333;
+	font-family: 'Trebuchet MS', Helvetica, sans-serif;
+	font-size: 14px;
+	margin: 0;
+}
+
+a,
+a:visited {
+	color: #0B5084;
+/*	-moz-transition: all .2s ease-in-out; */
+	text-decoration: none;
+}
+
+a:hover,
+a:active {
+
+}
+
+h1 {
+	font-family: 'Economica', sans-serif;
+	font-size: 3em;
+	font-weight: bold;
+	margin-bottom: .5em;
+}
+
+h2 {
+	font-family: Economica, sans-serif;
+	font-size: 2em;
+}
+
+h3 {
+	font-size: 1em;
+}
+
+h4 {
+	font-weight: bold;
+}
+
+p {
+	font-size: 1.2em;
+	line-height: 1.4em;
+}
+
+em {
+	font-style: italic;
+}
+
+cite {
+	font-style: italic;
+	font-weight: bold;
+}
+
+
+/* Misc _________________________________*/
+
+.float_left {
+	float: left;
+}
+
+.float_right {
+	float: right;
+}
+
+
+/* Container and general _________________________________*/
+
+.container_12 {
+	background: #fff;
+	-webkit-box-shadow: 0 0 10px 1px #000;
+	-moz-box-shadow: 0 0 10px 1px #000;
+	-o-box-shadow: 0 0 10px 1px #000;
+	box-shadow: 0 0 10px 1px #000;
+}
+
+.header .grid_2 {
+	width: 136px;
+}
+
+/* Navigation _________________________________*/
+
+.nav_social {
+	background: #0a0a0a;
+	float: left;
+}
+
+.nav {
+	padding-left: 10px;
+}
+
+.nav ul {
+	position: relative;
+}
+
+.nav li {
+	display: inline-block;
+	padding: 10px 20px 10px 0;
+}
+
+.nav ul li.current-menu-item a {
+	color: #97cbc0; 
+}
+
+.nav ul li a {
+	color: #fc0;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 18px;
+}
+
+.nav ul li a:hover {
+	color: #fff;
+}
+
+.nav ul li:hover ul {
+	display: block;
+}
+
+.nav ul ul {
+	background: #0a0a0a;
+	-webkit-border-radius: 0 0 5px 5px;
+	-moz-border-radius: 0 0 5px 5px;
+	-o-border-radius: 0 0 5px 5px;
+	border-radius: 0 0 5px 5px;
+/*	-webkit-box-shadow: 0 0 4px 1px #000;
+	-moz-box-shadow: 0 0 4px 1px #000;
+	-o-box-shadow: 0 0 4px 1px #000;
+	box-shadow: 0 0 4px 1px #000;
+*/
+	display: none;
+	position: absolute;
+	top: 40px;
+	z-index: 10;
+}
+
+.nav ul ul li {
+	display: block;
+	margin-bottom: .5em;
+	padding: 0;
+}
+
+.nav ul li.current-menu-item ul li a {
+	color: #fc0;
+	white-space: pre;
+}
+
+.nav ul ul li:hover {
+	background: #fc0;
+}
+
+.nav ul li.current-menu-item ul li:hover a,
+.nav ul ul li:hover a {
+	color: #0a0a0a;
+}
+
+.nav ul ul li a {
+	padding: 0 .75em;
+	white-space: pre;
+}
+
+.social_icons {
+	padding: 7px 10px 3px 0;
+	text-align: right;
+}
+
+
+/* Location Bar _________________________________*/
+
+.location_bar {
+	text-align: center;
+}
+
+
+/* Site Alerts _________________________________*/
+
+.site_alerts {
+	color: #933;
+	font-weight: bold;
+	margin: 10px 0;
+	text-align: center;
+}
+
+
+/* Left Sidebar _________________________________*/
+
+.left_sidebar .widget-container {
+	margin-bottom: 20px;
+}
+
+.widget_search .assistive-text,
+.widget_search .submit {
+	display: none;
+}
+
+.widget_search input[type="text"] {
+	background: url(/wordpress/wp-content/themes/bikegallery/images/search.png) no-repeat center left;
+	border: 1px solid #333;
+	max-width: 195px;
+	padding: 3px 5px 3px 18px;
+}
+
+.left_sidebar .widget_text {
+	text-align: center;
+}
+
+.left_sidebar .textwidget a {
+	display: block;
+}
+
+.left_sidebar img {
+	margin: 0 0 2em 10px;
+	max-width: 150px;
+}
+
+
+/* Slider  _________________________________*/
+
+.nivoSlider .nivo-caption p {
+	font-size: 1.15em;
+	padding: 1em 1em 2em;
+}
+
+
+/* Content  _________________________________*/
+
+.viewer {
+	display: inline-block;
+	margin-bottom: 25px;
+	padding-top: 10px;
+}
+
+.post {
+	margin-bottom: 2em;
+}
+
+.post h1.sub_nav {
+	margin-bottom: 0;
+}
+
+.post h1 {
+	color: #5c5c5c;
+	margin-bottom: .25em;
+}
+
+.post h2 {
+	margin-bottom: .5em;
+}
+
+.posts h3,
+.post h3,
+#reply-title {
+	background: #f5f4eb;
+	color: #666;
+	font: 1.4em Georgia,'Times New Roman',serif;
+	margin-bottom: .5em;
+	padding: .25em;
+}
+
+.post_meta {
+	margin-bottom: .25em;
+}
+
+.post img {
+	max-width: 100%;
+}
+
+ul.page_sublinks {
+	display: inline-block;
+	margin-bottom: 1em;
+	width: 100%;
+}
+
+ul.page_sublinks li {
+	float: left;
+}
+
+.light_links a {
+	color: #999;
+}
+
+.post em {
+	color: #666;
+	font-size: .9em;
+}
+
+.post p {
+	margin-bottom: 10px;
+}
+
+.alignleft,
+img.alignleft {
+	float: left;
+	margin: 0 1em 1em 0;
+}
+
+.alignright,
+img.alignright {
+	float: right;
+	margin: 0 0 1em 1em;
+}
+
+.aligncenter {
+	margin: 0 auto;
+}
+
+.with_bullets li {
+	list-style: disc;
+	margin-left: 2em;
+}
+
+.wp-caption-text {
+	font-size: .8em;
+	font-style: italic;
+	text-align: center;
+}
+
+#respond ul {
+	width: 500px;
+}
+
+#respond li {
+	margin-bottom: 1em;
+}
+
+#respond input[type="text"] {
+	border: 1px solid #0a0a0a;
+	padding: .25em;
+	width: 394px;
+}
+#respond textarea {
+	width: 400px;
+}
+
+/* Content Slider */
+.cs-buttons {
+	background: transparent;
+}
+
+#cs-button-wpcontent_slider-5 {
+	margin-right: 5px;
+}
+
+/* Comments */
+.comment {
+	list-style: decimal;
+	margin-bottom: 2em;
+} 
+
+/* Page Specific Items */
+.location_image {
+	border: 10px solid #c0c0c0;
+	box-shadow: 0 3px 3px 1px #333;
+	width: 282px;
+}
+
+.location_list_info {
+	margin-bottom: 2em;
+}
+
+/* Service Menu */
+.service_menu {
+	margin-bottom: 2em;
+}
+
+.service_menu,
+.a_la_carte_menu {
+	border: 1px solid #c0c0c0;
+}
+
+.service_menu td {
+	border-bottom: 1px solid #c0c0c0;
+	padding: 1em;
+}
+
+.service_menu em {
+	display: block;
+	margin-bottom: 1em;
+}
+
+.service_price {
+	float: right;
+	margin: .25em .25em 0 0;
+	position: relative;
+}
+
+.service_packages {
+	margin: 0 0 1em 4em;
+}
+
+.service_packages li {
+	margin-bottom: .25em;
+}
+
+.a_la_carte_menu tr.even_row {
+	background: #e8eff7;
+}
+
+.a_la_carte_menu td {
+	padding: .5em;
+}
+
+/* Search Form and Results */
+
+/* Right Sidebar _________________________________*/
+
+.right_sidebar .widget-container {
+	margin-bottom: 10px;
+}
+
+.right_sidebar h3 {
+	background: #858585;
+	color: #fff;
+	margin-bottom: 10px;
+	padding: 5px 3px;
+	text-align: center;
+}
+
+.right_sidebar .widget-container li {
+	margin-bottom: 8px;
+}
+
+
+/* Footer _________________________________*/
+
+
+.footer {
+	background: #0a0a0a;
+	color: #fff;
+	font-size: .9em;
+	padding: 20px 0;
+}
+
+.footer_locations {
+	float: left;
+}
+
+.locations_left {
+	margin-right: 5px;
+}
+
+.footer h3 {
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.footer h3,
+.footer li {
+	margin-bottom: 5px;
+}
+
+.footer a {
+	color: #ffd204;
+}
+
+.footer a:hover {
+	color: #fff;
+}
+
+.copyright {
+	font-size: 1em;
+	text-align: center;
+}
+
+.copyright img {
+	margin-bottom: 10px;
+	max-width: 140px;
+}
+
+
+

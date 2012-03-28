@@ -1,5 +1,5 @@
 /*
-Theme Name: Bike Gallery
+Theme Name: Full Width
 Theme URI: none
 Description: Custom theme for Bike Gallery
 Version: 0.1
@@ -14,7 +14,7 @@ Tags: clean, basic
 
 body {
 /*	background: #fc0 url(/wordpress/wp-content/themes/bikegallery/images/alt_bg.jpg) no-repeat center top; */
-	background: #fc0;
+	background: #171717;
 	color: #333;
 	font-family: 'Trebuchet MS', Helvetica, sans-serif;
 	font-size: 14px;
@@ -89,14 +89,10 @@ cite {
 	box-shadow: 0 0 10px 1px #000;
 }
 
-.header .grid_2 {
-	width: 136px;
-}
-
 /* Navigation _________________________________*/
 
 .nav_social {
-	background: #0a0a0a;
+	background: #000;
 	float: left;
 }
 
@@ -132,7 +128,7 @@ cite {
 }
 
 .nav ul ul {
-	background: #0a0a0a;
+	background: #000;
 	-webkit-border-radius: 0 0 5px 5px;
 	-moz-border-radius: 0 0 5px 5px;
 	-o-border-radius: 0 0 5px 5px;
@@ -253,8 +249,10 @@ cite {
 }
 
 .post h1 {
+	border-top: 1px solid #8e8e8e;
 	color: #5c5c5c;
 	margin-bottom: .25em;
+	text-align: center;
 }
 
 .post h2 {
@@ -362,12 +360,6 @@ img.alignright {
 } 
 
 /* Page Specific Items */
-.location_image {
-	border: 10px solid #c0c0c0;
-	box-shadow: 0 3px 3px 1px #333;
-	width: 282px;
-}
-
 .location_list_info {
 	margin-bottom: 2em;
 }
