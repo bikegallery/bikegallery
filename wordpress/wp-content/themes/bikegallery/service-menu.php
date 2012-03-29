@@ -1,6 +1,5 @@
 <?php
 /**
- * Template Name: Service Menu
  *
  * This is the template that displays all pages by default.
  * Please note that this is the wordpress construct of pages

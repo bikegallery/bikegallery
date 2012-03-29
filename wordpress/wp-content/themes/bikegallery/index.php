@@ -15,7 +15,7 @@
 
 get_header(); ?>
 
-			<section class="grid_7 content">
+			<section class="grid_9 content">
 
 				<div class="posts list_of_posts">
 					<?php
@@ -27,14 +27,14 @@ get_header(); ?>
 					?>
 				</div><!-- .posts -->
 
-			</section><!-- .grid_7 .content -->
+			</section><!-- .grid_9 .content -->
 
-			<section class="grid_2 right_sidebar">
+			<section class="grid_3 right_sidebar">
 				<?php if ( is_active_sidebar( 'right-sidebar-widget-area' ) ) : ?>
 					<ul class="xoxo">
 						<?php dynamic_sidebar( 'right-sidebar-widget-area' ); ?>
 					</ul>
 				<?php endif; ?>
-			</section><!-- .grid_2 .right_sidebar -->
+			</section><!-- .grid_3 .right_sidebar -->
 
 <?php get_footer(); ?>

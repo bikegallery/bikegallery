@@ -76,6 +76,13 @@
 </head>
 
 <body <?php body_class(); ?>>
+	<section class="site_alerts">
+		<?php if (is_active_sidebar('alert-widget-area') ) : ?>
+		<ul class="xoxo">
+			<?php dynamic_sidebar('alert-widget-area'); ?>
+		</ul>
+		<?php endif; ?>
+	</section><!-- .site_alerts -->
 
 	<section class="container_12">
 		<header class="header">
@@ -144,30 +151,35 @@
 			<div class="clear">&nbsp;</div>
 
 			<?php if ( is_front_page() ) { ?>
-				<?php echo do_shortcode('[nivoslider id="1792"]'); ?>
+				<?php echo do_shortcode('[nivoslider slug="full-width-slider"]'); ?>
 			<?php } ?>				
 
 		</header><!-- .header -->
 
-		<section class="site_alerts">
-			<?php if (is_active_sidebar('alert-widget-area') ) : ?>
-			<ul class="xoxo">
-				<?php dynamic_sidebar('alert-widget-area'); ?>
-			</ul>
-			<?php endif; ?>
-		</section><!-- .site_alerts -->
-
 		<section class="viewer">
+			<?php if ( is_front_page()  ) { ?>
+
+			<?php } else { ?>
+				<div class="page_utility">
+					<div class="grid_9 breadcrumbs">
+					    <?php if(function_exists('bcn_display'))
+					    {
+						bcn_display();
+					    }?>
+					</div><!-- .grid_9 .breadcrumbs -->
+					<div class="grid_3 widget_search">
+						<?php get_search_form(); ?>
+					</div><!-- .grid_3 .widget_search -->
+				</div>
+			<?php } ?>
 
 			<?php if ( is_front_page() ) { ?>
-				<section class="grid_3 left_sidebar">
-					<div class="search">
-						<?php if (is_active_sidebar('left-sidebar-widget-area') ) : ?>
-						<ul class="xoxo">
-							<?php dynamic_sidebar('left-sidebar-widget-area'); ?>
-						</ul>
-						<?php endif; ?>
-					</div><!-- .search -->
-				</section><!-- .grid_3 .left_sidebar -->
+				<section class="grid_2 left_sidebar">
+					<?php if (is_active_sidebar('left-sidebar-widget-area') ) : ?>
+					<ul class="xoxo">
+						<?php dynamic_sidebar('left-sidebar-widget-area'); ?>
+					</ul>
+					<?php endif; ?>
+				</section><!-- .grid_2 .left_sidebar -->
 			<?php } ?>				
 

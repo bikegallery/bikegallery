@@ -10,8 +10,8 @@
 	if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
 	<article class="post">
-			<h2><a href="<?php the_permalink();  ?>"><?php the_title(); ?></a></h2>
 			<div class="post_meta">
+				<h1><a href="<?php the_permalink();  ?>"><?php the_title(); ?></a></h1>
 				<a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a>&nbsp;|&nbsp;<a href=""><?php comments_number(); ?></a>&nbsp;|&nbsp;posted by <?php the_author_posts_link();?>&nbsp;|&nbsp;<?php the_category(', '); ?>
 			</div><!-- .post_meta -->
 

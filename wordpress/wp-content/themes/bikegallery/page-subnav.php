@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Page With Subnav
+ * Template Name: Subnav
  *
  * This is the template that displays all pages by default.
  * Please note that this is the wordpress construct of pages
@@ -13,7 +13,7 @@
  */
 
 get_header(); ?>
-			<section class="grid_7 content">
+			testing<section class="grid_12 content">
 
 				<div class="posts">
 					<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
@@ -33,14 +33,6 @@ get_header(); ?>
 					<?php endwhile; ?>
 				</div><!-- .posts -->
 
-			</section><!-- .grid_7 .content -->
-
-			<section class="grid_2 right_sidebar">
-				<?php if ( is_active_sidebar( 'right-sidebar-widget-area' ) ) : ?>
-					<ul class="xoxo">
-						<?php dynamic_sidebar( 'right-sidebar-widget-area' ); ?>
-					</ul>
-				<?php endif; ?>
-			</section><!-- .grid_2 .right_sidebar -->
+			</section><!-- .grid_12 .content -->
 
 <?php get_footer(); ?>

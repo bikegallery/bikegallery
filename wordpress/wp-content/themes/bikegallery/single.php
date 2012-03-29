@@ -9,16 +9,16 @@
 
 get_header(); ?>
 
-			<section class="grid_7 content">
+			<section class="grid_9 content">
 
 				<div class="posts">
 
 					<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
 						<article class="post">
-							<h1><?php the_title(); ?></h1>
 
 							<div class="post_meta">
+								<h1><?php the_title(); ?></h1>
 								<a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a>&nbsp;|&nbsp;<a href=""><?php comments_number(); ?></a>&nbsp;|&nbsp;posted by <?php the_author_posts_link();?>&nbsp;|&nbsp;<?php the_category(', '); ?>
 							</div><!-- .post_meta -->
 
@@ -50,14 +50,14 @@ get_header(); ?>
 
 					<?php endwhile; // end of the loop. ?>
 
-			</section><!-- .grid_7 .content -->
+			</section><!-- .grid_9 .content -->
 
-			<section class="grid_2 right_sidebar">
+			<section class="grid_3 right_sidebar">
 				<?php if ( is_active_sidebar( 'right-sidebar-widget-area' ) ) : ?>
 					<ul class="xoxo">
 						<?php dynamic_sidebar( 'right-sidebar-widget-area' ); ?>
 					</ul>
 				<?php endif; ?>
-			</section><!-- .grid_2 .right_sidebar -->
+			</section><!-- .grid_3 .right_sidebar -->
 
 <?php get_footer(); ?>

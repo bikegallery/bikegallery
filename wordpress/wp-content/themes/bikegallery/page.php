@@ -13,26 +13,19 @@
  */
 
 get_header(); ?>
-			<section class="grid_9 content">
+	<section class="grid_12 content">
 
-				<div class="posts">
-					<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+		<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-						<article class="post">
-							<?php if ( is_front_page() ) { ?>
-								<h2><?php the_title(); ?></h2>
-							<?php } else { ?>	
-								<h1><?php the_title(); ?></h1>
-							<?php } ?>				
+			<article class="post">
+				<h1><?php the_title(); ?></h1>
+				<?php the_content(); ?>
+				<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'twentyten' ), 'after' => '' ) ); ?>
+				<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?>
+			</article><!-- .post -->
 
-								<?php the_content(); ?>
-								<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'twentyten' ), 'after' => '' ) ); ?>
-								<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?>
-						</article><!-- .post -->
+		<?php endwhile; ?>
 
-					<?php endwhile; ?>
-				</div><!-- .posts -->
-
-			</section><!-- .grid_9 .content -->
+	</section><!-- .grid_12 .content -->
 
 <?php get_footer(); ?>
