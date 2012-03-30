@@ -14,7 +14,6 @@
  */
 
 get_header(); ?>
-
 			<section class="grid_9 content">
 
 				<div class="posts list_of_posts">

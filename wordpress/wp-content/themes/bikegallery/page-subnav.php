@@ -13,7 +13,7 @@
  */
 
 get_header(); ?>
-			testing<section class="grid_12 content">
+			<section class="grid_12 content">
 
 				<div class="posts">
 					<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
@@ -23,9 +23,10 @@ get_header(); ?>
 								<h2><?php the_title(); ?></h2>
 							<?php } else { ?>	
 								<h1 class="sub_nav"><?php the_title(); ?></h1>
-							<?php } ?>				
-
+								<?php global $id; wp_list_pages("title_li= &child_of=$id&sort_column=menu_order&link_before= / "); ?>
+							<?php } ?>
 								<?php the_content(); ?>
+								<?php the_meta(); ?>
 								<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'twentyten' ), 'after' => '' ) ); ?>
 								<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?>
 						</article><!-- .post -->

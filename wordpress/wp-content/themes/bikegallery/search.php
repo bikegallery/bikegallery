@@ -14,7 +14,6 @@ get_header(); ?>
 				<div class="posts search_results">
 					<?php if ( have_posts() ) : ?>
 
-						<h1><?php printf( __( 'Search Results for: %s', 'twentyten' ), '' . get_search_query() . '' ); ?></h1>
 							<?php
 							/* Run the loop for the search to output the results.
 							 * If you want to overload this in a child theme then include a file

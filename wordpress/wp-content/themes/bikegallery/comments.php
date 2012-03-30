@@ -30,6 +30,7 @@
 
 <?php if ( have_comments() ) : ?>
 			<!-- STARKERS NOTE: The following h3 id is left intact so that comments can be referenced on the page -->
+			<div class="list_of_comments">
 			<h3 id="comments-title"><?php
 			printf( _n( 'One Response to %2$s', '%1$s Responses to %2$s', get_comments_number(), 'twentyten' ),
 			number_format_i18n( get_comments_number() ), '' . get_the_title() . '' );
@@ -68,5 +69,5 @@
 <?php endif; // end ! comments_open() ?>
 
 <?php endif; // end have_comments() ?>
-
+			</div>
 <?php comment_form(); ?>
