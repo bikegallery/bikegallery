@@ -1,12 +1,4 @@
 #takeMeUpContainer {
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-o-border-radius: 5px;
-	border-radius: 5px;
-	-webkit-box-shadow: 0 0 1px #0a0a0a;
-	-moz-box-shadow: 0 0 1px #0a0a0a;
-	-o-box-shadow: 0 0 1px #0a0a0a;
-	box-shadow: 0 0 1px #0a0a0a;
 	bottom: 5px;
 	cursor: pointer;
 	display: block;
@@ -18,3 +10,21 @@
 	text-decoration: none;
 	width: 90px;
 }
+
+#takeMeUpContainer:hover {
+	background: #ffcc00 !important;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 0 1px #0a0a0a;
+	-moz-box-shadow: 0 0 1px #0a0a0a;
+	-o-box-shadow: 0 0 1px #0a0a0a;
+	box-shadow: 0 0 1px #0a0a0a;
+}
+
+#takeMeUpContainer:hover #takeMeUp,
+#takeMeUp:hover {
+	color: #0a0a0a !important;
+}
+

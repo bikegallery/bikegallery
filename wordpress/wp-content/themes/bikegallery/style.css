@@ -34,15 +34,18 @@ a:active {
 }
 
 h1 {
-	font-family: 'Economica', sans-serif;
+	font-family: "Simplo Bold", "Din Display Pro Regular", Verdana, sans-serif;
+	font-size-adjust: 0.5;
+	font-style: normal;
+	font-weight: normal;
 	font-size: 3em;
-	font-weight: bold;
 	margin-bottom: .5em;
+	text-shadow: 1px 0 1px #0a0a0a;
 }
 
 h2 {
-	font-family: Economica, sans-serif;
-	font-size: 2em;
+	font-family: "Din Display Pro Regular", Helvetica, sans-serif;
+	font-size: 1.5em;
 }
 
 h3 {
@@ -54,7 +57,7 @@ h4 {
 }
 
 p {
-	font-size: 1.2em;
+	font-size: 1em;
 	line-height: 1.4em;
 }
 
@@ -103,7 +106,7 @@ cite {
 }
 
 .locations {
-	border-bottom: 1px solid #fff;
+	border-bottom: 1px solid #fc0;
 	font-size: .83em;
 }
 
@@ -177,6 +180,7 @@ cite {
 
 .nav ul li a:hover {
 	color: #fff;
+	text-decoration: none;
 }
 
 .nav ul li:hover ul {
@@ -312,7 +316,7 @@ cite {
 
 .page_utility .widget_search input {
 	vertical-align: super;
-	max-width: 194px;
+	width: 195px;
 }
 
 .post {
@@ -320,9 +324,8 @@ cite {
 }
 
 .post h1 {
-	border-bottom: 1px solid #8e8e8e;
 	border-top: 1px solid #8e8e8e;
-	color: #5c5c5c;
+	color: #333;
 	margin-bottom: .25em;
 	padding-bottom: .15em;
 	text-align: center;
@@ -369,9 +372,14 @@ ul.page_sublinks {
 	width: 100%;
 }
 
+.post li {
+	margin-bottom: 1em;
+}
+
 .pagenav li,
 ul.page_sublinks li {
 	display: inline-block;
+	margin-bottom: 0;
 }
 
 .light_links a {
@@ -385,6 +393,14 @@ ul.page_sublinks li {
 
 .post p {
 	margin-bottom: 10px;
+}
+
+.store_hours ul {
+	margin-bottom: 1em;
+}
+
+.store_main_image {
+	margin-bottom: 1em;
 }
 
 .alignleft,
