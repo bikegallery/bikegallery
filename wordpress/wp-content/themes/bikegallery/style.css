@@ -523,6 +523,27 @@ img.alignright {
 
 /* Search Form and Results */
 
+/* Gift Cards */
+.gift_card_form p {
+	margin: 0;
+}
+
+.gift_card_form li {
+	display: inline-block;
+	width: 100%;
+}
+
+.select_card {
+	float: left;
+	margin: 0 1em 0 1em;
+}
+
+.select_card input,
+.select_card img {
+	vertical-align: middle;
+}
+
+
 /* Right Sidebar _________________________________*/
 
 .right_sidebar .widget-container {
