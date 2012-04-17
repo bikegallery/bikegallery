@@ -434,21 +434,14 @@ img.alignright {
 	padding: 1em;
 }
 
-#respond ul {
-	width: 500px;
-}
-
-#respond li {
+#respond p,
+#respond #recaptcha_widget_div {
 	margin-bottom: 1em;
 }
 
 #respond input[type="text"] {
-	border: 1px solid #0a0a0a;
-	padding: .25em;
-	width: 394px;
 }
 #respond textarea {
-	width: 400px;
 }
 
 /* Content Slider */
@@ -519,6 +512,18 @@ img.alignright {
 
 .a_la_carte_menu td {
 	padding: .5em;
+}
+
+/* Contact Form */
+.wpcf7 input[type="text"],
+#respond input[type="text"] {
+	padding: .5em;
+	width: 436px;
+}
+
+.wpcf7 textarea,
+#respond textarea {
+	width: 449px;
 }
 
 /* Search Form and Results */
