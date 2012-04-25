@@ -40,7 +40,7 @@ h1 {
 	font-weight: normal;
 	font-size: 3em;
 	margin-bottom: .5em;
-	text-shadow: 1px 0 1px #0a0a0a;
+/*	text-shadow: 1px 0 1px #0a0a0a; */
 }
 
 h2 {
@@ -270,7 +270,7 @@ cite {
 .widget_search input[type="text"] {
 	background: url(/wordpress/wp-content/themes/bikegallery/images/search.png) no-repeat center left;
 	border: 1px solid #333;
-	max-width: 115px;
+	max-width: 195px;
 	padding: 3px 5px 3px 18px;
 }
 
@@ -330,6 +330,7 @@ cite {
 .post h1 {
 	border-top: 1px solid #8e8e8e;
 	color: #333;
+	font-size: 1.7em;
 	margin-bottom: .25em;
 	padding-bottom: .15em;
 	text-align: center;
@@ -350,7 +351,6 @@ cite {
 .post h3 {
 	background: #e1e1e1;
 	color: #666;
-	font: 1.4em Georgia,'Times New Roman',serif;
 	margin-bottom: .5em;
 	padding: .25em;
 }
