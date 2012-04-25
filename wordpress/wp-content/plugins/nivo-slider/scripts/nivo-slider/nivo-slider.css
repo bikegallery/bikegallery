@@ -29,7 +29,7 @@
 	border:0;
 	padding:0;
 	margin:0;
-	z-index:6;
+	z-index:0; /* Changed to 0 so navigation subnav doesn't get hidden behind. jb 4/25 */
 	display:none;
 }
 /* The slices and boxes in the Slider */

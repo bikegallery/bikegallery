@@ -92,44 +92,56 @@
 			<section class="grid_10">
 				<ul class="locations">
 					<li>
-						Downtown<br />
-						1001 SW 10th Ave<br />
-						(503)222-3821
+						<a href="/locations/downtown">
+							Downtown<br />
+							1001 SW 10th Ave<br />
+							(503)222-3821
+						</a>
 					</li>
 
 					<li>
-						Hollywood<br />
-						5329 NE Sandy Blvd<br />
-						(503)281-9800
+						<a href="/locations/hollywood">
+							Hollywood<br />
+							5329 NE Sandy Blvd<br />
+							(503)281-9800
+						</a>
 					</li>
 
 					<li>
-						Woodstock<br />
-						4235 SE Woodstock Blvd<br />
-						(503)774-3531
+						<a href="/locations/woodstock">
+							Woodstock<br />
+							4235 SE Woodstock Blvd<br />
+							(503)774-3531
+						</a>
 					</li>
 
 					<li>
-						Division<br />
-						10950 SE Division St<br />
-						(503)254-2663
+						<a href="/locations/division">
+							Division<br />
+							10950 SE Division St<br />
+							(503)254-2663
+						</a>
 					</li>
 
 					<li>
-						Lake Oswego<br />
-						200 B Ave<br />
-						(503)636-1600
+						<a href="/locations/lake-oswego">
+							Lake Oswego<br />
+							200 B Ave<br />
+							(503)636-1600
+						</a>
 					</li>
 
 					<li>
-						Beaverton<br />
-						12345 SW Canyon Rd<br />
-						(503)641-2580
+						<a href="/locations/beaverton">
+							Beaverton<br />
+							12345 SW Canyon Rd<br />
+							(503)641-2580
+						</a>
 					</li>
 				</ul>
 				
 				<div class="tagline">
-					Your local, family-owned bike store since 1974 &bull; Six neighborhood locations in and around Portland, Oregon
+					Your local, family-owned bike store since 1974 &bull; Putting more Portlanders on bikes more often
 				</div><!-- tagline -->
 			</section><!-- .grid_10 .locations -->
 
