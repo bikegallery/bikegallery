@@ -270,8 +270,11 @@ cite {
 .widget_search input[type="text"] {
 	background: url(/wordpress/wp-content/themes/bikegallery/images/search.png) no-repeat center left;
 	border: 1px solid #333;
-	max-width: 195px;
 	padding: 3px 5px 3px 18px;
+}
+
+.left_sidebar .widget_search input {
+	max-width: 115px;
 }
 
 .left_sidebar .widget_text {
@@ -328,9 +331,10 @@ cite {
 }
 
 .post h1 {
+	border-bottom: 1px solid #8e8e8e;
 	border-top: 1px solid #8e8e8e;
 	color: #333;
-	font-size: 1.7em;
+	font-size: 2em;
 	margin-bottom: .25em;
 	padding-bottom: .15em;
 	text-align: center;
@@ -552,6 +556,9 @@ img.alignright {
 	vertical-align: middle;
 }
 
+.post .bio_lyrics li {
+	padding-left: 1em;
+}
 
 /* Right Sidebar _________________________________*/
 
