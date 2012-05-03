@@ -34,13 +34,13 @@ a:active {
 }
 
 h1 {
-	font-family: "Simplo Bold", "Din Display Pro Regular", Verdana, sans-serif;
+	font-family: "Simplo Bold", Verdana, sans-serif;
 	font-size-adjust: 0.5;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 3em;
+	font-size: 2em;
 	margin-bottom: .5em;
-/*	text-shadow: 1px 0 1px #0a0a0a; */
+	text-shadow: 1px 0 1px #999;
 }
 
 h2 {
@@ -54,6 +54,7 @@ h3 {
 
 h4 {
 	font-weight: bold;
+	margin-bottom: .5em;
 }
 
 p {
@@ -326,6 +327,26 @@ cite {
 	width: 195px;
 }
 
+.home h2 {
+	margin-bottom: 2em;
+}
+
+.page_tile {
+/*	border: 1px solid #999;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	-moz-box-shadow: 0 1px 0 #999; */
+	text-align: center;
+}
+
+.page_tile h4,
+.page_tile p {
+	padding: 0 .5em .5em;
+	text-align: left;
+}
+
 .post {
 	margin-bottom: 2em;
 }
@@ -334,7 +355,6 @@ cite {
 	border-bottom: 1px solid #8e8e8e;
 	border-top: 1px solid #8e8e8e;
 	color: #333;
-	font-size: 2em;
 	margin-bottom: .25em;
 	padding-bottom: .15em;
 	text-align: center;
@@ -392,6 +412,15 @@ ul.page_sublinks li {
 
 .light_links a {
 	color: #999;
+}
+
+.parent_menu {
+	text-align: center;
+}
+
+.parent_menu li {
+	background: #eaeaea;
+	padding: .75em;
 }
 
 .post em {
@@ -559,6 +588,11 @@ img.alignright {
 .post .bio_lyrics li {
 	padding-left: 1em;
 }
+
+.post .clinic_dates {
+	text-align: center;
+}
+
 
 /* Right Sidebar _________________________________*/
 

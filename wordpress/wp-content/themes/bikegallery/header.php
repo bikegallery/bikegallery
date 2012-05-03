@@ -17,7 +17,7 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-	<link rel="stylesheet" href="http://f.fontdeck.com/s/css/E7uOHrgs0nw2MqW6o/fP2Vg4IGg/bikegallery/17942.css" type="text/css" />
+<!--	<link rel="stylesheet" href="http://f.fontdeck.com/s/css/E7uOHrgs0nw2MqW6o/fP2Vg4IGg/bikegallery/17942.css" type="text/css" /> -->
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<?php if ( is_singular() && get_option( 'thread_comments' ) )
 		wp_enqueue_script( 'comment-reply' );
@@ -141,7 +141,7 @@
 				</ul>
 				
 				<div class="tagline">
-					Your local, family-owned bike store since 1974 &bull; Putting more Portlanders on bikes more often
+					Your local, family-owned bike store since 1974 &bull; More people on bikes more often
 				</div><!-- tagline -->
 			</section><!-- .grid_10 .locations -->
 
