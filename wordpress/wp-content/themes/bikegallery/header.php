@@ -17,6 +17,10 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" media="all" href="/wordpress/wp-content/themes/bikegallery/css/ie7.css" />
+<![endif]-->
+
 <!--	<link rel="stylesheet" href="http://f.fontdeck.com/s/css/E7uOHrgs0nw2MqW6o/fP2Vg4IGg/bikegallery/17942.css" type="text/css" /> -->
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<?php if ( is_singular() && get_option( 'thread_comments' ) )
@@ -82,81 +86,85 @@
 		<?php endif; ?>
 	</section><!-- .site_alerts -->
 
-	<section class="container_12">
+	<section class="container_12 top_bar">
+		<section class="grid_2 logo">
+			<a href="/"><img src="/wordpress/wp-content/themes/bikegallery/images/outlined_logo.png" alt="Bike Gallery" /></a>
+		</section><!-- .grid_2 .logo -->
+
+		<section class="grid_10 locations">
+			<ul>
+				<li>
+					<a href="/locations/downtown">
+						Downtown<br />
+						1001 SW 10th Ave<br />
+						(503) 222-3821
+					</a>
+				</li>
+
+				<li>
+					<a href="/locations/hollywood">
+						Hollywood<br />
+						5329 NE Sandy Blvd<br />
+						(503) 281-9800
+					</a>
+				</li>
+
+				<li>
+					<a href="/locations/woodstock">
+						Woodstock<br />
+						4235 SE Woodstock Blvd<br />
+						(503) 774-3531
+					</a>
+				</li>
+
+				<li>
+					<a href="/locations/division">
+						Division<br />
+						10950 SE Division St<br />
+						(503) 254-2663
+					</a>
+				</li>
+
+				<li>
+					<a href="/locations/lake-oswego">
+						Lake Oswego<br />
+						200 B Ave<br />
+						(503) 636-1600
+					</a>
+				</li>
+
+				<li>
+					<a href="/locations/beaverton">
+						Beaverton<br />
+						12345 SW Canyon Rd<br />
+						(503)641-2580
+					</a>
+				</li>
+			</ul>
+			
+			<div class="tagline">
+				Your local, family-owned bike store since 1974 &mdash; More people on bikes more often
+			</div><!-- tagline -->
+		</section><!-- .grid_10 .locations -->
+	</section><!-- .container_12 .top_bar -->
+	
+	<div class="clear">&nbsp;</div>
+
+	<section class="container_12 container">
 		<header class="header">
-
-			<section class="grid_2 logo">
-				<a href="/"><img src="/wordpress/wp-content/themes/bikegallery/images/outlined_logo.png" alt="Bike Gallery" /></a>
-			</section><!-- .grid_2 .logo -->
-
-			<section class="grid_10">
-				<ul class="locations">
-					<li>
-						<a href="/locations/downtown">
-							Downtown<br />
-							1001 SW 10th Ave<br />
-							(503)222-3821
-						</a>
-					</li>
-
-					<li>
-						<a href="/locations/hollywood">
-							Hollywood<br />
-							5329 NE Sandy Blvd<br />
-							(503)281-9800
-						</a>
-					</li>
-
-					<li>
-						<a href="/locations/woodstock">
-							Woodstock<br />
-							4235 SE Woodstock Blvd<br />
-							(503)774-3531
-						</a>
-					</li>
-
-					<li>
-						<a href="/locations/division">
-							Division<br />
-							10950 SE Division St<br />
-							(503)254-2663
-						</a>
-					</li>
-
-					<li>
-						<a href="/locations/lake-oswego">
-							Lake Oswego<br />
-							200 B Ave<br />
-							(503)636-1600
-						</a>
-					</li>
-
-					<li>
-						<a href="/locations/beaverton">
-							Beaverton<br />
-							12345 SW Canyon Rd<br />
-							(503)641-2580
-						</a>
-					</li>
-				</ul>
-				
-				<div class="tagline">
-					Your local, family-owned bike store since 1974 &bull; More people on bikes more often
-				</div><!-- tagline -->
-			</section><!-- .grid_10 .locations -->
 
 			<div class="clear">&nbsp;</div>
 
-			<section class="nav_social">
-				<nav class="alpha grid_11 nav nav_social">
+			<nav class="nav_social">
+				<div class="alpha grid_11 nav">
 					<?php wp_nav_menu(); ?>
-				</nav><!-- .nav -->
+				</div><!-- .nav -->
 
 				<div class="grid_1 omega social_icons">
 					<a href="https://www.facebook.com/bikegallery" target="_blank"><img src="/wordpress/wp-content/themes/bikegallery/images/facebook_icon.png" alt="Bike Gallery Facebook" title="Facebook" /></a>
 					<a href="https://twitter.com/#!/bikegallerypdx" target="_blank"><img src="/wordpress/wp-content/themes/bikegallery/images/twitter_icon.png" alt="Bike Gallery Twitter" title="Twitter" /></a>
 				</div><!-- .social_icons -->
-			</section><!-- .nav_social -->
+			</nav><!-- .nav_social -->
 
 			<div class="clear">&nbsp;</div>
 

@@ -19,6 +19,6 @@ strong { font-weight:bold }
 em { font-style:italic }
 a img { border:none } /* Gets rid of IE's blue borders */
 
-article, header, footer, nav, address {
+section, article, header, footer, nav, address {
 	display: block;
 }

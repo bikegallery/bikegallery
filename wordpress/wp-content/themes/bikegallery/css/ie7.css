@@ -1,0 +1,22 @@
+.locations li {
+	display: inline;
+}
+
+.nav_social {
+	position: relative;
+	z-index: 10000;
+}
+
+.nav li {
+	display: inline;
+}
+
+.nav ul ul {
+	left: 150px;
+	z-index: 1000;
+}
+
+.nivoSlider {
+	z-index: 0;
+}
+

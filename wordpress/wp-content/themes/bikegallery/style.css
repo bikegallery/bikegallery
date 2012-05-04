@@ -16,14 +16,14 @@ body {
 /*	background: #fc0 url(/wordpress/wp-content/themes/bikegallery/images/alt_bg.jpg) no-repeat center top; */
 	background: #1c160d;
 	color: #333;
-	font-family: Helvetica, sans-serif;
-	font-size: 14px;
+	font-family: Verdana, Helvetica, sans-serif;
+	font-size: 12px;
 	margin: 0;
 }
 
 a,
 a:visited {
-	color: #0B5084;
+	color: #487c71;
 /*	-moz-transition: all .2s ease-in-out; */
 	text-decoration: none;
 }
@@ -34,7 +34,6 @@ a:active {
 }
 
 h1 {
-	font-family: "Simplo Bold", Verdana, sans-serif;
 	font-size-adjust: 0.5;
 	font-style: normal;
 	font-weight: normal;
@@ -44,7 +43,6 @@ h1 {
 }
 
 h2 {
-	font-family: "Din Display Pro Regular", Helvetica, sans-serif;
 	font-size: 1.5em;
 }
 
@@ -59,7 +57,7 @@ h4 {
 
 p {
 	font-size: 1em;
-	line-height: 1.4em;
+	line-height: 1.5em;
 }
 
 em {
@@ -89,7 +87,11 @@ cite {
 
 /* Container and general _________________________________*/
 
-.container_12 {
+.top_bar {
+	background: #1c160d;
+}
+
+.container {
 	-webkit-box-shadow: 0 0 10px 1px #000;
 	-moz-box-shadow: 0 0 10px 1px #000;
 	-o-box-shadow: 0 0 10px 1px #000;
@@ -107,24 +109,31 @@ cite {
 }
 
 .locations {
-	border-bottom: 1px solid #fc0;
-	font-size: .83em;
+	margin-top: 10px;
 }
 
 .locations a {
 	color: #fff;
+	font-family: Helvetica, sans-serif;
+	font-size: .9em;
+}
+
+.locations a:hover {
+	color: #97cbc0;
+	text-decoration: none;
 }
 
 .locations,
 .tagline {
 	text-align: center;
-	z-index: 1;
+	z-index: 2;
 }
 
 .tagline {
+	border-top: 1px solid #fc0;
 	color: #999;
 	font-size: 1.1em;
-	margin-top: 10px;
+	padding-top: 10px;
 }
 
 .locations li {
@@ -133,7 +142,8 @@ cite {
 }
 
 .logo {
-	margin-top: 10px;
+	margin-bottom: 20px;
+	margin-top: 20px;
 	text-align: center;
 	z-index: 2;
 }
@@ -157,11 +167,13 @@ cite {
 
 .nav_social {
 	background: #000;
+	border-bottom: 3px solid #d6e03f;
 	float: left;
 }
 
 .nav {
 	padding-left: 10px;
+	text-align: center;
 }
 
 .nav ul {
@@ -178,9 +190,8 @@ cite {
 }
 
 .nav ul li a {
-	color: #fc0;
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 18px;
+	color: #97cbc0;
+	font-size: 1.25em;
 }
 
 .nav ul li a:hover {
@@ -205,7 +216,8 @@ cite {
 */
 	display: none;
 	position: absolute;
-	top: 40px;
+	text-align: left;
+	top: 38px;
 	z-index: 10;
 }
 
@@ -216,12 +228,11 @@ cite {
 }
 
 .nav ul li.current-menu-item ul li a {
-	color: #fc0;
 	white-space: pre;
 }
 
 .nav ul ul li:hover {
-	background: #fc0;
+	background: #97cbc0;
 }
 
 .nav ul li.current-menu-item ul li:hover a,
@@ -287,7 +298,7 @@ cite {
 }
 
 .left_sidebar img {
-	margin-bottom: 2em;
+	margin-bottom: 3em;
 	max-width: 98%;
 }
 
@@ -394,10 +405,17 @@ cite {
 ul.page_sublinks {
 	border-bottom: 1px solid #8e8e8e;
 	display: inline-block;
-	margin-bottom: 1em;
 	padding-bottom: .25em;
 	text-align: center;
 	width: 100%;
+}
+
+.page_sublinks {
+	margin-bottom: 1em;
+}
+
+.post ul {
+	padding-left: 1em;
 }
 
 .post li {
@@ -429,7 +447,7 @@ ul.page_sublinks li {
 }
 
 .post p {
-	margin-bottom: 10px;
+	margin-bottom: 1.5em;
 }
 
 .store_hours ul {
@@ -509,7 +527,11 @@ img.alignright {
 	margin-bottom: 2em;
 }
 
-/* Service Menu */
+/* Service */
+.parent_menu {
+	padding-left: 0 !important;
+}
+
 .service_menu {
 	margin-bottom: 2em;
 }
@@ -650,7 +672,8 @@ img.alignright {
 }
 
 .copyright {
-	font-size: 1em;
+	color: #666;
+	font-size: .75em;
 	text-align: center;
 }
 
