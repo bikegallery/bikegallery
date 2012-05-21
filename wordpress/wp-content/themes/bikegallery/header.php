@@ -21,6 +21,10 @@
 	<link rel="stylesheet" type="text/css" media="all" href="/wordpress/wp-content/themes/bikegallery/css/ie7.css" />
 <![endif]-->
 
+<!--[if IE 8]>
+	<link rel="stylesheet" type="text/css" media="all" href="/wordpress/wp-content/themes/bikegallery/css/ie8.css" />
+<![endif]-->
+
 <!--	<link rel="stylesheet" href="http://f.fontdeck.com/s/css/E7uOHrgs0nw2MqW6o/fP2Vg4IGg/bikegallery/17942.css" type="text/css" /> -->
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<?php if ( is_singular() && get_option( 'thread_comments' ) )
@@ -137,7 +141,7 @@
 					<a href="/locations/beaverton">
 						Beaverton<br />
 						12345 SW Canyon Rd<br />
-						(503)641-2580
+						(503) 641-2580
 					</a>
 				</li>
 			</ul>
@@ -174,7 +178,24 @@
 
 		</header><!-- .header -->
 
+		<?php if ( is_front_page() ) { ?>
+			<section class="grid_12 front_page_intro">
+				<h1><?php the_title(); ?></h1>
+				<h2>If you can't tell, we're passionate about bikes. But it's not just the latest cycling gizmo that gets us excited. It's about getting to be part of REAL people reaching their cycling goal, whether that's two miles, a century (that's a hundred miles) or a two-month tour.</h2>
+			</section><!-- .grid_12 -->
+		<?php } ?>				
+
 		<section class="viewer">
+			<?php if ( is_front_page() ) { ?>
+				<section class="grid_2 left_sidebar">
+					<?php if (is_active_sidebar('left-sidebar-widget-area') ) : ?>
+					<ul class="xoxo">
+						<?php dynamic_sidebar('left-sidebar-widget-area'); ?>
+					</ul>
+					<?php endif; ?>
+				</section><!-- .grid_2 .left_sidebar -->
+			<?php } ?>				
+
 			<?php if ( is_front_page()  ) { ?>
 
 			<?php } else { ?>
@@ -190,14 +211,4 @@
 					</div><!-- .grid_3 .widget_search -->
 				</div>
 			<?php } ?>
-
-			<?php if ( is_front_page() ) { ?>
-				<section class="grid_2 left_sidebar">
-					<?php if (is_active_sidebar('left-sidebar-widget-area') ) : ?>
-					<ul class="xoxo">
-						<?php dynamic_sidebar('left-sidebar-widget-area'); ?>
-					</ul>
-					<?php endif; ?>
-				</section><!-- .grid_2 .left_sidebar -->
-			<?php } ?>				
 

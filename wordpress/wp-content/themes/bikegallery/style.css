@@ -43,11 +43,12 @@ h1 {
 }
 
 h2 {
-	font-size: 1.5em;
+	font-size: 1.15em;
 }
 
 h3 {
 	font-size: 1em;
+	font-weight: bold;
 }
 
 h4 {
@@ -78,10 +79,6 @@ cite {
 
 .float_right {
 	float: right;
-}
-
-.bottom_border {
-	border-bottom: 1px solid #8e8e8e;
 }
 
 
@@ -167,7 +164,7 @@ cite {
 
 .nav_social {
 	background: #000;
-	border-bottom: 3px solid #d6e03f;
+	border-bottom: 3px solid #fc0;
 	float: left;
 }
 
@@ -286,7 +283,7 @@ cite {
 }
 
 .left_sidebar .widget_search input {
-	max-width: 115px;
+	max-width: 105px;
 }
 
 .left_sidebar .widget_text {
@@ -305,6 +302,10 @@ cite {
 
 /* Slider  _________________________________*/
 
+.post .nivo-controlNav {
+	display: none;
+}
+
 .nivoSlider .nivo-caption p {
 	font-size: 1.15em;
 	padding: 1em 1em 2em;
@@ -312,6 +313,17 @@ cite {
 
 
 /* Content  _________________________________*/
+
+.front_page_intro h1 {
+	color: #fc0;
+	margin: .25em 0;
+	text-shadow: none;
+}
+
+.front_page_intro h2 {
+	color: #999;
+	margin: .25em 0 1em;
+}
 
 .viewer {
 	background: #fff;
@@ -338,7 +350,7 @@ cite {
 	width: 195px;
 }
 
-.home h2 {
+.home .post h2 {
 	margin-bottom: 2em;
 }
 
@@ -414,8 +426,17 @@ ul.page_sublinks {
 	margin-bottom: 1em;
 }
 
-.post ul {
+.post blockquote {
+	padding-left: 2em;
+}
+
+.post ul,
+.post ol {
 	padding-left: 1em;
+}
+
+.post .rental_list {
+	padding-left: 0;
 }
 
 .post li {
@@ -607,12 +628,30 @@ img.alignright {
 	vertical-align: middle;
 }
 
+.select_card img {
+	max-width: 110px;
+}
+
 .post .bio_lyrics li {
 	padding-left: 1em;
 }
 
-.post .clinic_dates {
+.post .clinic_info h4,
+.post .clinic_info ul {
+	padding: 0;
 	text-align: center;
+}
+
+.post .store_info {
+	margin-bottom: 3em;
+}
+
+.logo_table {
+	margin-bottom: 3em;
+}
+
+.logo_table td {
+	padding: .5em;
 }
 
 
