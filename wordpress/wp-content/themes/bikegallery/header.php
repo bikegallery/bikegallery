@@ -160,11 +160,12 @@
 			<div class="clear">&nbsp;</div>
 
 			<nav class="nav_social">
-				<div class="alpha grid_11 nav">
+				<div class="alpha grid_10 nav">
 					<?php wp_nav_menu(); ?>
 				</div><!-- .nav -->
 
-				<div class="grid_1 omega social_icons">
+				<div class="grid_2 omega social_icons">
+					<a href="http://visitor.r20.constantcontact.com/d.jsp?llr=kpajcwbab&p=oi&m=1101325959658" target="_blank"><img src="/wordpress/wp-content/themes/bikegallery/images/mail_list_icon.png" alt="Bike Gallery Mailing List" title="Mailing List" /></a>
 					<a href="https://www.facebook.com/bikegallery" target="_blank"><img src="/wordpress/wp-content/themes/bikegallery/images/facebook_icon.png" alt="Bike Gallery Facebook" title="Facebook" /></a>
 					<a href="https://twitter.com/#!/bikegallerypdx" target="_blank"><img src="/wordpress/wp-content/themes/bikegallery/images/twitter_icon.png" alt="Bike Gallery Twitter" title="Twitter" /></a>
 				</div><!-- .social_icons -->
