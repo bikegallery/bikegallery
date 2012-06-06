@@ -14,7 +14,6 @@ get_header(); ?>
 
 		<h1><?php _e( 'Not Found', 'twentyten' ); ?></h1>
 		<p><?php _e( 'Well that\'s embarassing. We don\'t seem to have what you are looking for. Why not try searching?', 'twentyten' ); ?></p>
-		<?php get_search_form(); ?>
 
 		<script type="text/javascript">
 			// focus on search field after it has loaded

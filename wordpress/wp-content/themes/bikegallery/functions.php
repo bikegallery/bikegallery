@@ -254,7 +254,7 @@ add_filter( 'excerpt_length', 'twentyten_excerpt_length' );
  * @return string "Continue Reading" link
  */
 function twentyten_continue_reading_link() {
-	return ' <a href="'. get_permalink() . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentyten' ) . '</a>';
+	//return ' <a href="'. get_permalink() . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentyten' ) . '</a>';
 }
 
 /**
@@ -365,6 +365,17 @@ endif;
  * @uses register_sidebar
  */
 function twentyten_widgets_init() {
+	// Area 8, located in the right sidebar for Guide Archives
+	register_sidebar( array(
+		'name' => __( 'Guide Widget Area', 'twentyten' ),
+		'id' => 'guide-widget-area',
+		'description' => __( 'The guide sidebar widget area', 'twentyten' ),
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</li>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+
 	// Alert Widget for comany announcements
 	register_sidebar( array(
 		'name' => __( 'Alert Widget Area', 'twentyten' ),
@@ -520,4 +531,29 @@ function twentyten_posted_in() {
 		the_title_attribute( 'echo=0' )
 	);
 }
+
+add_action( 'init', 'create_post_type' );
+function create_post_type() {
+	register_post_type( 'ride-guide',
+		array(
+			'labels' => array(
+				'name' => __( 'Guides' ),
+				'singular_name' => __( 'Guide' )
+			),
+		'public' => true,
+		'has_archive' => true,
+		'menu_position' => 20,
+		'supports' => array(
+			'title',
+			'editor',
+			'excerpt',
+			'custom-fields',
+			'thumbnail'
+		),
+		)
+	);
+}
+
+add_filter( 'the_excerpt', 'do_shortcode');
+
 endif;

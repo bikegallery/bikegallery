@@ -44,6 +44,7 @@ h1 {
 
 h2 {
 	font-size: 1.15em;
+	font-weight: bold;
 }
 
 h3 {
@@ -606,6 +607,16 @@ img.alignright {
 	width: 449px;
 }
 
+/* Ride Guide Archives */
+.ride_archive em {
+	display: block;
+	margin-bottom: 1em;
+}
+
+.ride_archive h2 {
+	text-align: center;
+}
+
 /* Search Form and Results */
 
 /* Gift Cards */
@@ -654,7 +665,6 @@ img.alignright {
 	padding: .5em;
 }
 
-
 /* Right Sidebar _________________________________*/
 
 .right_sidebar .widget-container {
@@ -667,6 +677,61 @@ img.alignright {
 	margin-bottom: 10px;
 	padding: 5px 3px;
 	text-align: center;
+}
+
+.guide_block {
+	background: #e1e1e1;
+	border-radius: 3px;
+	display: inline-block;
+	margin-bottom: 1em;
+	max-width: 100%;
+	padding: 10px 10px 0;
+}
+
+.grid_5 .guide_block {
+	width: 360px;
+}
+
+.guide_block ul {
+	padding: 0;
+}
+
+.guide_block .post-meta-key {
+	font-weight: bold;
+}
+
+.guide_block .nivo-caption p {
+	padding: .35em;
+}
+
+.guide_block .nivoSlider {
+	margin-bottom: 0;
+}
+
+.guide_block h2 {
+	margin-bottom: 1em;
+	text-align: center;
+}
+
+.guide_block b {
+	display: block;
+	font-size: .9em;
+	margin-bottom: .5em;
+	text-align: center;
+}
+
+.guides_list h3 {
+	background: #544023;
+}
+
+.guide_block .post-meta-key {
+	display: block;
+	margin-bottom: .5em;
+}
+
+.guide_block p {
+	margin: 0;
+	padding-right: .5em;
 }
 
 .right_sidebar .widget-container li {
