@@ -13,7 +13,7 @@
  */
 
 get_header(); ?>
-	<section class="grid_10 content">
+	<section class="grid_7 content front_page">
 
 		<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
@@ -25,6 +25,11 @@ get_header(); ?>
 
 		<?php endwhile; ?>
 
-	</section><!-- .grid_10 .content -->
+	</section><!-- .grid_7 .content -->
+
+	<aside class="grid_3 front_page_right_sidebar">
+			<h3>Recent Blog Posts</h3>
+			<ul><?php wp_get_archives('type=postbypost&format=html&limit=10'); ?></ul>
+	</aside>
 
 <?php get_footer(); ?>

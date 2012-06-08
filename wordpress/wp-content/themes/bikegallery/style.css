@@ -2,7 +2,7 @@
 Theme Name: Full Width
 Theme URI: none
 Description: Custom theme for Bike Gallery
-Version: 0.1
+Version: 1.1
 Author: Jason Britton
 Tags: clean, basic
 */
@@ -39,7 +39,7 @@ h1 {
 	font-weight: normal;
 	font-size: 2em;
 	margin-bottom: .5em;
-	text-shadow: 1px 0 1px #999;
+/*	text-shadow: 1px 0 1px #999; */
 }
 
 h2 {
@@ -48,8 +48,12 @@ h2 {
 }
 
 h3 {
+	background: #487c71;
+	color: #fff;
 	font-size: 1em;
 	font-weight: bold;
+	margin-bottom: 10px;
+	padding: .25em;
 }
 
 h4 {
@@ -80,6 +84,10 @@ cite {
 
 .float_right {
 	float: right;
+}
+
+.faded {
+	opacity: .25;
 }
 
 
@@ -315,15 +323,21 @@ cite {
 
 /* Content  _________________________________*/
 
+.container .front_page_intro {
+	background: #0a0a0a;
+	margin: 0;
+	padding: 10px;
+}
+
 .front_page_intro h1 {
-	color: #fc0;
-	margin: .25em 0;
-	text-shadow: none;
+	color: #fff;
+	font-weight: bold;
+	margin: 0;
 }
 
 .front_page_intro h2 {
-	color: #999;
-	margin: .25em 0 1em;
+	color: #e1e1e1;
+	font-weight: normal;
 }
 
 .viewer {
@@ -395,19 +409,16 @@ cite {
 	padding-bottom: 0;
 }
 
-.posts h3,
-.post h3 {
-	background: #e1e1e1;
-	color: #666;
-	margin-bottom: .5em;
-	padding: .25em;
-}
-
 .post_meta {
 	border-bottom: 1px solid #8e8e8e;
 	margin-bottom: .5em;
 	padding-bottom: .25em;
 	text-align: center;
+}
+
+.post h3 a {
+	color: #fff;
+	text-decoration: underline;
 }
 
 .post img {
@@ -421,6 +432,10 @@ ul.page_sublinks {
 	padding-bottom: .25em;
 	text-align: center;
 	width: 100%;
+}
+
+.post ul.page_sublinks {
+	padding-left: 0;
 }
 
 .page_sublinks {
@@ -647,6 +662,13 @@ img.alignright {
 	padding-left: 1em;
 }
 
+.clinic_schedule ul {
+	padding-left: 0;
+}
+
+.clinic_schedule h4 {
+}
+
 .post .clinic_info h4,
 .post .clinic_info ul {
 	padding: 0;
@@ -671,15 +693,11 @@ img.alignright {
 	margin-bottom: 10px;
 }
 
-.right_sidebar h3 {
-	background: #858585;
-	color: #fff;
-	margin-bottom: 10px;
-	padding: 5px 3px;
-	text-align: center;
+.front_page_right_sidebar li {
+	margin-bottom: 1em;
 }
 
-.guide_block {
+.gray_block {
 	background: #e1e1e1;
 	border-radius: 3px;
 	display: inline-block;
@@ -688,32 +706,44 @@ img.alignright {
 	padding: 10px 10px 0;
 }
 
-.grid_5 .guide_block {
+.gray_block h3 {
+	text-align: center;
+}
+
+.grid_5 .gray_block {
 	width: 360px;
 }
 
-.guide_block ul {
+.gray_block ul {
 	padding: 0;
 }
 
-.guide_block .post-meta-key {
+.gray_block li {
+	margin-bottom: 1em;
+}
+
+.gray_block .post-meta-key {
 	font-weight: bold;
 }
 
-.guide_block .nivo-caption p {
+.gray_block .nivo-caption p {
 	padding: .35em;
 }
 
-.guide_block .nivoSlider {
+.gray_block .nivoSlider {
 	margin-bottom: 0;
 }
 
-.guide_block h2 {
+.gray_block h2 {
 	margin-bottom: 1em;
 	text-align: center;
 }
 
-.guide_block b {
+.gray_block h3 {
+	margin-bottom: .5em;
+}
+
+.gray_block b {
 	display: block;
 	font-size: .9em;
 	margin-bottom: .5em;
@@ -724,12 +754,12 @@ img.alignright {
 	background: #544023;
 }
 
-.guide_block .post-meta-key {
+.gray_block .post-meta-key {
 	display: block;
 	margin-bottom: .5em;
 }
 
-.guide_block p {
+.gray_block p {
 	margin: 0;
 	padding-right: .5em;
 }
@@ -758,6 +788,7 @@ img.alignright {
 }
 
 .footer h3 {
+	background: transparent;
 	font-size: 1.1em;
 	font-weight: bold;
 }

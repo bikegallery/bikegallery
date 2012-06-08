@@ -28,15 +28,10 @@ get_header(); ?>
 							</div><!-- .alpha .grid_7 -->
 
 							<div class="grid_5 omega">
-								<div class="guide_block">
+								<div class="gray_block">
 									<?php the_excerpt(); ?>
-								</div><!-- .guide_block -->
-<!-- 								<div class="guide_block">
-									<h2>Related Accessories</h2>
-									<?php //the_meta(); ?>
-								</div>
+								</div><!-- .gray_block -->
 							</div>
--->
 
 							<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?>
 						</article><!-- .post -->

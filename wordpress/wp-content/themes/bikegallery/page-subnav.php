@@ -28,11 +28,12 @@ get_header(); ?>
 								<?php the_content(); ?>
 								<?php the_meta(); ?>
 								<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'twentyten' ), 'after' => '' ) ); ?>
-								<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?>
 						</article><!-- .post -->
 
 					<?php endwhile; ?>
 				</div><!-- .posts -->
+
+				<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?>
 
 			</section><!-- .grid_12 .content -->
 

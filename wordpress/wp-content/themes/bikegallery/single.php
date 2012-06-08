@@ -37,7 +37,6 @@ get_header(); ?>
 						<?php endif; ?>
 
 							<?php twentyten_posted_in(); ?>
-							<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?>
 						</article><!-- .post -->
 
 						<div class="post_nav">
@@ -49,6 +48,8 @@ get_header(); ?>
 						<?php comments_template( '', true ); ?>
 
 					<?php endwhile; // end of the loop. ?>
+
+					<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?>
 
 			</section><!-- .grid_9 .content -->
 

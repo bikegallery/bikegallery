@@ -182,7 +182,7 @@
 		<?php if ( is_front_page() ) { ?>
 			<section class="grid_12 front_page_intro">
 				<h1><?php the_title(); ?></h1>
-				<h2>If you can't tell, we're passionate about bikes. But it's not just the latest cycling gizmo that gets us excited. It's about getting to be part of REAL people reaching their cycling goal, whether that's two miles, a century (that's a hundred miles) or a two-month tour.</h2>
+				<h2>If you can't tell, we're passionate about bikes. But it's not just the latest cycling gizmo that gets us excited. It's about getting to be part of real people reaching their cycling goals, whether it's two miles, a century (that's a hundred miles), or a two-month tour.</h2>
 			</section><!-- .grid_12 -->
 		<?php } ?>				
 

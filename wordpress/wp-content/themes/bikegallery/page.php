@@ -21,11 +21,14 @@ get_header(); ?>
 				<h1><?php the_title(); ?></h1>
 				<?php the_content(); ?>
 				<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'twentyten' ), 'after' => '' ) ); ?>
-				<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?>
 			</article><!-- .post -->
 
 		<?php endwhile; ?>
 
 	</section><!-- .grid_12 .content -->
+
+	<div class="grid_12">
+		<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?>
+	</div>
 
 <?php get_footer(); ?>
