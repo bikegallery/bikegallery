@@ -63,7 +63,8 @@ article, header, section, footer, nav, address {
 }
 
 #sesection5 {
-	background: #000;
+	background: #0a0a0a;
+	padding-bottom: 0;
 }
 
 #sesection5 .sesectiondiv,
@@ -343,13 +344,12 @@ ul#secatnav ul li {
 
 .footer img {
 	margin-bottom: 1em;
-	max-width: 100%;
+	max-width: 200px;
 }
 
 .copyright {
 	color: #666;
-	font-size: .75em;
-	text-align: center;
+	font-size: 1em;
 }
 
 

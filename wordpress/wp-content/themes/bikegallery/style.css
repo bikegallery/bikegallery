@@ -325,6 +325,7 @@ cite {
 
 .container .front_page_intro {
 	background: #0a0a0a;
+	border-top: 3px solid #666;
 	margin: 0;
 	padding: 10px;
 }
@@ -338,6 +339,10 @@ cite {
 .front_page_intro h2 {
 	color: #e1e1e1;
 	font-weight: normal;
+}
+
+.front_page h4 {
+	display: inline-block;
 }
 
 .viewer {
@@ -669,6 +674,10 @@ img.alignright {
 .clinic_schedule h4 {
 }
 
+.clinic_info {
+	margin-bottom: 1em;
+}
+
 .post .clinic_info h4,
 .post .clinic_info ul {
 	padding: 0;
@@ -808,13 +817,12 @@ img.alignright {
 
 .copyright {
 	color: #666;
-	font-size: .75em;
-	text-align: center;
+	font-size: 1em;
 }
 
 .copyright img {
 	margin-bottom: 10px;
-	max-width: 140px;
+	max-width: 200px;
 }
 
 

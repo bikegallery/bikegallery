@@ -50,7 +50,7 @@
 				<?php endif; ?>
 			</div><!-- .grid_2 -->
 
-			<div class="grid_2 suffix_1 copyright">
+			<div class="grid_3 copyright">
 				<?php if ( is_active_sidebar( 'fifth-footer-widget-area' ) ) : ?>
 					<ul class="xoxo">
 						<?php dynamic_sidebar( 'fifth-footer-widget-area' ); ?>
