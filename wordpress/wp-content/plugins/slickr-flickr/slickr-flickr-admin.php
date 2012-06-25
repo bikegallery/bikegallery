@@ -205,6 +205,7 @@ ID_PANEL;
 		$is_gallery = $options['type']=="gallery"?'selected="selected"':'';
 		$is_medium = $options['size']=="medium"?'selected="selected"':'';
 		$is_m640 = $options['size']=="m640"?'selected="selected"':'';
+		$is_m800 = $options['size']=="m800"?'selected="selected"':'';
 		$is_large = $options['size']=="large"?'selected="selected"':'';
 		$is_original = $options['size']=="original"?'selected="selected"':'';		
 		$captions_on = $options['captions']!="off"?'selected="selected"':'';
@@ -229,6 +230,7 @@ still able to supply the type of display by specifying it in the post. For examp
 <h4>Photo Size: <select name="flickr_size" id="flickr_size">
 <option {$is_medium} value="medium">Medium (500px by 375px)</option>
 <option {$is_m640} value="m640">Medium 640 (640px by 480px)</option>
+<option {$is_m800} value="m800">Medium 800 (800px by 600px)</option>
 <option {$is_large} value="large">Large (1024px by 768px)</option>
 <option {$is_original} value="original">Original Size (typically 1920px by 1440px)</option>
 </select></h4>

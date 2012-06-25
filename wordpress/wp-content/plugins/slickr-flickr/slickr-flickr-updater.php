@@ -6,6 +6,7 @@ class SlickrFlickrUpdater {
 	private static $remote_updater='http://www.diywebmastery.com/slickrflickrpro/updates.php';
 	private static $remote_updater_backup='http://updates.slickrflickr.com/updates.php';
 	private static $default_action='updates';	
+	private static $transient_expiry = 86400;
 	private static $initialized=false;
 	private static $licence='-';
 	private static $upgrader;
@@ -123,11 +124,11 @@ class SlickrFlickrUpdater {
     
     private static function fetch_remote_or_cache($action,$cache=true){
 		$transient = self::add_plugin_prefix($action);
-    	$values = $cache ? get_transient($transient) : false;
+    	$values = $cache ? self::get_transient($transient) : false;
     	if ((false === $values)  || is_array($values) || empty($values)) {
      	    $raw_response = self::remote_call($action, $cache);
     	    $values = (is_array($raw_response) && array_key_exists('body',$raw_response)) ? $raw_response['body'] : false;
-    	    set_transient($transient, $values, 86400); //cache for 24 hours
+    	    self::set_transient($transient, $values); //cache for 24 hours
 		}
 		return false === $values ? false : unserialize(gzinflate(base64_decode($values)));
 	}
@@ -160,5 +161,25 @@ class SlickrFlickrUpdater {
 	private static function get_remote_updater($backup = false) {
     	return $backup ? self::$remote_updater_backup : self::$remote_updater ;
 	}	
+	
+	private static function get_transient($transient) {
+    	if ($value = get_transient($transient)) return $value;
+    	/**transients may not be working so use homespun alternative ***/
+		$last_update = get_option($transient.'_date');
+    	if ($last_update && (abs(time() - $last_update) < self::$transient_expiry) )
+    		return get_option($transient);
+    	else
+    		return false;
+	}
+
+	private static function set_transient($transient, $value) {
+    	if (set_transient($transient, $value, self::$transient_expiry) 
+    	&& ( $value = get_transient($transient))) return true;
+    	/**transients not working so use alternative ***/   
+    	update_option( $transient, $value); 	
+    	update_option( $transient.'_date', time()); 
+    	return true;
+	}
+	
 }
 ?>

@@ -3,7 +3,7 @@
 Plugin Name: Nivo Slider WordPress Plugin
 Plugin URI: http://nivo.dev7studios.com/wordpress
 Description: The official WordPress plugin for the <a href="http://nivo.dev7studios.com">Nivo Slider</a>
-Version: 1.6
+Version: 1.7.1
 Author: Gilbert Pellegrom
 Author URI: http://gilbert.pellegrom.me
 */
@@ -236,7 +236,16 @@ class WordpressNivoSlider {
                 <span class="description"><?php _e('Enable automatic captions from post titles', 'nivo-slider'); ?></span></td>
             </tr>
             <tr valign="top">
-                <th scope="row"><?php _e('Slider Size', 'nivo-slider'); ?></th>
+                <th scope="row"><?php _e('Slider Sizing', 'nivo-slider'); ?></th>
+                <td><select name="nivo_settings[sizing]">
+                    <?php $slider_sizing = $this->default_val($options, 'sizing', 'responsive'); ?>
+                    <option value="responsive"<?php if($slider_sizing == 'responsive') echo ' selected="selected"'; ?>><?php _e('Responsive', 'nivo-slider'); ?></option>
+                    <option value="fixed"<?php if($slider_sizing == 'fixed') echo ' selected="selected"'; ?>><?php _e('Fixed Size', 'nivo-slider'); ?></option>
+                </select><br />
+                <span class="description"><?php _e('Responsive sliders will fill the width of the container', 'nivo-slider'); ?></span></td>
+            </tr>
+            <tr valign="top" id="nivo_slider_size">
+                <th scope="row">- <?php _e('Slider Size', 'nivo-slider'); ?></th>
                 <td><input type="text" name="nivo_settings[dim_x]" value="<?php echo $this->default_val($options, 'dim_x', 400); ?>" /> x 
                 <input type="text" name="nivo_settings[dim_y]" value="<?php echo $this->default_val($options, 'dim_y', 150); ?>" /><br />
                 <span class="description"><?php _e('(Size in px) Images will be cropped to these dimensions (eg 400 x 150)', 'nivo-slider'); ?></span></td>
@@ -255,7 +264,7 @@ class WordpressNivoSlider {
                     }
                     ?>
                 </select><br />
-                <span class="description"><?php _e('Use a pre-built theme or provide your own styles. <a href="http://nivo.dev7studios.com/theme-demos/" target="_blank">See theme demos</a>', 'nivo-slider'); ?></span></td>
+                <span class="description"><?php _e('Use a pre-built theme or provide your own styles.', 'nivo-slider'); ?></span></td>
             </tr>
             <tr valign="top">
                 <th scope="row"><?php _e('Transition Effect', 'nivo-slider'); ?></th>
@@ -332,12 +341,6 @@ class WordpressNivoSlider {
                 <td><input type="hidden" name="nivo_settings[controlNav]" value="off" />
                 <input type="checkbox" name="nivo_settings[controlNav]" value="on"<?php if($this->default_val($options, 'controlNav', 'on') == 'on') echo 'checked="checked"'; ?>/>
                 <span class="description"><?php _e('eg 1,2,3...', 'nivo-slider'); ?></span></td>
-            </tr>
-            <tr valign="top">
-                <th scope="row"><?php _e('Enable Keyboard Navigation', 'nivo-slider'); ?></th>
-                <td><input type="hidden" name="nivo_settings[keyboardNav]" value="off" />
-                <input type="checkbox" name="nivo_settings[keyboardNav]" value="on"<?php if($this->default_val($options, 'keyboardNav', 'on') == 'on') echo 'checked="checked"'; ?>/>
-                <span class="description"><?php _e('Press Left or Right', 'nivo-slider'); ?></span></td>
             </tr>
             <tr valign="top">
                 <th scope="row"><?php _e('Pause the Slider on Hover', 'nivo-slider'); ?></th>
@@ -980,17 +983,23 @@ class WordpressNivoSlider {
             if(isset($options['theme']) && $options['theme'] != '') $output .= ' theme-'. $options['theme'];
             if(isset($options['controlNavThumbs']) && $options['controlNavThumbs'] == 'on') $output .= ' controlnav-thumbs';
             $output .='"><div class="ribbon"></div>';
-            $output .= '<div id="nivoslider-'. $id .'" class="nivoSlider" style="width:'. $options['dim_x'] .'px;height:'. $options['dim_y'] .'px;">';
+            $output .= '<div id="nivoslider-'. $id .'" class="nivoSlider"';
+            if($options['sizing'] == 'fixed') $output .= ' style="width:'. $options['dim_x'] .'px;height:'. $options['dim_y'] .'px;"';
+            $output .= '>';
             $i = 0;
             foreach( $images as $image ){
                 if(isset($image['post_permalink']) && $image['post_permalink'] != '') $output .= '<a href="'. $image['post_permalink'] .'">';
 
-                $resized_image = $this->resize_image( $image['attachment_id'], '', $options['dim_x'], $options['dim_y'], true );
-                if ( is_wp_error($resized_image) ){
-                    echo '<p>Error: '. $resized_image->get_error_message() .'</p>';
-                    $output .= '<img src="" ';
+                if($options['sizing'] == 'fixed'){
+	                $resized_image = $this->resize_image( $image['attachment_id'], '', $options['dim_x'], $options['dim_y'], true );
+	                if ( is_wp_error($resized_image) ){
+	                    echo '<p>Error: '. $resized_image->get_error_message() .'</p>';
+	                    $output .= '<img src="" ';
+	                } else {
+	                    $output .= '<img src="'. $resized_image['url'] .'" ';
+	                }
                 } else {
-                    $output .= '<img src="'. $resized_image['url'] .'" ';
+                	$output .= '<img src="'. $image['image_src'] .'" ';
                 }
                 
                 if(($options['type'] == 'manual' || $options['type'] == 'gallery') && isset($image['post_title']) && $image['post_title'] != ''){
@@ -1008,9 +1017,9 @@ class WordpressNivoSlider {
                     $resized_image = $this->resize_image( $image['attachment_id'], '', $options['thumbSizeWidth'], $options['thumbSizeHeight'], true );
                     if ( is_wp_error($resized_image) ){
                         echo '<p>Error: '. $resized_image->get_error_message() .'</p>';
-                        $output .= 'rel="" ';
+                        $output .= 'data-thumb="" ';
                     } else {
-                        $output .= 'rel="'. $resized_image['url'] .'" ';
+                        $output .= 'data-thumb="'. $resized_image['url'] .'" ';
                     }
                 }
                 
@@ -1043,8 +1052,6 @@ class WordpressNivoSlider {
                 $output .= '        directionNavHide:'. (($options['directionNavHide'] == 'on') ? 'true' : 'false') .',' ."\n";
                 $output .= '        controlNav:'. (($options['controlNav'] == 'on') ? 'true' : 'false') .',' ."\n";
                 $output .= '        controlNavThumbs:'. ((isset($options['controlNavThumbs']) && $options['controlNavThumbs'] == 'on') ? 'true' : 'false') .',' ."\n";
-                $output .= '        controlNavThumbsFromRel:true,' ."\n";
-                $output .= '        keyboardNav:'. (($options['keyboardNav'] == 'on') ? 'true' : 'false') .',' ."\n";
                 $output .= '        pauseOnHover:'. (($options['pauseOnHover'] == 'on') ? 'true' : 'false') .',' ."\n";
                 $output .= '        manualAdvance:'. (($options['manualAdvance'] == 'on') ? 'true' : 'false') ."\n";
                 $output .= '    });' ."\n";
@@ -1266,7 +1273,7 @@ class WordpressNivoSlider {
         $extension = '.'. $file_info['extension'];
         // the image path without the extension
         $no_ext_path = $file_info['dirname'].'/'.$file_info['filename'];
-        $cropped_img_path = $no_ext_path.'-'.$width.'x'.$height.$extension;
+        $cropped_img_path = $no_ext_path.'-'.$width.'x'.$height.strtolower($extension);
         // checking if the file size is larger than the target size
         // if it is smaller or the same size, stop right here and return
         if ( $image_src[1] > $width || $image_src[2] > $height ) {

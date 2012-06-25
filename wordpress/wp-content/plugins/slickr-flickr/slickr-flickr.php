@@ -3,7 +3,7 @@
 Plugin Name: Slickr Flickr
 Plugin URI: http://www.slickrflickr.com
 Description: Displays photos from Flickr in slideshows and galleries
-Version: 1.40
+Version: 1.41
 Author: Russell Jamieson
 Author URI: http://www.russelljamieson.com
 
@@ -22,7 +22,7 @@ Copyright 2011 Russell Jamieson (russell.jamieson@gmail.com)
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-define('SLICKR_FLICKR_VERSION','1.40');
+define('SLICKR_FLICKR_VERSION','1.41');
 define('SLICKR_FLICKR', 'slickr-flickr');
 define('SLICKR_FLICKR_FOLDER', SLICKR_FLICKR);
 define('SLICKR_FLICKR_PATH', SLICKR_FLICKR_FOLDER.'/slickr-flickr.php');

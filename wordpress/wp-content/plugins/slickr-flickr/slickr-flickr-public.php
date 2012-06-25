@@ -280,9 +280,12 @@ function slickr_flickr_set_thumbnail_params(&$params) {
     $thumb_rescale= false;
     switch ($params["thumbnail_size"]) {
       case "thumbnail": $thumb_width = 100; $thumb_height = 75; $thumb_rescale = true; break;
+      case "s150": $thumb_width = 150; $thumb_height = 150; $thumb_rescale = true; break;
       case "small": $thumb_width = 240; $thumb_height = 180; $thumb_rescale = true; break;
+      case "s320": $thumb_width = 320; $thumb_height = 240; $thumb_rescale = true; break;
       case "medium": $thumb_width = 500; $thumb_height = 375; $thumb_rescale = true; break;
       case "m640": $thumb_width = 640; $thumb_height = 480; $thumb_rescale = true; break;
+      case "m800": $thumb_width = 800; $thumb_height = 640; $thumb_rescale = true; break;
       default: $thumb_width = 75; $thumb_height = 75; $params["thumbnail_size"] = 'square';
     }
     if ($params["orientation"]=="portrait" ) { $swp = $thumb_width; $thumb_width = $thumb_height; $thumb_height = $swp; }
@@ -478,6 +481,8 @@ function slickr_flickr_galleria_options($params) {
 			switch ($params['size']) {
 				case "small": { $h=$p?300:220; $w=$p?200:240; break;} 
 				case "m640": {  $h=$p?720:520; $w=$p?500:640;  break;}
+				case "m800": {  $h=$p?880:640; $w=$p?660:800;  break;}
+				case "s320": {  $h=$p?400:280; $w=$p?260:320;  break;}
 				case "large": {  $h=$p?1100:808; $w=$p?788:1024;  break;}
 				default : { $h=$p?560:480; $w=$p?420:480;  break;}
 			}

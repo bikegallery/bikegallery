@@ -78,11 +78,14 @@ class slickr_flickr_photo {
       case 'thumbnail': $suffix = '_t.';  break;
       case 'small': $suffix = '_m.';  break;
       case 'm640': $suffix = '_z.';  break;
+      case 'm800': $suffix = '_c.';  break;
+      case 's320': $suffix = '_n.';  break; 
+      case 's150': $suffix = '_q.';  break;           
       case 'large': $suffix = '_b.';  break;
       default:  $suffix = '.';  break; // Medium
       }
 
-    $url_array[] =  preg_replace('/(_(s|t|m|b|z))?\./i', $suffix, $photo); //
+    $url_array[] =  preg_replace('/(_(s|t|c|n|q|m|b|z))?\./i', $suffix, $photo); //
     return implode('/', $url_array);
   }
 

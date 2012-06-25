@@ -1,5 +1,15 @@
 *** Nivo Slider WordPress Plugin Changelog ***
 
+2012.05.31 - version 1.7.1
+ * [Changed] Updated Nivo Slider jQuery plugin to v3.0.1
+
+2012.05.30 - version 1.7
+ * [New] Added "Slider Sizing" option
+ * [Changed] Updated Nivo Slider jQuery plugin to v3.0
+ * [Changed] Removed "Keyboard Navigation" option
+ * [Changed] Removed Orman and Pascal themes
+ * [Fixed] Crop bug where uppercase extensions caused images to be resized all the time.
+
 2012.03.21 - version 1.6
  * [New] Added favicon and "Useful Links" metabox
  * [Changed] The plugin updater script

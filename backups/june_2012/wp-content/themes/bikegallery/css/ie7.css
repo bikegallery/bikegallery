@@ -1,0 +1,42 @@
+.logo img {
+	margin-bottom: 10px;
+}
+
+.locations li {
+	display: inline !important;
+}
+
+.nav_social {
+	position: relative;
+	z-index: 10000;
+}
+
+.nav li {
+	display: inline !important;
+	position: relative;
+}
+
+.nav ul ul {
+	left: 0;
+	z-index: 1000;
+}
+
+.nav ul ul li {
+	display: block !important;
+}
+
+.nivoSlider {
+	z-index: 0;
+}
+
+.senavigator {
+	background: #fff;
+}
+
+
+
+
+
+
+
+

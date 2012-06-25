@@ -3,8 +3,11 @@ Contributors: powerblogservice
 Donate link: http://www.slickrflickr.com/donate/
 Tags: wordpress flickr plugin, flickr wordpress plugin, flickr slideshow, flickr gallery, flickr galleria, flickr photo gallery, slideshow lightbox, flickr widget, flickr rss, flickr api
 Requires at least: 3.0
-Tested up to: 3.3.2
-Stable tag: 1.40
+Tested up to: 3.4
+Stable tag: 1.41
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
 A Flickr WordPress plugin to display your photos either as a gallery, a galleria or a unbranded slideshow in posts, pages, and sidebar widgets.  
 
 == Description ==
@@ -17,7 +20,7 @@ A Flickr WordPress plugin to display your photos either as a gallery, a galleria
 * Works with various LightBoxes such as Evolution LightBox, FancyBox, Highslide, LightBox Plus, Pretty Photo, Slimbox, ShadowBox, Shutterbox and ThickBox.
 * See http://www.slickrflickr.com/ for tutorials on using the plugin
 * See http://www.slickrflickr.com/pro/ for Pro Edition Priority Support and Bonus Features
-* New release 1.40 includes latest Galleria 1.2.7
+* New release 1.41 includes new Flickr photo sizes, Large Square (150x150px), Small 320 (320x240px) and Medium 800 (800x600px)
 
 == Installation ==
 1. Use the standard WordPress plugin automatic updates system for installing and updating to the latest version or use the manual steps below. 
@@ -48,25 +51,23 @@ See http://www.slickrflickr.com/slickr-flickr-help/ for the full list of questio
 
 == Changelog ==
 
+= 1.41 =
+* includes new Flickr photo sizes, Large Square, Small 320 and Medium 800
+
 = 1.40 =
-* Includes Galleria 1.2.7
+* includes Galleria 1.2.7
 
 = 1.39 =
 * Corrected reference to non-minified JS file
 * Add banner on WordPress Plugin page
 * Set galleria 1.2.6 debug to false to suppress reported warning message: Could not extract width/height from image
 
-= 1.38 =
-* Replaced non-compliant LightBox with BSD licensed LightBox by Warren Krevenski 
-* Removed non-compliant minified JS files
-* Added secondary license server (PRO)
-
 See full version history at http://www.slickrflickr.com/about/
 
 == Upgrade Notice ==
 
-= 1.40 = 
-* Recommended - includes latest Galleria 1.2.7
+= 1.41 = 
+* Recommended - includes new Flickr photo sizes
 
 == How to Use The Plugin ==
 
