@@ -25,6 +25,10 @@ get_header(); ?>
 
 							<div class="alpha grid_7">
 								<?php the_content(); ?>
+
+								<div class="clear">&nbsp;</div>
+
+								<div><?php comments_template( '', true ); ?></div>
 							</div><!-- .alpha .grid_7 -->
 
 							<div class="grid_5 omega">
@@ -35,7 +39,7 @@ get_header(); ?>
 
 							<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?>
 						</article><!-- .post -->
-
+						
 					<?php endwhile; // end of the loop. ?>
 
 			</section><!-- .grid_9 .content -->

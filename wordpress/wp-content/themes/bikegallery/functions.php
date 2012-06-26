@@ -547,6 +547,7 @@ function create_post_type() {
 			'title',
 			'editor',
 			'excerpt',
+			'comments',
 			'custom-fields',
 			'thumbnail'
 		),
