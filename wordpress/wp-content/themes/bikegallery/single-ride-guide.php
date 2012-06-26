@@ -28,7 +28,7 @@ get_header(); ?>
 							</div><!-- .alpha .grid_7 -->
 
 							<div class="grid_5 omega">
-								<div class="gray_block">
+								<div class="gray_block guide_sidebar">
 									<?php the_excerpt(); ?>
 								</div><!-- .gray_block -->
 							</div>

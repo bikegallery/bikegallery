@@ -31,6 +31,6 @@ get_header(); ?>
 			<h3>Recent Blog Posts</h3>
 			<ul><?php wp_get_archives('type=postbypost&format=html&limit=10'); ?></ul>
 			<h3>Recent Flickr</h3>
-			<?php echo do_shortcode('[slickr-flickr photos_per_row="2" start="random" type="gallery"]'); ?>
+			<?php echo do_shortcode('[slickr-flickr search="sets" set="72157630284645846" photos_per_row="2" type="slideshow" autoplay="on"]'); ?>
 	</aside>
 <?php get_footer(); ?>

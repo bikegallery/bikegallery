@@ -12,6 +12,7 @@
 	position:relative;
 	width:100%;
 	height:auto;
+	margin-bottom: 0 !important;
 	overflow: hidden;
 }
 .nivoSlider img {
@@ -99,7 +100,7 @@
 /* Control nav styles (e.g. 1,2,3...) */
 .nivo-controlNav {
 	text-align:center;
-	padding: 15px 0;
+	padding: 10px 0 5px !important;
 }
 .nivo-controlNav a {
 	cursor:pointer;

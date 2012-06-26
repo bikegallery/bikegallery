@@ -527,10 +527,6 @@ img.alignright {
 	text-align: center;
 }
 
-#respond {
-	padding: 1em;
-}
-
 #respond p,
 #respond #recaptcha_widget_div {
 	margin-bottom: 1em;
@@ -763,6 +759,10 @@ img.alignright {
 	background: #544023;
 }
 
+.guide_sidebar ul ul {
+	padding-left: 10px;
+}
+
 .gray_block .post-meta-key {
 	display: block;
 	margin-bottom: .5em;
@@ -771,6 +771,10 @@ img.alignright {
 .gray_block p {
 	margin: 0;
 	padding-right: .5em;
+}
+
+.guide_sidebar p {
+	margin-bottom: 10px;
 }
 
 .right_sidebar .widget-container li {
