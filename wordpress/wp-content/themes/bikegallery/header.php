@@ -82,15 +82,18 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<section class="site_alerts">
-		<?php if (is_active_sidebar('alert-widget-area') ) : ?>
-		<ul class="xoxo">
-			<?php dynamic_sidebar('alert-widget-area'); ?>
-		</ul>
-		<?php endif; ?>
-	</section><!-- .site_alerts -->
-
 	<section class="container_12 top_bar">
+
+		<section class="grid_12 site_alerts">
+			<?php if (is_active_sidebar('alert-widget-area') ) : ?>
+			<ul class="xoxo">
+				<?php dynamic_sidebar('alert-widget-area'); ?>
+			</ul>
+			<?php endif; ?>
+		</section><!-- .grid_12 .site_alerts -->
+		
+		<div class="clear">&nbsp;</div>
+
 		<section class="grid_2 logo">
 			<a href="/"><img src="/wordpress/wp-content/themes/bikegallery/images/outlined_logo.png" alt="Bike Gallery" /></a>
 		</section><!-- .grid_2 .logo -->
