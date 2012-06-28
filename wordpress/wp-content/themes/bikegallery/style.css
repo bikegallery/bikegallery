@@ -266,13 +266,13 @@ cite {
 
 /* Site Alerts _________________________________*/
 
-.site_alerts h1 {
+.site_alerts {
 	background: #487c71;
 	border-radius: 0 0 5px 5px;
 	color: #fff;
 	font-weight: normal;
 	margin: 0 0 .25em 0;
-	padding: .15em 0;
+	padding: .25em 0;
 	text-align: center;
 }
 
@@ -313,6 +313,10 @@ cite {
 
 
 /* Slider  _________________________________*/
+
+.post .slider-wrapper {
+	margin-bottom: 1em;
+}
 
 .post .nivo-controlNav {
 	display: none;
@@ -578,7 +582,8 @@ img.alignright {
 }
 
 .service_menu,
-.a_la_carte_menu {
+.a_la_carte_menu,
+.closeout_table {
 	border: 1px solid #c0c0c0;
 }
 
@@ -695,6 +700,11 @@ img.alignright {
 	padding: .5em;
 }
 
+.closeout_table thead tr {
+	border-bottom: #c0c0c0;
+	text-align: center;
+}
+
 /* Right Sidebar _________________________________*/
 
 .right_sidebar .widget-container {
@@ -703,6 +713,10 @@ img.alignright {
 
 .front_page_right_sidebar li {
 	margin-bottom: 1em;
+}
+
+.guide_archives h2 {
+	margin-bottom: 0;
 }
 
 .gray_block {

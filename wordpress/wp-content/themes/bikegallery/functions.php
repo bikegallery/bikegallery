@@ -557,4 +557,11 @@ function create_post_type() {
 
 add_filter( 'the_excerpt', 'do_shortcode');
 
+// Puts link in excerpts more tag
+function new_excerpt_more($more) {
+       global $post;
+	return '<a class="moretag" href="'. get_permalink($post->ID) . '"> Read more...</a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
 endif;

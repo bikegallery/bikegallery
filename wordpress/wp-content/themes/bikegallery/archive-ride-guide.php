@@ -38,6 +38,7 @@ get_header(); ?>
 					<?php _e( 'Ride Guides', 'twentyten' ); ?>
 				<?php endif; ?>
 			</h1>
+			<em>We're building our new ride guides section. Currently we only have the two below, but we'll be adding more in the coming weeks. If you have any questions about these guides, please <a href="mailto:jasonbritton@bikegallery.com">email us.</a></em>
 
 <?php
 	/* Since we called the_post() above, we need to
@@ -50,12 +51,9 @@ get_header(); ?>
 	 * If you want to overload this in a child theme then include a file
 	 * called loop-archives.php and that will be used instead.
 	 */
-	 // get_template_part( 'loop', 'archive' );
+	 get_template_part( 'loop', 'archives' );
 
 ?>
-
-		<em>We're building our new ride guides section. Currently we only have the one below, but we'll be adding more in the coming weeks. If you have specific questions, please <a href="mailto:jasonbritton@bikegallery.com">email us.</a></em>
-		<h2><a href="<?php the_permalink();  ?>"><?php the_title(); ?></a></h2>
 	</section><!-- .alpha .grid_9 -->
 
 	<section class="grid_3 right_sidebar guides_list">
