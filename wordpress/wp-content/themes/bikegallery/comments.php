@@ -65,7 +65,7 @@
 	 */
 	if ( ! comments_open() ) :
 ?>
-	<p><?php _e( 'Comments are closed.', 'twentyten' ); ?></p>
+<!--	<p><?php _e( 'Comments are closed.', 'twentyten' ); ?></p> -->
 <?php endif; // end ! comments_open() ?>
 
 <?php endif; // end have_comments() ?>
