@@ -557,6 +557,9 @@ function create_post_type() {
 
 add_filter( 'the_excerpt', 'do_shortcode');
 
+// Pages should have the option to have an excerpt. Here it is:
+add_post_type_support('page', 'excerpt');
+
 // Puts link in excerpts more tag
 function new_excerpt_more($more) {
        global $post;

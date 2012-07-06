@@ -797,9 +797,57 @@ img.alignright {
 	margin-bottom: 8px;
 }
 
+/* Summer Sale Table */
+.summer_sale_table td {
+	border-bottom: 1px solid #0a0a0a;
+	padding: .5em 0;
+}
+
+.door_busters tr {
+	border-bottom: 1px solid #999;
+}
+
+.door_busters td {
+	padding: .5em 1em .5em .5em;
+}
+
+.door_busters h2 {
+	font-size: 1.7em;
+	margin-bottom: 0;
+}
+
+.door_busters strong {
+	font-size: 1.3em;
+}
+
+.door_busters img {
+	margin: 1em 0;
+}
+
+.bikes_on_sale {
+	margin-bottom: 1em;
+	text-align: center;
+}
+
+.bikes_on_sale h2 {
+	display: inline;
+	margin-bottom: 0;
+}
+
+.bikes_on_sale strong {
+	display: block;
+}
+
+.individual_bikes h2, 
+.individual_bikes em {
+	display: inline;
+}
+
+.individual_bikes p {
+	margin-bottom: 0;
+}
 
 /* Footer _________________________________*/
-
 
 .footer {
 	background: #0a0a0a;
@@ -842,7 +890,7 @@ img.alignright {
 
 .copyright img {
 	margin-bottom: 10px;
-	max-width: 200px;
+	max-width: 140px;
 }
 
 
