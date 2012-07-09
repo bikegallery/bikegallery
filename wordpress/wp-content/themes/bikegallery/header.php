@@ -177,7 +177,8 @@
 			<div class="clear">&nbsp;</div>
 
 			<?php if ( is_front_page() ) { ?>
-				<?php echo do_shortcode('[nivoslider slug="full-width-slider"]'); ?>
+				<?php if(function_exists('wp_content_slider')) { wp_content_slider(); } ?>
+				<?php // echo do_shortcode('[nivoslider slug="full-width-slider"]'); ?>
 			<?php } ?>				
 
 		</header><!-- .header -->

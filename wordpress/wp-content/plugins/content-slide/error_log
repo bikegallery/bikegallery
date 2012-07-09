@@ -1,0 +1,6 @@
+[30-Aug-2011 23:18:56] PHP Fatal error:  Call to undefined function  get_option() in /home1/sellwood/public_html/wordpress/wp-content/plugins/content-slide/options_page.php on line 4
+[30-Aug-2011 23:20:56] PHP Fatal error:  Call to undefined function  trailingslashit() in /home1/sellwood/public_html/wordpress/wp-content/plugins/content-slide/content_slide.php.bak on line 31
+[24-Oct-2011 06:53:06] PHP Fatal error:  Call to undefined function  trailingslashit() in /home1/sellwood/public_html/wordpress/wp-content/plugins/content-slide/content_slide.php.bak on line 31
+[06-Feb-2012 12:13:33] PHP Fatal error:  Call to undefined function  trailingslashit() in /home1/sellwood/public_html/wordpress/wp-content/plugins/content-slide/content_slide.php on line 31
+[06-Feb-2012 12:57:12] PHP Fatal error:  Call to undefined function  trailingslashit() in /home1/sellwood/public_html/wordpress/wp-content/plugins/content-slide/content_slide.php on line 31
+[06-Feb-2012 13:39:04] PHP Fatal error:  Call to undefined function  trailingslashit() in /home1/sellwood/public_html/wordpress/wp-content/plugins/content-slide/content_slide.php on line 31

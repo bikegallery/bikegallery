@@ -8,7 +8,7 @@
  */
 
 get_header(); ?>
-
+<img src="/wordpress/wp-content/themes/bikegallery/images/summer_sale_banner.jpg" alt="Summer Sale Banner" class="summer_sale_banner" />
 			<section class="grid_12 posts content">
 
 				<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
@@ -17,9 +17,6 @@ get_header(); ?>
 						<?php if ( has_post_thumbnail() ) {
 							the_post_thumbnail();
 						} ?> 
-						<div class="post_meta">
-							<h1><?php the_title(); ?></h1>
-						</div><!-- .post_meta -->
 
 						<div class="alpha grid_7">
 							<?php the_content(); ?>
@@ -34,7 +31,7 @@ get_header(); ?>
 
 						<h3>BIKES ON SALE</h3>
 						<div class="alpha grid_4">
-							<h2>UP TO $200 OFF 2012 Trek Road Bikes*</h2>
+							<h2 class="summer_sale_two_hundred_off">UP TO $200 OFF 2012 Trek Road Bikes*</h2>
 						</div>
 
 						<div class="grid_4">
@@ -298,11 +295,16 @@ get_header(); ?>
 						<div class="clear">&nbsp;</div>
 
 						<div class="alpha grid_3 bikes_on_sale">
-							<a href="http://shop.bikegallery.com/sitesearch.cfm?rb_br=42&search=tires&rb_ct=1103" alt="Bontrager Assorted Tires">
-								<img src="/wordpress/wp-content/themes/bikegallery/images/summer_sale/assorted_tires.jpg" alt="Bontrager Assorted Tires" />
-							</a>
+							<img src="/wordpress/wp-content/themes/bikegallery/images/summer_sale/assorted_tires.jpg" alt="Bontrager Assorted Tires" />
 							<h2>UP TO $20 OFF</h2>
-							<strong><a href="http://shop.bikegallery.com/sitesearch.cfm?rb_br=42&search=tires&rb_ct=1103" alt="Bontrager Assorted Tires">Bontrager Tires - see store for details</a><strong>
+							<strong>Assorted Tires</strong>
+							<strong><a href="http://shop.bikegallery.com/product/bontrager-race-all-weather-hardcase-60745-1.htm" alt="Bontrager All Race Weather Hardcase Tires">Bontrager All Weather Race Hardcase</a><strong>
+							<strong class="inline_strong"><a href="http://shop.bikegallery.com/product/bontrager-t1-road-tire-27-inch-84454-1.htm" alt="Bontrager T1 Tires">T1 Tires</a></strong> / <strong class="inline_strong"><a href="http://shop.bikegallery.com/product/bontrager-r2-road-tire-70638-1.htm" alt="Bontrager R2 Tires">R2 Tires</a><strong class="inline_strong"> / <strong class="inline_strong"><a href="http://shop.bikegallery.com/product/bontrager-r3-road-tire-70642-1.htm" alt="Bontrager R3 Tires">R3 Tires</a><strong>
+							<strong><a href="http://shop.bikegallery.com/product/bontrager-rl-hardcase-50905-1.htm" alt="Race Lite Hardcase">Race Lite Hardcase</a></strong>
+							<strong><a href="http://shop.bikegallery.com/sitesearch.cfm?goSiteSearch.x=0&goSiteSearch.y=0&search=h2%20hardcase&rb_ct=1101" alt="H2 Hardcase Plus">H2 Hardcase Plus</a></strong>
+							<strong><a href="http://shop.bikegallery.com/sitesearch.cfm?goSiteSearch.x=0&goSiteSearch.y=0&search=h2%20deluxe&rb_ct=1101" alt="H2 Deluxe">H2 Deluxe</a></strong>
+
+							</a>
 						</div>
 
 						<div class="grid_3 bikes_on_sale">
@@ -332,6 +334,14 @@ get_header(); ?>
 						<div class="clear">&nbsp;</div>
 
 						<div class="alpha grid_3 bikes_on_sale">
+							<a href="http://shop.bikegallery.com/product/bontrager-trip-4w-73750-1.htm" alt="Bontrager Trip 4W Computer">
+								<img src="/wordpress/wp-content/themes/bikegallery/images/summer_sale/trip4_computer.jpg" alt="Bontrager Trip 4W Computer" />
+							</a>
+							<h2>$39.99</h2><em>Orig $49.99</em>
+							<strong><a href="http://shop.bikegallery.com/product/bontrager-trip-4w-73750-1.htm" alt="Bontrager Trip 4W Computer">Bontrager Trip 4W Computer - 9 functions including dual wheel size and auto start/stop</a></strong>
+						</div>
+
+						<div class="grid_3 bikes_on_sale">
 							<a href="http://shop.bikegallery.com/product/bontrager-trip-3-73748-1.htm" alt="Bontrager Trip 3 Computer">
 								<img src="/wordpress/wp-content/themes/bikegallery/images/summer_sale/trip3_computer.jpg" alt="Bontrager Trip 3 Computer" />
 							</a>
@@ -339,8 +349,12 @@ get_header(); ?>
 							<strong><a href="http://shop.bikegallery.com/product/bontrager-trip-3-73748-1.htm" alt="Bontrager Trip 3 Computer">Bontrager Trip 3 Computer - 11 functions including temp and cadence</a></strong>
 						</div>
 
-						<div class="grid_9 omega bikes_on_sale">
-							<h3>This is an area that could use some disclaimers or other info...</h3>
+						<div class="grid_3 bikes_on_sale">
+							<a href="http://shop.bikegallery.com/product/bontrager-node-1.1-digital-computer-167802-1.htm" alt="Bontrager Node 1.1 Computer">
+								<img src="/wordpress/wp-content/themes/bikegallery/images/summer_sale/node_1_1.jpg" alt="Bontrager Node 1.1 Computer" />
+							</a>
+							<h2>$69.99</h2><em>Orig $49.99</em>
+							<strong><a href="http://shop.bikegallery.com/product/bontrager-node-1.1-digital-computer-167802-1.htm" alt="Bontrager Node 1.1 Computer">Bontrager Node 1.1 Computer - 11 functions including temp and cadence</a></strong>
 						</div>
 
 						<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?>

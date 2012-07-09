@@ -798,6 +798,10 @@ img.alignright {
 }
 
 /* Summer Sale Table */
+.page-template-summer-sale-php h3 {
+	background: #e12529;
+}
+
 .summer_sale_table td {
 	border-bottom: 1px solid #0a0a0a;
 	padding: .5em 0;
@@ -846,6 +850,19 @@ img.alignright {
 .individual_bikes p {
 	margin-bottom: 0;
 }
+
+.summer_sale_banner {
+	margin: 0 0 1em 10px;
+}
+
+.summer_sale_two_hundred_off {
+	color: #e12529;
+}
+
+.inline_strong {
+	display: inline !important;
+}
+
 
 /* Footer _________________________________*/
 
