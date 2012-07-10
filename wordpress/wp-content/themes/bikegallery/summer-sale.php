@@ -353,7 +353,7 @@ get_header(); ?>
 							<a href="http://shop.bikegallery.com/product/bontrager-node-1.1-digital-computer-167802-1.htm" alt="Bontrager Node 1.1 Computer">
 								<img src="/wordpress/wp-content/themes/bikegallery/images/summer_sale/node_1_1.jpg" alt="Bontrager Node 1.1 Computer" />
 							</a>
-							<h2>$69.99</h2><em>Orig $49.99</em>
+							<h2>$49.99</h2><em>Orig $69.99</em>
 							<strong><a href="http://shop.bikegallery.com/product/bontrager-node-1.1-digital-computer-167802-1.htm" alt="Bontrager Node 1.1 Computer">Bontrager Node 1.1 Computer - 11 functions including temp and cadence</a></strong>
 						</div>
 
