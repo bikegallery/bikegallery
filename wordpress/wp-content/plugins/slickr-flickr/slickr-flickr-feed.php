@@ -18,7 +18,7 @@ class slickr_flickr_feed{
   var $user_id = ''; //Flickr NS ID 
   var $flickr = false; //phpFlickr Object
   var $cache = false; //plugin cache
-  
+    
   function get_photos() { return $this->photos; }
   function get_count() { return count($this->photos); }  
   function is_error() { return $this->error; }  
@@ -62,7 +62,7 @@ class slickr_flickr_feed{
     }
     return $this->photos;
 }
- 
+  
   function call_flickr_api() {
 		$photos = array();
 		$resp = $this->flickr->call($this->method, $this->args);

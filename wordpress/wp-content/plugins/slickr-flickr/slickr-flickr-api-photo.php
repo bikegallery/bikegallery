@@ -23,9 +23,10 @@ class slickr_flickr_api_photo {
     $this->date = array_key_exists('date_taken',$item) ? $item['date_taken'] : '' ;
     $this->title = $this->cleanup($item['title']);
     $this->description = array_key_exists('description',$item) ? $this->cleanup($item['description']) : '' ;
-    $height = array_key_exists('o_height',$item) ? $item['o_height'] : 0 ;
-    $width = array_key_exists('o_width',$item) ? $item['o_width'] : 0 ;
-    $this->orientation = $height > $width ? "portrait" : "landscape" ;
+    $this->height = array_key_exists('o_height',$item) ? $item['o_height'] : 0 ;
+    $this->width = array_key_exists('o_width',$item) ? $item['o_width'] : 0 ;
+    if (($this->height==0) || ($this->width==0)) $this->get_dims();
+    $this->orientation = $this->height > $this->width ? "portrait" : "landscape" ;
   }
 
   function get_url() { return $this->url; }
@@ -76,5 +77,16 @@ class slickr_flickr_api_photo {
     return implode('/', $url_array);
   }
   
+	function get_dims(){
+    	$headers = array("Range: bytes=0-32768");
+	    $curl = curl_init($this->url);
+	    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+	    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+	    $data = curl_exec($curl);
+	    curl_close($curl);
+		$im = imagecreatefromstring($data);
+		$this->width = imagesx($im);
+		$this->height = imagesy($im);
+     }
 }
 ?>

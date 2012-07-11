@@ -61,7 +61,6 @@ class slickr_flickr_admin {
 		add_meta_box('slickr-flickr-lightbox', __('LightBox Options',SLICKR_FLICKR), array(&$this, 'lightbox_panel'), $this->pagehook, 'normal', 'core');
 		add_meta_box('slickr-flickr-galleria', __('Galleria Options',SLICKR_FLICKR), array(&$this, 'galleria_panel'), $this->pagehook, 'normal', 'core');
 		add_meta_box('slickr-flickr-advanced', __('Advanced Options',SLICKR_FLICKR), array(&$this, 'advanced_panel'), $this->pagehook, 'normal', 'core');
-		add_meta_box('slickr-flickr-pro', __('Pro Options',SLICKR_FLICKR), array(&$this, 'pro_panel'), $this->pagehook, 'normal', 'core');
 		add_meta_box('slickr-flickr-help', __('Help',SLICKR_FLICKR), array(&$this, 'help_panel'), $this->pagehook, 'side', 'core');
 		add_meta_box('slickr-flickr-cache', __('Caching',SLICKR_FLICKR), array(&$this, 'cache_panel'), $this->pagehook, 'side', 'core');
 		add_meta_box('slickr-flickr-lightboxes', __('Compatible LightBoxes',SLICKR_FLICKR), array(&$this, 'lightboxes_panel'), $this->pagehook, 'side', 'core');
@@ -88,31 +87,18 @@ class slickr_flickr_admin {
   		if ($options) {
   			$flickr_options = array();
   			$slickr_options = array();
-  			$updateslic = false; $updates = false; $updatespro = false;
-			$pro_options = slickr_flickr_pro_get_options(false);  
+  			$updates = false; 
     		// retrieve option values from POST variables
     		foreach ($options as $option) {
        			$option = trim($option);
        			$val = array_key_exists($option, $_POST) ? trim(stripslashes($_POST[$option])) : '';
-       			if (substr($option,0,7) == 'flickr_')
-    				$flickr_options[$option] = $val;
-       			else {
- 					if ($option == 'slickr_licence') { 
- 			  			$updateslic = SlickrFlickrUpdater::save_licence($val);
- 			  		} else {
-          				$old_value = $pro_options[substr($option,7)];
-          				$slickr_options[$option] = $val;
-              			if ($slickr_options[$option] == md5($old_value)) $slickr_options[$option] = $old_value;
-					}
-	    		}
+				$flickr_options[$option] = $val;
     		} //end for
 
    			$updates =  update_option("slickr_flickr_options", $flickr_options) ;
-   			$updatespro = update_option("slickr_flickr_pro_options", $slickr_options);
   		    $class="updated fade";
-   			if ($updates || $updatespro || $updateslic)  {
+   			if ($updates)  {
 				slickr_flickr_get_options(false); //update cache
-				slickr_flickr_pro_get_options(false); //update cache
        			$message = __("Slickr Flickr Settings saved.",SLICKR_FLICKR_ADMIN);
    			} else
        			$message = __("No Slickr Flickr settings were changed since last update.",SLICKR_FLICKR_ADMIN);
@@ -121,52 +107,6 @@ class slickr_flickr_admin {
        		$message= "Slickr Flickr settings not found!";
   		}
   		return '<div id="message" class="' . $class .' "><p>' . $message. '</p></div>';
-	}
-
-	function pro_panel ($post, $metabox) {
-		$options = slickr_flickr_get_options();		
-		$pro_options = slickr_flickr_pro_get_options();
-		$licence = SlickrFlickrUpdater::get_licence();
-		$is_pro = false;
-		$key_status_indicator ='';
-		$notice ='';
-		if (! empty($licence)) {
-   			$is_pro = SlickrFlickrUpdater::check_validity();
-   			$flag = $is_pro ? 'tick' : 'cross';
-    		$expiry = SlickrFlickrUpdater::get_expiry(); 
-    		if (!empty($expiry)) $expiry = 'License Expiry : '.$expiry;   			
-    		$key_status_indicator = '<img src="' . SLICKR_FLICKR_PLUGIN_URL .'/images/'.$flag.'.png" alt="a '.$flag.'" />&nbsp;'.$expiry;
-   			$notice = $is_pro ? '': ('<p>'.SlickrFlickrUpdater::get_notice().'</p>');
-  		}
-		$consumer_secret = md5($pro_options['consumer_secret']);
-		$token = md5($pro_options['token']);
-		$token_secret = md5($pro_options['token_secret']);
-        $readonly = $is_pro ? '' : 'readonly="readonly" class="readonly"';
-        $home = SLICKR_FLICKR_HOME;
-        $pro = SLICKR_FLICKR_PRO;
-		print <<< PRO_PANEL
-<h4>Slickr Flickr Pro Licence Key: <input name="slickr_licence" id="slickr_licence" type="password" style="width:320px" value="{$licence}" />&nbsp;{$key_status_indicator}</h4>
-{$notice}
-<p>The Slickr Flickr Pro Licence Key is required if you want to get support through the <a href="{$pro}/forum/">Slickr Flickr Pro Forums</a> and 
-also use some of the <a href="{$home}/pro/">Slickr Flickr Pro Bonus features</a>.</p>
-<h4>Flickr API Secret: <input name="slickr_consumer_secret" id="slickr_consumer_secret" type="password" style="width:200px" {$readonly} value="{$consumer_secret}" /></h4>
-<p>The Flickr API Secret is required if you want to make authenticated requests to Flickr.</p>
-<p>This is the secret key that is paired with your API key and can be found by logging in to Flickr and then visiting <a href="http://www.flickr.com/services/api/keys/">Flickr API Keys</a>.</p>
-<h4> Flickr Authentication Token: <input name="slickr_token" id="slickr_token" type="password" style="width:480px" {$readonly} value="{$token}" /></h4>
-<p>The Flickr Authentication Token is required if you want to be able to fetch private photos.</p>
-<p>The token must be set up with READ permission to access your private photos.</p>
-<p>Please log in to your <a href="{$pro}">Slickr Flickr Pro Dashboard</a> for instructions on requesting a Flickr Authentication Token.</p>
-<p>In the next version of Slickr Flickr I will add a "Verify Token" on this page so you can easily check that all the secrets codes have been copied correctly.</p>
-<h4>Flickr Authentication Token Secret: <input name="slickr_token_secret" id="slickr_token_secret" type="password" style="width:200px" {$readonly} value="{$token_secret}" /></h4>
-<p>The Flickr Authentication Token Secret is required if you want to be able to fetch private photos. Follow the instructions above to obtain your token secret</p>
-<h4>Thumbnail Border Color: <input name="flickr_thumbnail_border" id="flickr_thumbnail_border" type="text" {$readonly} value="{$options['thumbnail_border']}" /></h4>
-<p>If you want to set a default thumbnail border color then supply the color as a hex code preceded by a #. e.g Red is #FF0000</p>
-<h4>Slideshow Transition Time: <input name="flickr_transition" id="flickr_transition" type="text" {$readonly} value="{$options['transition']}" /></h4>
-<p>If you leave this blank then the plugin will take half a second to fade one slide into the next.</p>
-<p>If you supply a number it here, the plugin will remember it so you do not need to supply it for every slideshow.</p>
-<p>You are still able to supply a different delay for individual slideshow by specifying it in the post</p>
-<p>For example [slickr-flickr tag="bahamas" transition="2"] displays a slideshow with a 2 second fade transition between slides</p>
-PRO_PANEL;
 	}
 
 	function id_panel($post, $metabox) {		
@@ -310,26 +250,22 @@ LIGHTBOX_PANEL;
 	function galleria_panel($post, $metabox) {		
 		$options = slickr_flickr_get_options();			
 		$galleria_10 = $options['galleria']=="galleria-1.0"?'selected="selected"':'';
-		$galleria_12 = $options['galleria']=="galleria-1.2"?'selected="selected"':'';
-		$galleria_123 = $options['galleria']=="galleria-1.2.3"?'selected="selected"':'';
-		$galleria_125 = $options['galleria']=="galleria-1.2.5"?'selected="selected"':'';
-		$galleria_126 = $options['galleria']=="galleria-1.2.6"?'selected="selected"':'';
 		$galleria_127 = $options['galleria']=="galleria-1.2.7"?'selected="selected"':'';
 		$galleria_none = $options['galleria']=="galleria-none"?'selected="selected"':'';
 		$home = SLICKR_FLICKR_HOME;
 		print <<< GALLERIA_PANEL
 <h4>Galleria Version: <select name="flickr_galleria" id="flickr_galleria">
-<option {$galleria_10} value="galleria-1.0">Galleria 1.0 - original version</option>
-<option {$galleria_12} value="galleria-1.2">Galleria 1.2 - with carousel and skins</option>
-<option {$galleria_123} value="galleria-1.2.3">Galleria 1.2.3</option>
-<option {$galleria_125} value="galleria-1.2.5">Galleria 1.2.5</option>
-<option {$galleria_126} value="galleria-1.2.6">Galleria 1.2.6</option>
 <option {$galleria_127} value="galleria-1.2.7">Galleria 1.2.7 - latest version</option>
+<option {$galleria_10} value="galleria-1.0">Galleria 1.0 - original version</option>
 <option {$galleria_none} value="galleria-none">Galleria not required so do not load the script</option>
 </select></h4>
 <p>Choose which version of the galleria you want to use. We recommend you use the latest version of the galleria as this has the most features.</p>
 <h4>Galleria Theme: <input name="flickr_galleria_theme" type="text" id="flickr_galleria_theme" value="{$options['galleria_theme']}" /></h4>
 <p>The default theme is "classic". Only change this value is you have purchased a <a href="http://galleria.aino.se/themes/">premium Galleria theme</a> or written one and placed the theme folder in the ./wp-content/plugins/slickr-flickr/galleria-x.y.z/themes folder for the version of the galleria you have selected above</p>
+<h4>Galleria Themes Folder: <input name="flickr_galleria_themes_folder" type="text" id="flickr_galleria_themes_folder" value="{$options['galleria_themes_folder']}" /></h4>
+<p>The recommended location is "galleria/themes". Prior to WordPress 3.3 you could put the themes 
+under wp-content/plugins/slickr-flickr/galleria but this is no longer possible since WordPress now wipes the plugin folder
+of any extra files that are not part of the plugin.</p>
 <h4>Galleria Options</h4>
 <textarea name="flickr_galleria_options"  id="flickr_galleria_options" cols="80" rows="4">{$options['galleria_options']}</textarea>
 <p>Here you can set default options for the galleria 1.2 and later versions.</p>
@@ -434,7 +370,7 @@ CACHE_PANEL;
 			<?php do_meta_boxes($this->pagehook, 'normal', null); ?>
 			<p class="submit">
 			<input type="submit"  class="button-primary" name="options_update" value="Save Changes" />
-			<input type="hidden" name="page_options" value="flickr_id,flickr_group,flickr_api_key,slickr_licence,slickr_consumer_secret,slickr_token,slickr_token_secret,flickr_items,flickr_type,flickr_size,flickr_captions,flickr_autoplay,flickr_delay,flickr_scripts_in_footer,flickr_transition,flickr_thumbnail_border,flickr_lightbox,flickr_galleria,flickr_galleria_theme,flickr_galleria_options" />
+			<input type="hidden" name="page_options" value="flickr_id,flickr_group,flickr_api_key,flickr_items,flickr_type,flickr_size,flickr_captions,flickr_autoplay,flickr_delay,flickr_scripts_in_footer,flickr_transition,flickr_thumbnail_border,flickr_lightbox,flickr_galleria,flickr_galleria_theme,flickr_galleria_themes_folder,flickr_galleria_options" />
 			<?php wp_nonce_field(SLICKR_FLICKR_ADMIN); ?>
 			<?php wp_nonce_field('closedpostboxes', 'closedpostboxesnonce', false ); ?>
 			<?php wp_nonce_field('meta-box-order', 'meta-box-order-nonce', false ); ?>

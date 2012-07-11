@@ -3,8 +3,8 @@ Contributors: powerblogservice
 Donate link: http://www.slickrflickr.com/donate/
 Tags: wordpress flickr plugin, flickr wordpress plugin, flickr slideshow, flickr gallery, flickr galleria, flickr photo gallery, slideshow lightbox, flickr widget, flickr rss, flickr api
 Requires at least: 3.0
-Tested up to: 3.4
-Stable tag: 1.41
+Tested up to: 3.4.1
+Stable tag: 1.42
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,7 +20,7 @@ A Flickr WordPress plugin to display your photos either as a gallery, a galleria
 * Works with various LightBoxes such as Evolution LightBox, FancyBox, Highslide, LightBox Plus, Pretty Photo, Slimbox, ShadowBox, Shutterbox and ThickBox.
 * See http://www.slickrflickr.com/ for tutorials on using the plugin
 * See http://www.slickrflickr.com/pro/ for Pro Edition Priority Support and Bonus Features
-* New release 1.41 includes new Flickr photo sizes, Large Square (150x150px), Small 320 (320x240px) and Medium 800 (800x600px)
+* New release 1.42 includes has new location of galleria themes and correctly derives orientation photos fetched via the Flickr API
 
 == Installation ==
 1. Use the standard WordPress plugin automatic updates system for installing and updating to the latest version or use the manual steps below. 
@@ -51,22 +51,20 @@ See http://www.slickrflickr.com/slickr-flickr-help/ for the full list of questio
 
 == Changelog ==
 
+= 1.42 =
+* new location of Galleria themes - removed license checking
+
 = 1.41 =
 * includes new Flickr photo sizes, Large Square, Small 320 and Medium 800
 
 = 1.40 =
 * includes Galleria 1.2.7
 
-= 1.39 =
-* Corrected reference to non-minified JS file
-* Add banner on WordPress Plugin page
-* Set galleria 1.2.6 debug to false to suppress reported warning message: Could not extract width/height from image
-
 See full version history at http://www.slickrflickr.com/about/
 
 == Upgrade Notice ==
 
-= 1.41 = 
+= 1.42 = 
 * Recommended - includes new Flickr photo sizes
 
 == How to Use The Plugin ==
@@ -85,7 +83,6 @@ If you don't want to specify all the settings for every Flickr slideshow or gall
 * Go to the "Settings" section, and choose "Slickr Flickr"
 * Enter your Flickr Id (the ID is of the form 12345678@N00) and choose whether it is a user or group id
 * Enter your Flickr API Key (optional) 
-* Enter your Slickr Flickr Pro Licence (optional) 
 
 
 For more information on the other defaults you can set up, go to http://www.slickrflickr.com/40/how-to-use-slickr-flickr-admin-settings/
