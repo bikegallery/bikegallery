@@ -506,6 +506,18 @@ ul.page_sublinks li {
 	margin-bottom: 1em;
 }
 
+.wp-caption {
+	background: #e1e1e1;
+}
+
+.wp-caption img {
+	margin: 5px 0 0 5px;
+}
+
+.wp-caption p {
+	margin-bottom: 5px;
+}
+
 .alignleft,
 img.alignleft {
 	float: left;
