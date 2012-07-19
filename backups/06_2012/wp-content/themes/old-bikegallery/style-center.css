@@ -1,0 +1,72 @@
+/* Header _________________________________*/
+
+.header {
+	background: #0a0a0a url(/wordpress/wp-content/themes/bikegallery/images/banner_image.jpg) 0 90px no-repeat;
+	color: #fff;
+	height: 240px;
+	position: relative;
+	z-index: 0;
+}
+
+.photo_credit {
+	bottom: 0;
+	font-size: .65em;
+	position: absolute;
+	right: 3px;
+	text-align: right;
+}
+
+.photo_credit a {
+	color: #777;
+}
+
+.photo_credit a:hover {
+	color: #999;
+}
+
+.locations {
+	border-bottom: 1px solid #fff;
+	font-size: .65em;
+}
+
+.locations,
+.tagline {
+	text-align: center;
+	z-index: 1;
+}
+
+.tagline {
+	color: #999;
+	font-family: Georgia, serif;
+	font-size: .75em;
+	padding: 5px;
+}
+
+.locations li {
+	display: inline-block;
+	margin: 10px 8px;
+}
+
+.logo {
+	background: rgba(0,0,0,.9);
+	box-shadow: 0 0 10px #000;
+	padding: 10px 0;
+	text-align: center;
+	z-index: 2;
+}
+
+.logo img {
+	max-width: 200px;
+}
+
+.header .screen-reader-text {
+	display: none;
+}
+
+.banner {
+	background: #fff;
+	position: relative;
+	top: -60px;
+}
+
+
