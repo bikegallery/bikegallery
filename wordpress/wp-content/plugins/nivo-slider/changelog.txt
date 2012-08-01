@@ -1,5 +1,18 @@
 *** Nivo Slider WordPress Plugin Changelog ***
 
+2012.07.31 - version 1.8
+ * [New] Added 3 new themes
+ * [New] Set alt text of images on Manual sliders (auto set on other types of slider)
+ * [New] Added "Custom Post Type" sliders
+ * [New] Added nivo_slider() template tag
+ * [New] Upload custom slider themes to the "wp-content/uploads/nivo-themes" folder (to avoid being overwritten on update)
+ * [New] Set "nivo_image_link" custom post meta to override the image link for non-Manual sliders
+ * [Changed] Updated Nivo Slider jQuery plugin to v3.1
+ * [Changed] Removed "Hide Direction Navigation on Hover" option 
+ * [Changed] If theme doesn't support thumbnails settings will be hidden
+ * [Changed] If invalid slider ID/slug no message will be shown
+ * [Fixed] General optimisation and bug fixing
+
 2012.05.31 - version 1.7.1
  * [Changed] Updated Nivo Slider jQuery plugin to v3.0.1
 

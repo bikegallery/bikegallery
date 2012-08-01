@@ -2,6 +2,7 @@
 #nivo_type_category,
 #nivo_type_captions,
 #nivo_type_gallery,
+#nivo_type_custom,
 #nivo_slider_size,
 #minor-publishing {
     display:none;
@@ -86,7 +87,8 @@
 }
 .slider-type-gallery #nivo-file-uploader,
 .slider-type-category #nivo-file-uploader,
-.slider-type-sticky #nivo-file-uploader {
+.slider-type-sticky #nivo-file-uploader,
+.slider-type-custom #nivo-file-uploader {
     display:none;
 }
 
