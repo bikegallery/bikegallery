@@ -177,15 +177,15 @@
 			<div class="clear">&nbsp;</div>
 
 			<?php if ( is_front_page() ) { ?>
-				<?php if(function_exists('wp_content_slider')) { wp_content_slider(); } ?>
-				<?php // echo do_shortcode('[nivoslider slug="full-width-slider"]'); ?>
+				<?php // if(function_exists('wp_content_slider')) { wp_content_slider(); } ?>
+				<?php echo do_shortcode('[nivoslider slug="front-page"]'); ?>
 			<?php } ?>				
 
 		</header><!-- .header -->
 
 		<?php if ( is_front_page() ) { ?>
 			<section class="grid_12 front_page_intro">
-				<h1><?php the_title(); ?></h1>
+				<h1>Our mission since 1974: More people on bikes more often.</h1>
 				<h2>If you can't tell, we're passionate about bikes. But it's not just the latest cycling gizmo that gets us excited. It's about getting to be part of real people reaching their cycling goals, whether it's two miles, a century (that's a hundred miles), or a two-month tour.</h2>
 			</section><!-- .grid_12 -->
 		<?php } ?>				
@@ -199,10 +199,6 @@
 					</ul>
 					<?php endif; ?>
 				</section><!-- .grid_2 .left_sidebar -->
-			<?php } ?>				
-
-			<?php if ( is_front_page()  ) { ?>
-
 			<?php } else { ?>
 				<div class="page_utility">
 					<div class="grid_9 breadcrumbs">
@@ -211,6 +207,7 @@
 						bcn_display();
 					    }?>
 					</div><!-- .grid_9 .breadcrumbs -->
+
 					<div class="grid_3 widget_search">
 						<?php get_search_form(); ?>
 					</div><!-- .grid_3 .widget_search -->

@@ -18,6 +18,11 @@ get_header(); ?>
 		<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
 			<article class="post">
+				<div class="post_meta">
+					<h1><?php the_title(); ?></h1>
+					<a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a>&nbsp;|&nbsp;<a href=""><?php comments_number(); ?></a>&nbsp;|&nbsp;posted by <?php the_author_posts_link();?>&nbsp;|&nbsp;<?php the_category(', '); ?>
+				</div><!-- .post_meta -->
+
 				<?php the_content(); ?>
 				<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'twentyten' ), 'after' => '' ) ); ?>
 				<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?>
@@ -28,9 +33,10 @@ get_header(); ?>
 	</section><!-- .grid_7 .content -->
 
 	<aside class="grid_3 front_page_right_sidebar">
-			<h3>Recent Blog Posts</h3>
-			<ul><?php wp_get_archives('type=postbypost&format=html&limit=10'); ?></ul>
-			<h3>Recent Flickr</h3>
-			<?php echo do_shortcode('[slickr-flickr search="sets" set="72157630284645846" photos_per_row="2" type="slideshow" autoplay="on"]'); ?>
+		<?php if (is_active_sidebar('event-widget-area') ) : ?>
+		<ul class="xoxo">
+			<?php dynamic_sidebar('event-widget-area'); ?>
+		</ul>
+		<?php endif; ?>
 	</aside>
 <?php get_footer(); ?>

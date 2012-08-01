@@ -294,7 +294,7 @@ cite {
 }
 
 .left_sidebar .widget_search input {
-	max-width: 105px;
+	max-width: 115px;
 }
 
 .left_sidebar .widget_text {
@@ -722,8 +722,17 @@ img.alignright {
 	margin-bottom: 10px;
 }
 
+.front_page_right_sidebar {
+	text-align: center;
+}
+
 .front_page_right_sidebar li {
 	margin-bottom: 1em;
+}
+
+.front_page_right_sidebar strong {
+	display: block;
+	margin-bottom: 1.5em;
 }
 
 .guide_archives h2 {

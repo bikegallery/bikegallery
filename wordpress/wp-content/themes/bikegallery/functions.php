@@ -365,18 +365,7 @@ endif;
  * @uses register_sidebar
  */
 function twentyten_widgets_init() {
-	// Area 8, located in the right sidebar for Guide Archives
-	register_sidebar( array(
-		'name' => __( 'Guide Widget Area', 'twentyten' ),
-		'id' => 'guide-widget-area',
-		'description' => __( 'The guide sidebar widget area', 'twentyten' ),
-		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-		'after_widget' => '</li>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
-
-	// Alert Widget for comany announcements
+	// Alert Widget for company announcements
 	register_sidebar( array(
 		'name' => __( 'Alert Widget Area', 'twentyten' ),
 		'id' => 'alert-widget-area',
@@ -387,7 +376,18 @@ function twentyten_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 
-	// Area 1, located in the header
+	// Front page widget for events on the right sidebar
+	register_sidebar( array(
+		'name' => __( 'Events Widget Area', 'twentyten' ),
+		'id' => 'event-widget-area',
+		'description' => __( 'The events sidebar widget area', 'twentyten' ),
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</li>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+
+	// Area 1, Left Sidebar widgets on the front page
 	register_sidebar( array(
 		'name' => __( 'Left Sidebar Widget Area', 'twentyten' ),
 		'id' => 'left-sidebar-widget-area',
@@ -458,6 +458,17 @@ function twentyten_widgets_init() {
 		'name' => __( 'Fifth Footer Widget Area', 'twentyten' ),
 		'id' => 'fifth-footer-widget-area',
 		'description' => __( 'The fifth footer widget area', 'twentyten' ),
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</li>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+
+	// Area 8, located in the right sidebar for Guide Archives
+	register_sidebar( array(
+		'name' => __( 'Guide Widget Area', 'twentyten' ),
+		'id' => 'guide-widget-area',
+		'description' => __( 'The guide sidebar widget area', 'twentyten' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
