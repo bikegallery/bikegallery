@@ -184,6 +184,7 @@ cite {
 
 .nav ul {
 	position: relative;
+	text-align: left;
 }
 
 .nav li {
@@ -305,9 +306,13 @@ cite {
 	display: block;
 }
 
+.left_sidebar strong {
+	display: block;
+	margin-bottom: 1.5em;
+}
+
 .left_sidebar img {
-	margin-bottom: 3em;
-	max-width: 98%;
+	max-width: 100%;
 }
 
 
@@ -434,6 +439,10 @@ cite {
 
 .post img {
 	max-width: 100%;
+}
+
+.photos_category p {
+	text-align: center;
 }
 
 .pagenav ul,
@@ -722,12 +731,8 @@ img.alignright {
 	margin-bottom: 10px;
 }
 
-.front_page_right_sidebar {
-	text-align: center;
-}
-
 .front_page_right_sidebar li {
-	margin-bottom: 1em;
+	margin-bottom: .5em;
 }
 
 .front_page_right_sidebar strong {

@@ -33,9 +33,9 @@ get_header(); ?>
 	</section><!-- .grid_7 .content -->
 
 	<aside class="grid_3 front_page_right_sidebar">
-		<?php if (is_active_sidebar('event-widget-area') ) : ?>
+		<?php if (is_active_sidebar('right-sidebar-widget-area') ) : ?>
 		<ul class="xoxo">
-			<?php dynamic_sidebar('event-widget-area'); ?>
+			<?php dynamic_sidebar('right-sidebar-widget-area'); ?>
 		</ul>
 		<?php endif; ?>
 	</aside>
