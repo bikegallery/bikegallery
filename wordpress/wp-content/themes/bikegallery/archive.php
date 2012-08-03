@@ -14,6 +14,7 @@
 
 get_header(); ?>
 
+	<section class="grid_9 content">
 <?php
 	/* Queue the first post, that way we know
 	 * what date we're dealing with (if that is the case).
@@ -48,7 +49,15 @@ get_header(); ?>
 	 * If you want to overload this in a child theme then include a file
 	 * called loop-archives.php and that will be used instead.
 	 */
-	 get_template_part( 'loop', 'archive' );
+	 get_template_part( 'loop', 'post' );
 ?>
+	</section><!-- .grid_9 .content -->
 
+	<aside class="grid_3 right_sidebar">
+		<?php if (is_active_sidebar('right-sidebar-widget-area') ) : ?>
+		<ul class="xoxo">
+			<?php dynamic_sidebar('right-sidebar-widget-area'); ?>
+		</ul>
+		<?php endif; ?>
+	</aside>
 <?php get_footer(); ?>

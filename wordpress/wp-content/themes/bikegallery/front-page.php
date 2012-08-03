@@ -32,7 +32,7 @@ get_header(); ?>
 
 	</section><!-- .grid_7 .content -->
 
-	<aside class="grid_3 front_page_right_sidebar">
+	<aside class="grid_3 right_sidebar">
 		<?php if (is_active_sidebar('right-sidebar-widget-area') ) : ?>
 		<ul class="xoxo">
 			<?php dynamic_sidebar('right-sidebar-widget-area'); ?>
