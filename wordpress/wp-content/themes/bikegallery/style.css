@@ -298,6 +298,10 @@ cite {
 	max-width: 115px;
 }
 
+.left_sidebar .widget_text h3 {
+	text-align: left !important;
+}
+
 .left_sidebar .widget_text {
 	text-align: center;
 }
