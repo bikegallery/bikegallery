@@ -322,6 +322,17 @@ cite {
 
 /* Slider  _________________________________*/
 
+/* Nivo updates screw up the slider styling. I'm putting
+   it here to supercede those changes. */
+
+.theme-default .nivoSlider {
+	box-shadow: none !important;
+}
+
+.theme-default .nivo-controlNav {
+	padding: 0 0 4px !important;
+}
+
 .post .slider-wrapper {
 	margin-bottom: 1em;
 }
