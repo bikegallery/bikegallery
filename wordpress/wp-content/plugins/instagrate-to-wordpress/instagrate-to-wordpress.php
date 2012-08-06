@@ -4,7 +4,7 @@ Plugin Name: Instagrate to WordPress
 Plugin URI: http://www.polevaultweb.com/plugins/instagrate-to-wordpress/ 
 Description: Plugin for automatic posting of Instagram images into a WordPress blog.
 Author: polevaultweb 
-Version: 1.1.6
+Version: 1.1.7
 Author URI: http://www.polevaultweb.com/
 
 Copyright 2012  polevaultweb  (email : info@polevaultweb.com)
@@ -25,7 +25,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 //plugin version
-define( 'ITW_PLUGIN_VERSION', '1.1.6');
+define( 'ITW_PLUGIN_VERSION', '1.1.7');
 define( 'ITW_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'ITW_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'ITW_PLUGIN_BASE', plugin_basename( __FILE__ ) );
@@ -909,6 +909,9 @@ if (!class_exists("instagrate_to_wordpress")) {
 			
 			if ($customtext != '' ){
 			
+				
+				$customtext = stripslashes(htmlspecialchars_decode($customtext));
+				
 				//check if %%image%% has been used 
 				$pos = strpos(strtolower($customtext),'%%image%%');
 				if($pos === false) {
@@ -1137,7 +1140,7 @@ if (!class_exists("instagrate_to_wordpress")) {
 										$customtitle  = $_POST['itw_customtitle'];
 										update_option('itw_customtitle', $customtitle);
 										
-										$customtext  = $_POST['itw_customtext'];
+										$customtext  = htmlspecialchars($_POST['itw_customtext']);
 										update_option('itw_customtext', $customtext);
 										
 										$imagesave  = $_POST['itw_imagesave'];
@@ -1548,7 +1551,7 @@ logout/" width="0" height="0"></iframe>
 										 <p class="itw_info">If the below custom text fields are left blank, only the Instagram text and image will be used in your post. To position the Instagram data with your custom text use the syntax %%title%% and %%image%%. The %%image%% text cannot be used in the Custom Title Text, and if it doesn't appear in the Body Text the Image will appear at the end of the post body.</p>
 										<p><label class="textinput">Custom Title Text:</label><input type="text" class="body_title" name="itw_customtitle" value="<?php echo $customtitle; ?>" > <small>eg. %%title%% - from Instagram</small></p>
 										
-										<p><label class="textinput">Custom Body Text:</label><textarea class="body_text" rows="10" name="itw_customtext" ><?php echo $customtext; ?></textarea> <small>eg. Check out this new image %%image%% from Instagram</small></p>
+										<p><label class="textinput">Custom Body Text:</label><textarea class="body_text" rows="10" name="itw_customtext" ><?php echo stripslashes($customtext); ?></textarea> <small>eg. Check out this new image %%image%% from Instagram</small></p>
 										 
 										<h4>Plugin Link</h4>
 									
