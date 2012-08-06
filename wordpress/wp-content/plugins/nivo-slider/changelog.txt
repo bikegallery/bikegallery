@@ -1,5 +1,8 @@
 *** Nivo Slider WordPress Plugin Changelog ***
 
+2012.08.3 - version 1.8.1
+ * [Fixed] array_merge() bug
+
 2012.07.31 - version 1.8
  * [New] Added 3 new themes
  * [New] Set alt text of images on Manual sliders (auto set on other types of slider)

@@ -3,7 +3,7 @@
 Plugin Name: Nivo Slider WordPress Plugin
 Plugin URI: http://nivo.dev7studios.com/wordpress
 Description: The official WordPress plugin for the <a href="http://nivo.dev7studios.com">Nivo Slider</a>
-Version: 1.8
+Version: 1.8.1
 Author: Dev7studios
 Author URI: http://dev7studios.com
 */
@@ -1276,10 +1276,11 @@ class WordpressNivoSlider {
         //$custom_themes[] = 1;
         
         $nivo_themes = array();
-        $nivo_themes = array_merge($plugin_themes,$custom_themes);
+        if( !is_array($plugin_themes) ) $plugin_themes = array();
+        if( !is_array($custom_themes) ) $custom_themes = array();
+        $nivo_themes = array_merge($plugin_themes, $custom_themes);
                
         $themes = array();
-        
         if($nivo_themes){
             foreach($nivo_themes as $theme_dir){
                 $theme_name = basename($theme_dir);
