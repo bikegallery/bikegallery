@@ -333,11 +333,6 @@ cite {
 	padding: 0 0 4px !important;
 }
 
-.theme-default .nivoSlider a, 
-.theme-default .nivoSlider img {
-	display: block !important;
-}
-
 .post .slider-wrapper {
 	margin-bottom: 1em;
 }

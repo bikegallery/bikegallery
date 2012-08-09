@@ -25,6 +25,10 @@
 	<link rel="stylesheet" type="text/css" media="all" href="/wordpress/wp-content/themes/bikegallery/css/ie8.css" />
 <![endif]-->
 
+<!--[if IE 9]>
+	<link rel="stylesheet" type="text/css" media="all" href="/wordpress/wp-content/themes/bikegallery/css/ie9.css" />
+<![endif]-->
+
 <!--	<link rel="stylesheet" href="http://f.fontdeck.com/s/css/E7uOHrgs0nw2MqW6o/fP2Vg4IGg/bikegallery/17942.css" type="text/css" /> -->
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<?php if ( is_singular() && get_option( 'thread_comments' ) )

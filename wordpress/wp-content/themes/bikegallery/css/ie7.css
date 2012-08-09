@@ -33,6 +33,10 @@
 	background: #fff;
 }
 
+.theme-default .nivoSlider a, 
+.theme-default .nivoSlider img {
+	display: block !important;
+}
 
 
 

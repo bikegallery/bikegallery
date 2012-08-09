@@ -14,3 +14,7 @@ li {
 	color: #97CBC0 !important;
 }
 
+.theme-default .nivoSlider a, 
+.theme-default .nivoSlider img {
+	display: block !important;
+}
