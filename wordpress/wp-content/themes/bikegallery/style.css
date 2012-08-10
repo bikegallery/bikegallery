@@ -23,7 +23,7 @@ body {
 
 a,
 a:visited {
-	color: #487c71;
+	color: #0373a9;
 /*	-moz-transition: all .2s ease-in-out; */
 	text-decoration: none;
 }
@@ -48,7 +48,7 @@ h2 {
 }
 
 h3 {
-	background: #487c71;
+	background: #0373a9;
 	color: #fff;
 	font-size: 1em;
 	font-weight: bold;
