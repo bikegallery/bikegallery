@@ -1,0 +1,72 @@
+/*
+*
+*	Summer Sale 2012 specific styling
+*
+*/
+
+.page-template-summer-sale-php h3 {
+	background: #e12529;
+}
+
+.summer_sale_table td {
+	border-bottom: 1px solid #0a0a0a;
+	padding: .5em 0;
+}
+
+.door_busters tr {
+	border-bottom: 1px solid #999;
+}
+
+.door_busters td {
+	padding: .5em 1em .5em .5em;
+}
+
+.door_busters h2 {
+	font-size: 1.7em;
+	margin-bottom: 0;
+}
+
+.door_busters strong {
+	font-size: 1.3em;
+}
+
+.door_busters img {
+	margin: 1em 0;
+}
+
+.bikes_on_sale {
+	margin-bottom: 1em;
+	text-align: center;
+}
+
+.bikes_on_sale h2 {
+	display: inline;
+	margin-bottom: 0;
+}
+
+.bikes_on_sale strong {
+	display: block;
+}
+
+.individual_bikes h2, 
+.individual_bikes em {
+	display: inline;
+}
+
+.individual_bikes p {
+	margin-bottom: 0;
+}
+
+.summer_sale_banner {
+	margin: 0 0 1em 10px;
+}
+
+.summer_sale_two_hundred_off {
+	color: #e12529;
+}
+
+.inline_strong {
+	display: inline !important;
+}
+
+
