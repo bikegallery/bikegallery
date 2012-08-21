@@ -1,0 +1,46 @@
+.clearance_sale_banner {
+	margin: 0 0 1em 10px;
+}
+
+.clearance_sale h3 {
+	margin-bottom: 0;
+}
+
+.clearance_sale .epic_logo {
+	margin: 0 20px 10px 0;
+	max-width: 75px;
+	vertical-align: middle;
+}
+
+.post .clearance_sale_list {
+	padding-left: 0;
+}
+
+.post .clearance_sale_list li {
+	display: inline-block;
+	margin-bottom: 0;
+	padding: 5px 0;
+	width: 100%;
+}
+
+.clearance_sale_list .even_item {
+	background: #e8eff7;
+}
+
+.item_name {
+	padding-left: 10px;
+}
+
+.percentage_off {
+	float: right;
+	font-weight: bold;
+	padding-right: 10px;
+}
+
+.epic_location em {
+	color: #fff;
+}
+
+.epic_link {
+	text-align: center;
+}

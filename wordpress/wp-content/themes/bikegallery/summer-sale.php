@@ -8,6 +8,9 @@
  */
 
 get_header(); ?>
+<!-- I don't want this styling in the regular file. -->
+<link rel="stylesheet" href="/wordpress/wp-content/themes/bikegallery/css/summer_sale_2012.css" type="text/css" media="all" />
+
 <img src="/wordpress/wp-content/themes/bikegallery/images/summer_sale_banner.jpg" alt="Summer Sale Banner" class="summer_sale_banner" />
 			<section class="grid_12 posts content">
 
