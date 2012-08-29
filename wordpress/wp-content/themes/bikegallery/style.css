@@ -456,6 +456,15 @@ cite {
 	max-width: 100%;
 }
 
+.front_page .post .wp-caption {
+	width: 540px !important;
+}
+
+.front_page .post .alignnone img {
+	height: auto;
+	max-width: 530px;
+}
+
 .photos_category p {
 	text-align: center;
 }
@@ -538,10 +547,6 @@ ul.page_sublinks li {
 	margin: 5px 0 0 5px;
 }
 
-.wp-caption p {
-	margin: 5px;
-}
-
 .alignleft,
 img.alignleft {
 	float: left;
@@ -564,8 +569,10 @@ img.alignright {
 }
 
 .wp-caption-text {
+	display: block;
 	font-size: .8em;
 	font-style: italic;
+	padding: 0 5px 5px;
 	text-align: center;
 }
 
