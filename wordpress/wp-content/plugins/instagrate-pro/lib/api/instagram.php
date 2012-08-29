@@ -1,11 +1,11 @@
 <?php
 
 
-define('CLIENT_ID', '483189bb620d4cfb8cd13b5a15e9f3d4');
-define('CLIENT_SECRET', 'ae7c0d740ddb455fb4fa1f93e33d9b23');
-define('REDIRECT_URI', 'http://plugins.polevaultweb.com/oauth_pro.php');
+define('IGP_CLIENT_ID', 'dd8e651e01a44589a3af3d8e30fdccf5');
+define('IGP_CLIENT_SECRET', '3ea786361d8844f18a1f71c6a9f99c7c');
+define('IGP_REDIRECT_URI', 'http://plugins.polevaultweb.com/oauth_pro.php');
 
-class itw_Instagram {
+class igp_Instagram {
     private $apiBase = 'https://api.instagram.com/';
     private $apiUrl = 'https://api.instagram.com/v1/';
     
@@ -28,6 +28,7 @@ class itw_Instagram {
         $this->access_token = $access_token;
     }
     
+    
     private function urlEncodeParams($params)
     {
         $postdata = '';
@@ -41,6 +42,7 @@ class itw_Instagram {
         return $postdata;
     }
     
+       
     public function http($url, $params, $method)
     {
         $c = curl_init();
@@ -58,6 +60,8 @@ class itw_Instagram {
             $url = $url.$this->urlEncodeParams($params);
            
 	    }
+		
+		//print $url;
         
         curl_setopt($c, CURLOPT_URL, $url);
         
@@ -78,22 +82,19 @@ class itw_Instagram {
         
         curl_setopt($c, CURLOPT_RETURNTRANSFER, True);
 		
-       
-        
-        
         $r = json_decode(curl_exec($c));
         
-         //check for NULL response
-        if ( $r == null) {
+        //check for NULL response
+        if (curl_exec($c) == null) {
 	        
-	         throw new InstagramApiError('Error: Instagram Servers Down');
-   
+	         throw new igp_InstagramApiError('Error: Instagram API Servers Down');
+
         }
         		
         // Throw an error if maybe an access token expired or wasn't right
         // or if an ID doesn't exist or something
         if(isset($r->meta->error_type)){
-            throw new InstagramApiError('Error: '.$r->meta->error_message);
+            throw new igp_InstagramApiError('Error: '.$r->meta->error_message);
         }
         return $r;
 		
@@ -120,54 +121,15 @@ class itw_Instagram {
         		
         return $rsp;
     }
+    
+   
 	
 	
 }
 
-class InstagramApiError extends Exception {}
+class igp_InstagramApiError extends Exception {}
 
 
- function itw_curPageURL() {
-		 
-		 $pageURL = 'http';
-		 if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
-		 $pageURL .= "://";
-		 if ($_SERVER["SERVER_PORT"] != "80" && $_SERVER['HTTP_HOST'] != 'localhost:8888' ) {
-		  $pageURL .= $_SERVER["HTTP_HOST"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
-		 } else {
-		  $pageURL .= $_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
-		 }
-		 return strtolower ($pageURL);
-		}
-		
- function itw_adminOptionsURL($url) {
-		 
-		 $pageURL = substr($url,0, strrpos($url, "/wp-content"));
-		 
-	
-		 return $pageURL.'/wp-admin/options-general.php?page=instagratetowordpress';
-		}
-		
- function itw_pluginsURL() {
-		 
-		 $pageURL = 'http';
-		 if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
-		 $pageURL .= "://";
-		 if ($_SERVER["SERVER_PORT"] != "80") {
-		  $pageURL .= $_SERVER["HTTP_HOST"].":".$_SERVER["SERVER_PORT"];
-		 } else {
-		  $pageURL .= $_SERVER["HTTP_HOST"];
-		 }
-		 return $pageURL.'/wp-admin/plugins.php';
-		}
-		
-function itw_truncateString($str, $max, $rep = '...') {
-  if(strlen($str) > $max) {
-    $leave = $max - strlen($rep);
-    return substr_replace($str, $rep, $leave);
-  } else {
-    return $str;
-  }
-}
+ 
 
 ?>
