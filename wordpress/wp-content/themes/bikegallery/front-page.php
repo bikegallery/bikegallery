@@ -14,7 +14,6 @@
 
 get_header(); ?>
 	<section class="grid_7 content front_page">
-
 		<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
 			<article class="post">
@@ -27,6 +26,9 @@ get_header(); ?>
 				<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'twentyten' ), 'after' => '' ) ); ?>
 				<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?>
 			</article><!-- .post -->
+			<section class="post_navigation">
+				<?php posts_nav_link(); ?>
+			</section>
 
 		<?php endwhile; ?>
 

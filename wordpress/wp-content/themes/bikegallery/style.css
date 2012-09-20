@@ -456,7 +456,16 @@ cite {
 	max-width: 100%;
 }
 
-.front_page .post .wp-caption {
+.post .gallery-item {
+	float: left;
+	margin: 5px;
+}
+
+.gallery-size-thumbnail .wp-caption-text {
+	display: none;
+}
+
+.front_page .post .alignnone {
 	width: 540px !important;
 }
 
@@ -533,6 +542,10 @@ ul.page_sublinks li {
 
 .store_hours ul {
 	margin-bottom: 1em;
+}
+
+.post_navigation {
+	text-align: center;
 }
 
 .post .nivoSlider {
