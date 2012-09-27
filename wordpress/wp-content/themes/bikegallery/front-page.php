@@ -26,11 +26,11 @@ get_header(); ?>
 				<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'twentyten' ), 'after' => '' ) ); ?>
 				<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?>
 			</article><!-- .post -->
+		<?php endwhile; ?> <!-- end loop -->
+
 			<section class="post_navigation">
 				<?php posts_nav_link(); ?>
 			</section>
-
-		<?php endwhile; ?>
 
 	</section><!-- .grid_7 .content -->
 

@@ -1,0 +1,109 @@
+/*
+*
+*	Overhaul and Fit Specials specific styling
+*
+*/
+
+/* Overhaul Special _________________________________*/
+
+.overhaul_fit_banner {
+	margin-bottom: 1em;
+}
+
+.overhaul_special h1 {
+	padding: 0 !important;
+}
+
+.overhaul_special h3 {
+	background-color: #ffc20e;
+	color: #000;
+	font-size: 1.2em;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.overhaul_special ol li {
+	list-style-type: decimal;
+	margin-left: 25px;
+}
+
+.overhaul_special .coupon {
+	background: #fdc644;
+	border: 1px dashed #000;
+	font-family: Helvetica;
+	font-size: 1.2em;
+	margin-bottom: 2.5em;
+	padding: 10px 40px;
+}
+
+.overhaul_special .coupon h1,
+.fit_special .coupon h1 {
+	border: none;
+	font-size: 2em;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+}
+
+.overhaul_special .coupon h2,
+.fit_special .coupon h2 {
+	font-weight: bold;
+	margin: 0;
+	padding: 0 0 .25em;
+	text-transform: uppercase;
+}
+
+.overhaul_special .coupon p,
+.fit_special .coupon p {
+	margin: 0;
+	padding: 0;
+}
+
+/* Fit Special _________________________________*/
+
+.fit_special h1 {
+	padding: 0 !important;
+}
+
+.fit_special h3 {
+	background-color: #f7941e;
+	color: #000;
+	font-size: 1.2em;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.fit_special .coupon {
+	background: #fcbb76;
+	border: 1px dashed #000;
+	font-family: Helvetica;
+	font-size: 1.2em;
+	margin-bottom: 2.5em;
+	padding: 10px 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
