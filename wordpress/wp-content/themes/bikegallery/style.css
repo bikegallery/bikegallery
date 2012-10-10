@@ -586,6 +586,7 @@ img.alignright {
 	display: block;
 	font-size: .8em;
 	font-style: italic;
+	margin-bottom: 0 !important;
 	padding: 0 5px 5px;
 	text-align: center;
 }
