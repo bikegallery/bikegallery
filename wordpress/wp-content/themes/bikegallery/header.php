@@ -13,6 +13,7 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
+	<meta name="keywords" content="bicycles, bikes, tandem, tandems, bike shop, bicycle shop, Portland, Trek, Kona, Co-Motion, Felt, VanMoof, kids, kids bikes, families, women, Madone, Domane, Remedy, Cronus" />
 
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
