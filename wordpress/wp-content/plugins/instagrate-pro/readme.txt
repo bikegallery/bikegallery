@@ -5,7 +5,7 @@ Author URI: http://www.polevaultweb.com/
 Tags: instagram, posts, integration, automatic, post, wordpress, posting, images
 Requires at least: 3.0
 Tested up to: 3.4.1
-Stable tag: 0.2.2
+Stable tag: 0.3.1
 
 The best plugin to integrate Instagram images with WordPress.
 
@@ -21,7 +21,7 @@ Full features:
 * Control the last image posted for own and feed images.
 * Post images everytime your site is visited or on a schedule using the WordPress cron scheduler.
 * Schedules are hourly, twicedaily, daily, weekly, fortnightly and monthly.
-* Post every image as its own post or group multiple images into one post. Helpful for those weekly Instagram round ups.
+* Post every image as its own post, group multiple images into one post or post to the same post, page or custom post type. Helpful for those weekly Instagram round ups.
 * You can strip hashtags from the title and you have the option to convert them to post tags.
 * Select which WordPress user will be the author of the posts.
 * Select which WordPress category to post to.
@@ -38,7 +38,7 @@ Full features:
 * Configure if you want to show a Google Map for images that have been geotagged with location data.
 * Set the map's height, width and CSS class.
 * Enter custom text for the post title, using the template tag %%title%% to position the Instagram title.
-* Enter custom text for the post body, using the template tag %%title%%, %%image%%, %%username%% and %%link%% to position the Instagram title, image and link to Instagram Page.
+* Enter custom text for the post body, using the template tag %%title%%, %%image%%, %%username%%, %%date%%, %%location%% and %%link%% to position the Instagram title, image, date, location and link to Instagram Page.
 
 If you have any issues or feature requests please visit and use the [Support Forum](http://www.polevaultweb.com/support/forum/instagrate-pro-plugin/)
 
@@ -59,6 +59,24 @@ To update the plugin either use the automatic updater or manually follow these s
 4. Activate the plugin through the 'Plugins' menu in WordPress.
 
 == Changelog ==
+
+= 0.3.1 = 
+
+* Fix - Reinstated post meta for location data.
+* Fix - Custom post text with %%title%% now showing correctly if custom title was also set.
+
+= 0.3 =
+
+* New - Continual posting of images to the same post, page or custom post type.
+* New - Image link option to open in new window.
+* New - New template tag for Instagram image taken date - %%date%%.
+* New - New template tag for Instagram location name for geotagged images - %%location%%.
+* Improvement - Custom body text now allows HTML content.
+* Improvement - Warning if cURL extension not installed. This is a prerequisite of the plugin.
+* Fix - The plugin's settings are now only visible to administrators.
+* Fix - Post is only published once image is set. This is a fix for users with auto social posting plugins who weren't seeing images in their social posts.
+* Fix - Small warning in updater.
+* Fix - Removed post meta for location data as this is stored in shortcode in the post body.
 
 = 0.2.2 =
 

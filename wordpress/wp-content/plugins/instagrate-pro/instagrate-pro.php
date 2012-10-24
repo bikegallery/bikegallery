@@ -4,7 +4,7 @@ Plugin Name: Instagrate Pro
 Plugin URI: http://www.instagrate.co.uk/  
 Description: Instagrate Pro is a powerful WordPress plugin that allows you to integrate Instagram images into your WordPress site. You can connect multiple Instagram accounts and automatically post your images, feed images or all hashtagged images everytime someone visits your site or on a schedule.
 Author: polevaultweb 
-Version: 0.2.2
+Version: 0.3.1
 Author URI: http://www.polevaultweb.com/
 
 Copyright 2012  polevaultweb  (email : info@polevaultweb.com)
@@ -25,7 +25,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 //plugin version
-define( 'IGP_PVW_PLUGIN_VERSION', '0.2.2');
+define( 'IGP_PVW_PLUGIN_VERSION', '0.3.1');
 //plugin name
 define( 'IGP_PVW_PLUGIN_NAME', 'Instagrate Pro');
 //plugin shortcode
@@ -134,6 +134,7 @@ class instagrate_pro {
 			
 			//register ajax handlers
 			add_action('wp_ajax_instagram_config', get_class() . '::instagram_config_callback');
+			add_action('wp_ajax_post_config_single', get_class() . '::post_config_single_callback');
 			
 			$admin = new igp_pvw_plugin_framework();
 			add_action('wp_ajax_reset_settings',array($admin,'reset_settings_callback'));
@@ -172,7 +173,7 @@ class instagrate_pro {
 		/* Add menu item for plugin to Settings Menu */
 		public static function register_settings_menu() {  
    		  			
-   			add_options_page( IGP_PVW_PLUGIN_NAME, IGP_PVW_PLUGIN_NAME, 'read', IGP_PVW_PLUGIN_SETTINGS, get_class() . '::settings_page' );
+   			add_options_page( IGP_PVW_PLUGIN_NAME, IGP_PVW_PLUGIN_NAME, 'manage_options', IGP_PVW_PLUGIN_SETTINGS, get_class() . '::settings_page' );
 	  				
 		}
 
@@ -237,14 +238,17 @@ class instagrate_pro {
 			$saved_version = get_option( 'pvw_'.IGP_PVW_PLUGIN_SHORTCODE.'_version' );
 			$current_version = isset($saved_version) ? $saved_version : 0;
 
-			if ( version_compare( $current_version, IGP_PVW_PLUGIN_VERSION, '==' ) )
-				return;
+			if ( version_compare( $current_version, IGP_PVW_PLUGIN_VERSION, '!=' ) ){
 				
-			//specific version checks on upgrade
-			//if ( version_compare( $current_version, '0.1', '<' ) ) {}	
+				//redo the plugin settings as activation hook doesn't get called on updates
+				self::options_setup();
 				
-			//update the database version
-			update_option( 'pvw_'.IGP_PVW_PLUGIN_SHORTCODE.'_version', IGP_PVW_PLUGIN_VERSION );
+				//specific version checks on upgrade
+				//if ( version_compare( $current_version, '0.1', '<' ) ) {}	
+			
+				//update the database version
+				update_option( 'pvw_'.IGP_PVW_PLUGIN_SHORTCODE.'_version', IGP_PVW_PLUGIN_VERSION );
+			}
 		
 		} 
 		
@@ -279,39 +283,51 @@ class instagrate_pro {
 					}
  
 				}
+				
+				/* Display check to see if cURL exists */
+				if (!function_exists('curl_init')) {
+			
+					echo '<div class="error">
+								<p>This plugin requires the cURL PHP extension to be installed.</p>
+							</div>';
+ 
+				} else {
+				 
 
-				/* Display check to make sure there is write permissions on the debug file */
-				$plugin = IGP_PVW_PLUGIN_SHORTCODE;
-				$saved_options = igp_general_options::get_options();
+					/* Display check to make sure there is write permissions on the debug file */
+					$plugin = IGP_PVW_PLUGIN_SHORTCODE;
+					$saved_options = igp_general_options::get_options();
+						
+					$debug_mode = $saved_options['debug_mode'];
 					
-				$debug_mode = $saved_options['debug_mode'];
-				
-				$debug_file = IGP_PVW_PLUGIN_PATH . "debug.txt";
-				$file = file_exists($debug_file);
-		
-								
-				if ($debug_mode == 'true' && $file) {
-				
-					//$write_igp = false; //igp_debug::can_write($file);
-					$write = igp_debug::can_write($debug_file);
-												
-					if ($write == false) {
-					
-						echo '<div class="error">
-									<p>'. $write.'Debug mode is turned on, however, the debug.txt file in the plugin folder is not writeable. Please contact your web hosting provider to amend the permissions on <i>wp-content/plugins/instagrate-pro/debug.txt</i> file.</p>
-							  </div>';
-							
-						}
-				}
-				
-				$check = array();
-				$check = igp_instagrate::apiCheck();
-		
-				if ($check[0] == 0) {
+					$debug_file = IGP_PVW_PLUGIN_PATH . "debug.txt";
+					$file = file_exists($debug_file);
+			
 									
-					echo '<div class="error"><p>'.$check[1].'</p></div>';	
-				
+					if ($debug_mode == 'true' && $file) {
+					
+						//$write_igp = false; //igp_debug::can_write($file);
+						$write = igp_debug::can_write($debug_file);
+													
+						if ($write == false) {
+						
+							echo '<div class="error">
+										<p>'. $write.'Debug mode is turned on, however, the debug.txt file in the plugin folder is not writeable. Please contact your web hosting provider to amend the permissions on <i>wp-content/plugins/instagrate-pro/debug.txt</i> file.</p>
+								  </div>';
+								
+							}
+					}
+					
+					$check = array();
+					$check = igp_instagrate::apiCheck();
+			
+					if ($check[0] == 0) {
+										
+						echo '<div class="error"><p>'.$check[1].'</p></div>';	
+					
 				} 
+				
+				}
 				
 			}
 		}
@@ -440,6 +456,37 @@ class instagrate_pro {
 			}
 						
 		}
+		
+		public static function post_config_single_callback() {
+			
+			
+			if (isset($_POST['id']) && isset($_POST['type'])) {
+				
+				$posts = igp_account_options::get_posts_data($_POST['id'],$_POST['type']);
+				
+				$count = 0;
+				$size = sizeof($posts);
+				
+				$option = '';
+				
+				if (isset($posts) && is_array($posts)) {
+					
+					foreach ($posts as $key => $post) {
+						$count ++;
+						if ($count == 1) {$selected = 'selected="selected"';} else {$selected = '';}
+						$option .= '<option value="'.$key.'" '.$selected.'>';
+						$option .= $post;
+						$option .= '</option>';
+						
+					}
+				}
+				echo $option;
+				die();
+				
+			}
+						
+		}
+
 		
 		/* Main listener function */
 		public static function register_listeners() {

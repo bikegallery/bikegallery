@@ -45,10 +45,10 @@ class igpPluginUpdater {
   }
 
   function plugin_api_call( $def, $action, $args ) {
-    if( $args->slug != $this->plugin_slug )
-      return $def;
-    
-    // Get the current version
+    if( !isset($args->slug) || $args->slug != $this->plugin_slug )
+		return $def; 
+	
+	// Get the current version
     $plugin_info = get_site_transient('update_plugins');
     $current_version = $plugin_info->checked[$this->plugin_slug .'/'. $this->plugin_slug .'.php'];
     $args->version = $current_version;

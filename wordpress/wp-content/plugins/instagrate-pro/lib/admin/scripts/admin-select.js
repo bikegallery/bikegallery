@@ -1,6 +1,66 @@
 jQuery(document).ready(function($){
 
+		jQuery('#pvw_container .post-config select').each(function(){
+		   
+		    var selectid = jQuery(this).attr("id");
+			var tag = selectid.substring(0,selectid.length-16);
+			
+			if (jQuery(this).val() == 'single') {
+				jQuery('#' + tag + '_single_config').closest('.single').show()
 				
+			} else {
+				jQuery('#' + tag + '_single_config').closest('.single').hide()
+				
+			}		
+		
+		 });
+		
+		//Single Post config
+		jQuery('#pvw_container').on('change', '.post-config select',function(){	
+			
+			var selectid = jQuery(this).attr("id");
+			var tag = selectid.substring(0,selectid.length-16);
+			
+			if (jQuery(this).val() == 'single') {
+				jQuery('#' + tag + '_single_config').closest('.single').show()
+				
+			} else {
+				jQuery('#' + tag + '_single_config').closest('.single').hide()
+				
+			}
+		
+		});
+		
+		jQuery('#pvw_container').on('change', '.post-type select',function(){	
+			
+			var selectid = jQuery(this).attr("id");
+			var selectValue = jQuery(this).val();
+			 
+			var tag = selectid.substring(0,selectid.length-10);
+	
+			var accid = tag.substring(4,tag.indexOf('_',5));
+			
+			if (jQuery('#' + tag + '_schedule_config').val() == 'single') {
+			
+				
+					
+				jQuery.post(
+					   ajaxurl, 
+					   {
+						  'action':'post_config_single',
+						  'id':accid,
+						  'type':selectValue
+					   }, 
+					   function(response){
+						  jQuery('#' + tag + '_single_config').empty();
+						  jQuery('#' + tag + '_single_config').append(response);
+					   }
+					);
+					
+			}
+		
+		});
+
 		
 		//Changes to instagram config 
 		

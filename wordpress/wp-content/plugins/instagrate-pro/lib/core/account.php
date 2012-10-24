@@ -16,6 +16,7 @@ class igp_account {
 	public $image_saving;
 	public $post_config;
 	public $schedule_config;
+	public $single_config;
 	public $schedule;
 	public $gallery;
 	public $title;
@@ -38,6 +39,7 @@ class igp_account {
 	public $custom_title;
 	public $custom_body;
 	public $link_text;
+	public $link_target;
 	
 
 	public function __construct($id,$options) {
@@ -59,6 +61,7 @@ class igp_account {
 		$this->image_saving = $options[$tag.'_image_saving'];
 		$this->post_config = $options[$tag.'_post_config'];
 		$this->schedule_config = $options[$tag.'_schedule_config'];
+		$this->single_config = $options[$tag.'_single_config'];
 		$this->schedule = $options[$tag.'_schedule'];
 		$this->gallery = $options[$tag.'_gallery'];
 		$this->title = $options[$tag.'_title'];
@@ -72,6 +75,7 @@ class igp_account {
 		$this->feat_img = $options[$tag.'_feat_img'];
 		$this->img_post = $options[$tag.'_img_post'];
 		$this->link = $options[$tag.'_link'];
+		$this->link_target = $options[$tag.'_link_target'];
 		$this->size = $options[$tag.'_size'];
 		$this->css = $options[$tag.'_css'];
 		$this->location = $options[$tag.'_location'];

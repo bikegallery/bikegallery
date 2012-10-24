@@ -28,7 +28,7 @@ class igp_functions {
 			
 			return $clean;
 			
-		}
+	}
 	
 	function get_custom_string($customtext, $pos_text, $find_text, $default_pos = "start") {
 

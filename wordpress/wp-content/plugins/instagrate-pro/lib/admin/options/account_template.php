@@ -2,6 +2,7 @@
 
 //require core file
 require_once IGP_PVW_PLUGIN_PATH.'lib/core/instagrate.php';
+require_once IGP_PVW_PLUGIN_PATH.'lib/admin/account-options.php';
 
 //Get account options template
 function pvw_igp_account_template($shortname,$id,$userid, $username){
@@ -72,9 +73,18 @@ function pvw_igp_account_template($shortname,$id,$userid, $username){
 					"tooltip" => $tooltip,
 					"type" => "select");  
 					
-	$tooltip	=   __('<b>Post for each image</b> will post every image as a new post.<br/><br/><b>All images in one post</b> will post all images in a single post.',IGP_PVW_PLUGIN_LINK);
+	$options[] = array( "name" => __('Post Type',IGP_PVW_PLUGIN_LINK),
+					"desc" => __('Select the post type you want the post to be created as. This is handy for custom post types created by themes..',IGP_PVW_PLUGIN_LINK),
+					"account" => $tag,
+					"id" => $tag."_post_type",
+					"input" => "true",
+					"std" => 'post',
+					"class" => "post-type",
+					"type" => "select-type"); 
 	
-	$schedule_config = array("each" => "Post for each image", "group" => "All images in one post"); 
+	$tooltip	=   __('<b>Post for each image</b> will post every image as a new post.<br/><br/><b>All images in one post</b> will post all images in a single post.<br/><b>Always post to same post/page/custom post type</b> will continually post images to the same post type that you have selected lower down.',IGP_PVW_PLUGIN_LINK);
+	
+	$schedule_config = array("each" => "Post for each image", "group" => "All images in one post", "single" => "Always post to same post/page/custom post type"); 
 	
 	$options[] = array( "name" => __('Multiple Image Config',IGP_PVW_PLUGIN_LINK),
 					"desc" => __('Select how the multiple images will be posted.',IGP_PVW_PLUGIN_LINK),
@@ -83,8 +93,21 @@ function pvw_igp_account_template($shortname,$id,$userid, $username){
 					"options" => $schedule_config,
 					"std" => "each",
 					"input" => "true",
+					"class" => "post-config",
 					"tooltip" => $tooltip,
 					"type" => "select");
+	
+	$getposts = igp_account_options::get_posts_data($id);
+	
+	$options[] = array( "name" => __('Select Single Post/Page/Custom Post Type',IGP_PVW_PLUGIN_LINK),
+				"desc" => __('Select the Post/Page/Custom Post Type that the images will continually be posted to.',IGP_PVW_PLUGIN_LINK),
+				"account" => $tag,
+				"id" => $tag."_single_config",
+				"options" => $getposts,
+				"input" => "true",
+				"std" => 0,
+				"class" => "single",
+				"type" => "select-posts");
 	
 	$options[] = array( "name" => __('Schedule',IGP_PVW_PLUGIN_LINK),
 					"desc" => __('Select the schedule of posting. This only applies if you have selected <b>Scheduled posting.</b>',IGP_PVW_PLUGIN_LINK),
@@ -137,14 +160,6 @@ function pvw_igp_account_template($shortname,$id,$userid, $username){
 					"options" => $post_status,
 					"std" => "publish",
 					"type" => "select");  
-
-	$options[] = array( "name" => __('Post Type',IGP_PVW_PLUGIN_LINK),
-					"desc" => __('Select the post type you want the post to be created as. This is handy for custom post types created by themes..',IGP_PVW_PLUGIN_LINK),
-					"account" => $tag,
-					"id" => $tag."_post_type",
-					"input" => "true",
-					"std" => 'post',
-					"type" => "select-type"); 
 
 	$options[] = array( "name" => __('Post Format',IGP_PVW_PLUGIN_LINK),
 					"desc" => __('Select the post format you want the posts to be created in.',IGP_PVW_PLUGIN_LINK),
@@ -210,6 +225,14 @@ function pvw_igp_account_template($shortname,$id,$userid, $username){
 					"options" => $link_config,
 					"std" => "image",
 					"type" => "select");
+					
+	$options[] = array( "name" => __('Open link in new window',IGP_PVW_PLUGIN_LINK),
+					"desc" => __('Check this to make the link open in a new window (target _blank)',IGP_PVW_PLUGIN_LINK),
+					"account" => $tag,
+					"id" => $tag."_link_target",
+					"input" => "true",
+					"std" => "false",
+					"type" => "checkbox");
 					
 	$options[] = array( "name" => __('Image Size',IGP_PVW_PLUGIN_LINK),
 					"desc" => __('Enter the size of the image in the post content. eg. 500',IGP_PVW_PLUGIN_LINK),

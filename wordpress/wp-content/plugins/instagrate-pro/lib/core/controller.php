@@ -12,11 +12,7 @@ class igp_controller {
 	public function __construct() {
 	
 	}
-	
-	// Posting schedule/ real
-	
-	// Feed or hastag - change last image id
-	
+		
 	public function instagrate_listener($type, $schedule = 0) {
 		
 		//debug text
@@ -109,23 +105,20 @@ class igp_controller {
 							$post_status = $account->post_status;
 							$post_type = $account->post_type;
 							
-							
+							$debug .= "--CHECK post config: ".$account->post_config." = real TRUE ". Date( DATE_RFC822 ) . "\n";
+							$debug .= "--CHECK schedule config: ".$account->schedule_config." = each TRUE ". Date( DATE_RFC822 ) . "\n";
+							$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+	
 							//every image is a post
 							//-----------------------------------------------------------------------------------------------------------------------------------------//
 							if ($account->schedule_config == 'each') {
-							
-								$debug .= "--CHECK post config: ".$account->post_config." = real TRUE ". Date( DATE_RFC822 ) . "\n";
-								$debug .= "--CHECK schedule config: ".$account->schedule_config." = each TRUE ". Date( DATE_RFC822 ) . "\n";
-								$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
-		
-							
+
+								
 								$count = sizeof($images);
 								$i = 0;
 															
 								foreach($images as $image) {
 								
-									
-
 									$account_image_exists = igp_functions::instagrate_id_exists($tag.'_'.$image['id'],'account');
 									$image_exists = false;
 									
@@ -186,8 +179,8 @@ class igp_controller {
 											
 											//custom title
 											$debug .= "--FUNCTION CHECK - Custom title: ". Date( DATE_RFC822 ) . "\n";										
-											$posttitle = igp_functions::get_custom_string($account->custom_title,$posttitle,'title');
-											$debug .= "New Title: ".$posttitle." ". Date( DATE_RFC822 ) . "\n";
+											$post_title = igp_functions::get_custom_string($account->custom_title,$posttitle,'title');
+											$debug .= "New Title: ".$post_title." ". Date( DATE_RFC822 ) . "\n";
 											$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
 			
 											
@@ -224,7 +217,7 @@ class igp_controller {
 											}
 											$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
 																		
-											$post_title = trim($posttitle);
+											$post_title = trim($post_title);
 											$post_content = '';
 											$post_tags = $posttags;
 											$post_date = $postdate;
@@ -236,7 +229,7 @@ class igp_controller {
 																'post_author' => $post_author,
 																'post_category' => $post_category ,
 																'tags_input' => $post_tags,
-																'post_status' => $post_status,
+																'post_status' => 'draft', //$post_status,
 																'post_type' => $post_type,
 																'post_date' => $post_date,
 																'post_date_gmt' =>  $post_date_gmt
@@ -340,7 +333,11 @@ class igp_controller {
 													
 													}
 													
-													$postimage = '<a href="'.$url.'" title="View Image">'.$postimage.'</a>';
+													$debug .= "----CHECK Link Target: ".$account->link_target.' '. Date( DATE_RFC822 ) . "\n";
+													$link_target = '';
+													if ($account->link_target == 'true') { $link_target = 'target="_blank" ';}
+													
+													$postimage = '<a href="'.$url.'" title="View Image" '.$link_target.'>'.$postimage.'</a>';
 												
 												}
 											
@@ -354,6 +351,7 @@ class igp_controller {
 											if ($post_content != '') {
 												
 												$debug .= "CUSTOM BODY EXISTS"." ". Date( DATE_RFC822 ) . "\n";
+												$post_content = stripslashes($post_content);
 												//%%title%%
 												$post_content = igp_functions::get_custom_string($post_content,$posttitle,'title');
 												//%%image%%
@@ -363,6 +361,10 @@ class igp_controller {
 												//%%link%%
 												$postlink = '<a href="'.$image['url'].'" title="'.$account->link_text.'">'.$account->link_text.'</a>';
 												$post_content = igp_functions::get_custom_string($post_content,$postlink,'link');
+												//%%date%%
+												$post_content = igp_functions::get_custom_string($post_content,date("F j, Y, g:i a", $image['created']),'date');
+												//%%location%%
+												$post_content = igp_functions::get_custom_string($post_content,$image['location_name'],'location');
 											
 											} else {
 											
@@ -394,18 +396,7 @@ class igp_controller {
 												add_post_meta($postid,'igp_latlon',$image['location_lat'].','.$image['location_lon']);
 												
 												$location = '[igp_get_map lat="'.$image['location_lat'].'" lon="'.$image['location_lon'].'" marker="'.$image['location_name'].'" class="'.$location_class.'" width="'.$account->location_width.'" height="'.$account->location_height.'"]';
-												
-												/*
-												$location = '<div class="map_canvas'.$location_class.'" ';
-												$location .= 'data-lat="'.$image['location_lat'].'" ';
-												$location .= 'data-lon="'.$image['location_lon'].'" ';
-												if ($image['location_name'] != '') {
-													$location .= 'data-marker="'.$image['location_name'].'" ';
-												}
-												$location .= 'style="width: '.$account->location_width.'px; height: '.$account->location_height.'px;">';
-												$location .= '</div>';
-												*/
-												
+																								
 												$debug .= "----LOCATION OUTPUT: ".$location.' '. Date( DATE_RFC822 ) . "\n";
 													
 												$post_content .= $location;
@@ -453,9 +444,6 @@ class igp_controller {
 										$debug .= "--PROCESSING IMAGE SKIPPED ". Date( DATE_RFC822 ) . "\n";
 										$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
 								
-									
-									
-									
 									}
 								
 								}
@@ -464,13 +452,9 @@ class igp_controller {
 							//-----------------------------------------------------------------------------------------------------------------------------------------//
 							//all images in one post
 							//-----------------------------------------------------------------------------------------------------------------------------------------//
-							else {
-							
+							elseif ($account->schedule_config == 'group')  {
 							
 								$imageCount = 0;
-								
-							
-								
 								//Check there are valid images to go in a post
 								foreach($images as $image) {
 								
@@ -567,7 +551,7 @@ class igp_controller {
 														'post_author' => $post_author,
 														'post_category' => $post_category ,
 														//'tags_input' => $post_tags,
-														'post_status' => $post_status,
+														'post_status' => 'draft', //$post_status,
 														'post_type' => $post_type,
 														'post_date' => $post_date,
 														'post_date_gmt' =>  $post_date_gmt
@@ -742,7 +726,10 @@ class igp_controller {
 														
 														}
 														
-														$postimage = '<a href="'.$url.'" title="View Image">'.$postimage.'</a>';
+														$link_target = "";
+														if ($account->link_target == 'true') { $link_target = 'target="_blank" ';}
+														
+														$postimage = '<a href="'.$url.'" title="View Image" '.$link_target.'>'.$postimage.'</a>';
 													
 													}
 												
@@ -755,6 +742,7 @@ class igp_controller {
 													if ($post_content != '') {
 														
 														$debug .= "CUSTOM BODY EXISTS"." ". Date( DATE_RFC822 ) . "\n";
+														$post_content = stripslashes($post_content);
 														//%%title%%
 														$post_content = igp_functions::get_custom_string($post_content,$posttitle,'title');
 														//%%image%%
@@ -764,6 +752,11 @@ class igp_controller {
 														//%%link%%
 														$postlink = '<a href="'.$image['url'].'" title="'.$account->link_text.'">'.$account->link_text.'</a>';
 														$post_content = igp_functions::get_custom_string($post_content,$postlink,'link');
+														//%%date%%
+														$post_content = igp_functions::get_custom_string($post_content,date("F j, Y, g:i a", $image['created']),'date');
+														//%%location%%
+														$post_content = igp_functions::get_custom_string($post_content,$image['location_name'],'location');
+														
 														$post_content .= '<br/>';
 													
 													} else {
@@ -795,18 +788,6 @@ class igp_controller {
 														add_post_meta($postid,'igp_latlon',$image['location_lat'].','.$image['location_lon']);
 														
 														$location = '[igp_get_map lat="'.$image['location_lat'].'" lon="'.$image['location_lon'].'" marker="'.$image['location_name'].'" class="'.$location_class.'" width="'.$account->location_width.'" height="'.$account->location_height.'"]<br/>';
-												
-														/*
-														$location = '<div class="map_canvas'.$location_class.'" ';
-														$location .= 'data-lat="'.$image['location_lat'].'" ';
-														$location .= 'data-lon="'.$image['location_lon'].'" ';
-														if ($image['location_name'] != '') {
-															$location .= 'data-marker="'.$image['location_name'].'" ';
-														}
-														$location .= 'style="width: '.$account->location_width.'px; height: '.$account->location_height.'px;">';
-														$location .= '</div>';
-														*/
-
 														$debug .= "----LOCATION OUTPUT: ".$location.' '. Date( DATE_RFC822 ) . "\n";
 																										
 														$post_content .= $location;
@@ -889,6 +870,377 @@ class igp_controller {
 									
 									
 								}							
+							} 
+							//all images in same post
+							//-----------------------------------------------------------------------------------------------------------------------------------------//
+							elseif ($account->schedule_config == 'single')  {
+							
+								//get the post id
+								$same_post_id = $account->single_config;
+								$old_post = get_post($same_post_id);
+								$old_content = $old_post->post_content;
+								$old_tags = array();
+								$old_post_tags = wp_get_post_tags($same_post_id, array( 'fields' => 'names' ));
+								if (is_array($old_post_tags) && !empty($old_post_tags)) $old_tags = $old_post_tags;
+								
+								$debug .= "--POST TO SAME POST Id: ".$same_post_id. "\n";
+								$debug .= "--POST CONTENT: ".$old_content. "\n";
+								//$debug .= "--POST TAGS: ".igp_debug::varDumpToString($old_tags). "\n";
+								$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+										
+								
+								$imageCount = 0;
+								//Check there are valid images to go in a post
+								foreach($images as $image) {
+								
+									$account_image_exists = igp_functions::instagrate_id_exists($tag.'_'.$image['id'],'account');
+									$image_exists = false;
+									
+									if ($dup_image == 'false') {
+									
+										$image_exists = igp_functions::instagrate_id_exists($image['id'],'image');
+									}
+									
+									if ( $account_image_exists == false && $image_exists == false) {
+									
+										$debug .= "--CHECK instagrate_id: ".$tag.'_'.$image['id']." does not exist in wp_postmeta TRUE ". Date( DATE_RFC822 ) . "\n";
+										$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+										
+										if ($image['id'] != $account->lastid) {
+										
+											$debug .= "--CHECK imageid: ".$image['id']." != accounts last id: ".$account->lastid." TRUE ". Date( DATE_RFC822 ) . "\n";
+											$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+			
+											$imageCount ++;
+											$debug .= "--IMAGE ID ADD TO ARRAY FOR SINGLE POST imageid: ".$image['id']." ". Date( DATE_RFC822 ) . "\n";
+											$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+										} else {
+										
+											//Image is the same as last posted
+											$debug .= "--CHECK imageid: ".$image['id']." != accounts last id: ".$account->lastid." FALSE ". Date( DATE_RFC822 ) . "\n";
+											$debug .= "--PROCESSING IMAGE SKIPPED ". Date( DATE_RFC822 ) . "\n";
+											$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+										}
+									
+									} else {
+									
+										//Instagrate ID already exists in database wp_postmeta
+										$debug .= "--CHECK instagrate_id: ".$tag.'_'.$image['id']." does not exist in wp_postmeta FALSE ". Date( DATE_RFC822 ) . "\n";
+										$debug .= "--PROCESSING IMAGE SKIPPED ". Date( DATE_RFC822 ) . "\n";
+										$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+								
+									}
+								
+								}
+								
+								if ($imageCount > 0) {
+								
+									$debug .= "--CHECK ".$imageCount." Images valid to go into SINGLE Post TRUE". Date( DATE_RFC822 ) . "\n";
+									$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+									
+									//Get all the static post info together
+									$post_content = '';
+									
+									$postid = $same_post_id;
+									
+									//Loop through Images and build up post content and tags
+									$count = sizeof($images);
+									$i = 0;
+									
+									$postmetaids = '';
+									$postmetaimageids = '';
+									
+									$posttags = array();
+									
+									$all_post_content = '';
+																							
+									foreach($images as $image) {
+									
+										if (!igp_functions::instagrate_id_exists($tag.'_'.$image['id'])) {
+										
+											$debug .= "--CHECK instagrate_id: ".$tag.'_'.$image['id']." does not exist in wp_postmeta TRUE ". Date( DATE_RFC822 ) . "\n";
+											$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+				
+										
+											if ($image['id'] != $account->lastid) {
+											
+												$debug .= "--CHECK imageid: ".$image['id']." != accounts last id: ".$account->lastid." TRUE ". Date( DATE_RFC822 ) . "\n";
+												$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+												$i ++;
+												$debug .= "--START POSTING imageid: ".$image['id']." ". Date( DATE_RFC822 ) . "\n";
+												$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+				
+												$posttitle = $image['title'];
+												
+												$tag_helper = igp_functions::strip_hashtags($posttitle, $default_title );
+																							
+												//post title
+												$debug .= "--FUNCTION CHECK - Image title: ";
+																						
+												if ($account->title == 'true') {
+												
+													$debug .= "STRIP TAGS "." ". Date( DATE_RFC822 ) . "\n";
+													$posttitle = $tag_helper[1];
+												
+												} else {
+												
+													$debug .= "TITLE REMAINS "." ". Date( DATE_RFC822 ) . "\n";	
+													if ($posttitle == '') {
+													
+														$debug .= "Original Title Blank use default: ".$default_title." ". Date( DATE_RFC822 ) . "\n";
+														$posttitle = $default_title;
+													
+													}
+												
+												} 
+												
+												$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+												//alt
+												$alt = ' alt="'.$posttitle.'"';
+												//title
+												$title = ' title="'.$posttitle.'"';
+												
+												//post tags											
+												$debug .= "--FUNCTION CHECK - Post Tags: ";	
+												if ($account->tags == 'true') {
+												
+														$debug .= "CONVERT TO WP TAGS "." ". Date( DATE_RFC822 ) . "\n";
+														$posttags = array_merge($posttags,$tag_helper[0]);
+														$debug .= "--POST TAGS: ".igp_debug::varDumpToString($posttags). "\n";
+												
+												} else {
+												
+														$debug .= "IGNORE HASHTAGS "." ". Date( DATE_RFC822 ) . "\n";
+														$posttags = array();
+												}
+												$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+												$debug .= "--POST TAGS: ".igp_debug::varDumpToString($posttags). "\n";
+												
+												$postmetaids .= $tag.'_'.$image['id'].', ';
+												$postmetaimageids .= $image['id'].', ';									
+											
+												//image saving config
+												$imgsrc = $image['image_large'];
+												$debug .= "--FUNCTION CHECK - Image Saving: ";
+												if ($account->image_saving == 'media' ){
+												
+													$debug .= "MEDIA LIBRARY"." ". Date( DATE_RFC822 ) . "\n";
+													//put image from instagram into wordpress media library and link to it.
+													$att_image = igp_functions::strip_querysting($imgsrc);
+													$debug .= "--Attachment: ".$att_image." ". Date( DATE_RFC822 ) . "\n";
+													//load into media library
+													$attach_id = igp_functions::attach_image($att_image,$postid);
+													$debug .= "--Attach Id: ".$attach_id." ". Date( DATE_RFC822 ) . "\n";
+													//get new shot image url from media attachment
+													$imgsrc = wp_get_attachment_url($attach_id);
+													$debug .= "--Img SRC: ".$imgsrc." ". Date( DATE_RFC822 ) . "\n";
+													
+												} else {
+												
+													$debug .= "INSTAGRAM LINK"." ". Date( DATE_RFC822 ) . "\n";
+												}
+												$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+				
+												
+												//apply featured image if needed
+												$debug .= "--FUNCTION CHECK - Featured Image: ";
+												if ($account->feat_img == 'true' && $account->image_saving == 'media') {
+												
+													$debug .= "Set Featured TRUE ". Date( DATE_RFC822 ) . "\n";
+													add_post_meta($postid, '_thumbnail_id', $attach_id);
+													
+												} else { $debug .= "Set Featured FALSE ". Date( DATE_RFC822 ) . "\n";}
+												$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+				
+	
+												//only add image to post if configured
+												$postimage = '';
+												$debug .= "--FUNCTION CHECK - Post Image: ";
+												if ($account->img_post == 'true') {
+												
+													$debug .= "--Include in Post TRUE ". Date( DATE_RFC822 ) . "\n";
+													//image class
+													$imageclass = '';
+													
+													if ($account->css != '') {
+													
+														$debug .= "--Set CSS TRUE ". Date( DATE_RFC822 ) . "\n";
+														$imageclass = ' class="'.$account->css.'"';
+													
+													}
+													
+													//image size
+													$imagesize = '';
+													
+													if ($account->size != '') {
+													
+														$debug .= "--Set Size TRUE ". Date( DATE_RFC822 ) . "\n";
+														$imagesize =  ' width="'.$account->size.'"';
+													
+													}
+													
+													//image
+													$postimage = '<img src="'.$imgsrc.'"'.$alt.$title.$imagesize.$imageclass.' />';
+													
+													//linking around image
+													$url = $imgsrc;
+													if ($account->link != 'no'){
+													
+														$debug .= "--Make a link TRUE ". Date( DATE_RFC822 ) . "\n";
+														if ($account->link == 'page') {
+															
+															$debug .= "--Link to Instragram Page TRUE ". Date( DATE_RFC822 ) . "\n";
+															$url = $image['url'];
+														
+														}
+														
+														$link_target = "";
+														if ($account->link_target == 'true') { $link_target = 'target="_blank" ';}
+														
+														$postimage = '<a href="'.$url.'" title="View Image" '.$link_target.'>'.$postimage.'</a>';
+													
+													}
+												
+												
+													$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+													
+													//custom post content	
+													$post_content = $account->custom_body;
+													$debug .= "--FUNCTION CHECK - Custom Body: ";
+													if ($post_content != '') {
+														
+														$debug .= "CUSTOM BODY EXISTS"." ". Date( DATE_RFC822 ) . "\n";
+														$post_content = stripslashes($post_content);
+														//%%title%%
+														$post_content = igp_functions::get_custom_string($post_content,$posttitle,'title');
+														//%%image%%
+														$post_content = igp_functions::get_custom_string($post_content,$postimage,'image');
+														//%%username%%
+														$post_content = igp_functions::get_custom_string($post_content,$image['username'],'username');
+														//%%link%%
+														$postlink = '<a href="'.$image['url'].'" title="'.$account->link_text.'">'.$account->link_text.'</a>';
+														$post_content = igp_functions::get_custom_string($post_content,$postlink,'link');
+														//%%date%%
+														$post_content = igp_functions::get_custom_string($post_content,date("F j, Y, g:i a", $image['created']),'date');
+														//%%location%%
+														$post_content = igp_functions::get_custom_string($post_content,$image['location_name'],'location');
+														
+														$post_content .= '<br/>';
+													
+													} else {
+													
+														$debug .= "NO CUSTOM BODY "." ". Date( DATE_RFC822 ) . "\n";
+														$post_content = $postimage.'<br/>';
+													}
+													$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+																											
+													
+													//location map data
+													$debug .= "--FUNCTION CHECK - Location: ";
+													if ($account->location == 'true' && $image['location_lat'] != ""){
+													
+														$debug .= "Setting TRUE and Image has Location Data TRUE ". Date( DATE_RFC822 ) . "\n";
+														
+														//location map css class
+														$location_class = '';
+														if ($account->location_css != '') {
+												
+															$debug .= "--Location Class TRUE ". Date( DATE_RFC822 ) . "\n";
+															$location_class = ' '.$account->location_css;
+														}
+														
+														$debug .= "----LAT: ".$image['location_lat'].' '. Date( DATE_RFC822 ) . "\n";
+														$debug .= "----LON: ".$image['location_lon'].' '. Date( DATE_RFC822 ) . "\n";
+														$debug .= "----NAME: ".$image['location_name'].' '. Date( DATE_RFC822 ) . "\n";
+														//add post meta for lon, lat, title
+														add_post_meta($postid,'igp_latlon',$image['location_lat'].','.$image['location_lon']);
+														
+														$location = '[igp_get_map lat="'.$image['location_lat'].'" lon="'.$image['location_lon'].'" marker="'.$image['location_name'].'" class="'.$location_class.'" width="'.$account->location_width.'" height="'.$account->location_height.'"]<br/>';
+														$debug .= "----LOCATION OUTPUT: ".$location.' '. Date( DATE_RFC822 ) . "\n";
+																										
+														$post_content .= $location;
+													
+													} else { $debug .= "Setting FALSE and/ or Image has Location Data FALSE ". Date( DATE_RFC822 ) . "\n";}
+													$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+					
+													$all_post_content .= $post_content;
+												
+												}
+								
+																
+											} else {
+											
+												//Image is the same as last posted
+												$debug .= "--CHECK imageid: ".$image['id']." != accounts last id: ".$account->lastid." FALSE ". Date( DATE_RFC822 ) . "\n";
+												$debug .= "--PROCESSING IMAGE SKIPPED ". Date( DATE_RFC822 ) . "\n";
+												$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+									
+											
+											}
+										
+										} else {
+										
+											//Instagrate ID already exists in database wp_postmeta
+											$debug .= "--CHECK instagrate_id: ".$tag.'_'.$image['id']." does not exist in wp_postmeta FALSE ". Date( DATE_RFC822 ) . "\n";
+											$debug .= "--PROCESSING IMAGE SKIPPED ". Date( DATE_RFC822 ) . "\n";
+											$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+									
+										}
+									
+									}
+									
+									//apply custom meta to make sure the images won't get duplicated
+									add_post_meta($postid,'instagrate_id',$postmetaids);
+									
+									//apply custom meta to make sure the images won't get duplicated by different accounts
+									add_post_meta($postid,'instagrate_image_id',$postmetaimageids);
+									
+									
+									//Gallery
+									$debug .= "--FUNCTION CHECK - Gallery: ";
+ 
+									if ($account->gallery == 'true' && $account->image_saving == 'media' ) {
+										
+										$debug .= "Gallery Setting TRUE". Date( DATE_RFC822 ) . "\n";
+										$all_post_content = '[gallery]'.$all_post_content;
+									}
+									
+									//credit link
+									//$all_post_content .= $pluginlink;
+									
+									//update the post with the tags and body
+									$post_tags = array_merge($old_tags,$posttags);
+									$post_content =$old_content.$all_post_content;
+																		
+									//update the post with content
+									$update_post = array();
+									$update_post['ID'] = $postid;
+									$update_post['tags_input'] = $post_tags;
+									$update_post['post_content'] = $post_content;
+	
+																
+									$debug .= "----SINGLE Before UPDATE - Content: ".$post_content.' '. Date( DATE_RFC822 ) . "\n";
+									// Update the post into the database
+									wp_update_post( $update_post );
+									$after_update = get_post($postid); 
+									$after_content = "";
+									$after_content = $after_update->post_content;
+									$debug .= "----After UPDATE - Content: ".$after_content.' '. Date( DATE_RFC822 ) . "\n";
+									$debug .= "--FUNCTION wp_update_post TRUE ". Date( DATE_RFC822 ) . "\n";
+									$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+	
+									
+								} else {
+									
+									
+									$debug .= "--CHECK ".$imageCount." Images valid to go into Post FALSE". Date( DATE_RFC822 ) . "\n";
+									$debug .= "------------------------------------------------------------------------------------------------------------------------------------------\n";
+									
+									
+								}							
+							
+							
+							
 							}
 
 

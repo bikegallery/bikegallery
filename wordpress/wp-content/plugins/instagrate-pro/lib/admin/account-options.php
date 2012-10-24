@@ -231,7 +231,52 @@ class igp_account_options {
 	
 	}
 	
-	
+	public function get_posts_data($id, $posttype = null) {
+			
+		$options  = igp_general_options::get_options();
+		$account = new igp_account($id,$options);
+		
+		if ($posttype != null) {
+			
+			$post_type = $posttype;
+		} else {
+			
+			if (!isset($account->post_type)) {
+			$post_type = 'post';
+			
+			} else {
+				
+				$post_type = $account->post_type;
+			}
+		}
+		
+		global $post;
+		$data = array();
+		global $wpdb;
+		$post_data = $wpdb->get_results( 
+			$wpdb->prepare( 
+				"
+						SELECT ID, post_title FROM $wpdb->posts
+						WHERE post_status = 'publish'
+						AND post_type = %s
+						ORDER BY post_date desc
+				",
+					$post_type
+				)
+				
+		);
+		
+		if ($post_data) {
+		
+			foreach( $post_data as $post_item ) {
+				$id = $post_item->ID;
+				$name = $post_item->post_title;
+				$data[$id] = $name;
+			}
+		}
+
+		return $data;	
+	}
 	
 }
 

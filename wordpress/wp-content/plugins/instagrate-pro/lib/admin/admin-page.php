@@ -961,6 +961,38 @@ class igp_pvw_plugin_framework {
 
 				
 			break;
+			
+			// Get posts based on post type
+			case 'select-posts':
+				
+				$tag = $value['account'];
+				$id = substr($tag,4,strpos($tag,'_',5)-4);
+				
+				$post_data = igp_account_options::get_posts_data($id);
+				
+				$output .= '<select class="pvw-input" name="'. $name .'" id="'. $value['id'] .'">';
+					
+					$select_value = self::pvw_plugin_get_saved_option($saved_options, $value['id']);
+					
+					foreach ( $post_data as  $post_key => $post_value ) :
+
+						$selected = '';
+	
+						if($select_value != '') {
+							if ( $select_value ==  esc_attr(  $post_key )) { $selected = ' selected="selected"';} 
+						} 
+						
+						$output .= '<option value="' . esc_attr(  $post_key ) . '"' . $selected . '>';
+						$output .= $post_value;
+						$output .= '</option>';
+					endforeach;
+
+				$output .= '</select>'; 
+
+			break;
+			
+			
+		
 			//-------
 			
 			case 'select2':
@@ -1162,21 +1194,31 @@ class igp_pvw_plugin_framework {
 			case "instagram_login":
 				
 				
-				$check = array();
-				$check = igp_instagrate::apiCheck();
-		
-				if ($check[0] == 1) {
-									
-					$instagram = new igp_Instagram(IGP_CLIENT_ID, IGP_CLIENT_SECRET, null);
-					$loginUrl = $instagram->authorizeUrl(IGP_REDIRECT_URI.'?return_uri='.htmlentities(IGP_PVW_RETURN_URI));
-				
-					$output .= '<a href="'.$loginUrl.'" class="button-primary">'.$value['text'].'</a>';
-				
+				if (function_exists('curl_init')) {
+					
+					$check = array();
+					$check = igp_instagrate::apiCheck();
+			
+					if ($check[0] == 1) {
+										
+						$instagram = new igp_Instagram(IGP_CLIENT_ID, IGP_CLIENT_SECRET, null);
+						$loginUrl = $instagram->authorizeUrl(IGP_REDIRECT_URI.'?return_uri='.htmlentities(IGP_PVW_RETURN_URI));
+					
+						$output .= '<a href="'.$loginUrl.'" class="button-primary">'.$value['text'].'</a>';
+					
+					} else {
+						
+						$output .= '<a href="#" class="button-primary">Add Unavailable</a>';
+						
+					}
+						
+					
 				} else {
 					
 					$output .= '<a href="#" class="button-primary">Add Unavailable</a>';
-					
 				}
+				
+				
 				
 			
 			break;
