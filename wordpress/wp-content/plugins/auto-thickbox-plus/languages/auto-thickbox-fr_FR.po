@@ -18,14 +18,9 @@ msgstr ""
 "X-Poedit-Language: French\n"
 "X-Poedit-Country: FRANCE\n"
 "X-Poedit-SourceCharset: utf-8\n"
-
-#: auto-thickbox.php:570
-msgid "Next &gt;"
-msgstr "Suivante &gt;"
-
-#: auto-thickbox.php:572
-msgid "&lt; Prev"
-msgstr "&lt; Précédente"
+"X-Poedit-KeywordsList: __;_e;esc_attr__;esc_attr_e;_s;_es\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: auto-thickbox.php:5
 msgid "Overlays linked image, inline, iFrame and AJAX content on the page in simple & fast effects. (improved version of Auto Thickbox plugin)"
@@ -83,10 +78,6 @@ msgstr "*Séparer les class par des espaces"
 msgid "Support"
 msgstr "Support"
 
-#: auto-thickbox.php:597
-msgid "Contact"
-msgstr "Contacter"
-
 #: auto-thickbox.php:402
 msgid "Donate"
 msgstr "Faire un don"
@@ -95,9 +86,18 @@ msgstr "Faire un don"
 msgid "Mouse Click"
 msgstr "Clic de la souris"
 
-#: auto-thickbox.php:592
-msgid "Loop"
-msgstr "Loop"
+#: auto-thickbox-options.php:159
+#: auto-thickbox.php:155
+msgid "Download"
+msgstr ""
+
+#: auto-thickbox-options.php:161
+msgid "Expand"
+msgstr ""
+
+#: auto-thickbox-options.php:161
+msgid "Shrink"
+msgstr ""
 
 #: auto-thickbox-options.php:170
 msgid "Clickable Range"
@@ -326,4 +326,34 @@ msgstr ""
 #: auto-thickbox-options.php:91
 msgid "Whole Page"
 msgstr ""
+
+#: auto-thickbox-options.php:93
+msgid "Disabled"
+msgstr ""
+
+#: auto-thickbox.php:157
+msgid "Actual Size"
+msgstr ""
+
+#: auto-thickbox.php:158
+msgid "Fit to Window"
+msgstr ""
+
+## Extra Translations ##
+
+#: auto-thickbox.php:570
+msgid "Next &gt;"
+msgstr "Suivante &gt;"
+
+#: auto-thickbox.php:572
+msgid "&lt; Prev"
+msgstr "&lt; Précédente"
+
+#: auto-thickbox.php:592
+msgid "Loop"
+msgstr "Loop"
+
+#: auto-thickbox.php:597
+msgid "Contact"
+msgstr "Contacter"
 

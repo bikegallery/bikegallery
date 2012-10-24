@@ -1,7 +1,7 @@
 <?php
 require_once(dirname(__FILE__).'/slickr-flickr-photo.php');
 require_once(dirname(__FILE__).'/slickr-flickr-api-photo.php');
-require_once (dirname(__FILE__).'/phpFlickr.php');
+require_once(dirname(__FILE__).'/phpFlickr.php');
 
 class slickr_flickr_feed{
 
@@ -18,6 +18,7 @@ class slickr_flickr_feed{
   var $user_id = ''; //Flickr NS ID 
   var $flickr = false; //phpFlickr Object
   var $cache = false; //plugin cache
+  var $get_dims = false;
     
   function get_photos() { return $this->photos; }
   function get_count() { return count($this->photos); }  
@@ -25,6 +26,7 @@ class slickr_flickr_feed{
   function get_message() { return $this->message; }
  
   function __construct($params) {
+  	$this->get_dims = array_key_exists('restrict',$params) && ('orientation'==$params['restrict']);
     $this->build_command($params);  //set up method and args
    	if (!$this->use_rss) $this->set_php_flickr();
   }
@@ -62,13 +64,20 @@ class slickr_flickr_feed{
     }
     return $this->photos;
 }
+ 
+  function call_flickr_api_with_pages($page=1) {
+        $per_page = $this->args['per_page'];
+        unset($this->args['per_page']);
+  		$pager = new phpFlickr_pager($this->flickr, $this->method, $this->args, $per_page);
+  		return array('photos' => $pager->get($page) ,'total' => $pager->total, 'pages' => $pager->pages);
+  }
   
   function call_flickr_api() {
 		$photos = array();
 		$resp = $this->flickr->call($this->method, $this->args);
 		if ($resp) {
 			$results = $resp[$this->container];
-    		foreach ($results['photo'] as $photo) { $photos[] = new slickr_flickr_api_photo($this->user_id,$photo); }
+    		foreach ($results['photo'] as $photo) { $photos[] = new slickr_flickr_api_photo($this->user_id,$photo,$this->get_dims); }
     	} else {
 			$this->message = $this->flickr->error_msg ;
     		$this->error = true;
@@ -106,7 +115,7 @@ class slickr_flickr_feed{
            }
            case "galleries": {
                 $this->method = "flickr.galleries.getPhotos";
-                $this->args = array("gallery_id" => $this->validate_gallery($params['gallery']));
+                $this->args = array("gallery_id" => $this->verify_gallery_id($params['gallery']));
                 break;
            }
            case "sets": {
@@ -127,10 +136,6 @@ class slickr_flickr_feed{
                 if (!empty($tags)) $this->args['tags'] = $tags;
           }
         }
-        if ( !empty($params['private'])) {
- 			$this->use_rss = false; 
-			slickr_flickr_append_secrets($this->args); //append keys and secrets required for authenticated connection
-  	    }
    } else {
   		$this->use_rss = true;
  	  	$this->use_api = false;   
@@ -202,7 +207,7 @@ class slickr_flickr_feed{
         return $return;
     }
     
-  function validate_gallery($gallery) { //replace short gallery id by full gallery_id
+  function verify_gallery_id($gallery) { //replace short gallery id by full gallery_id
 		if (strpos($gallery,'-') === false) {
 			if ($this->set_php_flickr()) {
 				$resp = $this->flickr->urls_lookupGallery ('/photos/'.$this->user_id.'/galleries/'.$gallery);

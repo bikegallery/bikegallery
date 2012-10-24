@@ -28,6 +28,7 @@ label.boundary { margin-left: 3px; }
 	height: 20px;
 }
 input.small-text { width: 40px; }
+input.large-text { width: 70%; }
 input.colortext { width: 75px; }
 input.pickcolor { margin-left: 41px; }
 .rtl input.pickcolor { margin-left: 1px; margin-right: 41px; }
@@ -49,7 +50,7 @@ input.pickcolor { margin-left: 41px; }
 .rtl .opacity-trans, .rtl .opacity-opaque { float: right; }
 .rtl .opacity-slider, .rtl #click-range-slider { float: right; }
 
-ol.sortable { margin: 0; padding: 0; width: 60%; }
+ol.sortable { margin: 0; padding: 0; max-width: 350px; }
 ol.sortable li {
 	cursor: move; margin: 0 5px 5px; padding: 3px 0 3px 6px;
 	-moz-border-radius: 3px; -webkit-border-radius: 3px; -khtml-border-radius: 3px; border-radius: 3px;
@@ -82,3 +83,14 @@ li.contact { background: url(images/contact.png) no-repeat; }
 .ui-slider .ui-slider-handle { position: absolute; z-index: 2; width: 1.2em; height: 1.2em; cursor: e-resize; }
 .ui-slider-horizontal { height: .8em; }
 .ui-slider-horizontal .ui-slider-handle { top: -.3em; margin-left: -.6em; }
+
+@media only screen and (max-width: 800px) {
+    .form-table th {
+        width: 120px;
+    }
+}
+@media only screen and (max-width: 640px) {
+    input.large-text {
+        width: 99%;
+    }
+}

@@ -17,6 +17,9 @@ msgstr ""
 "X-Poedit-Language: Dutch\n"
 "X-Poedit-Country: NETHERLANDS\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;esc_attr__;esc_attr_e;_s;_es\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: auto-thickbox.php:5
 msgid "Overlays linked image, inline, iFrame and AJAX content on the page in simple & fast effects. (improved version of Auto Thickbox plugin)"
@@ -74,10 +77,6 @@ msgstr ""
 msgid "Support"
 msgstr "Ondersteuning"
 
-#: auto-thickbox.php:536
-msgid "Contact"
-msgstr "Neem contact op (Engels)"
-
 #: auto-thickbox.php:355
 msgid "Donate"
 msgstr "Doneer"
@@ -86,9 +85,18 @@ msgstr "Doneer"
 msgid "Mouse Click"
 msgstr "Muisklik"
 
-#: auto-thickbox.php:531
-msgid "Loop"
-msgstr "Herhaal"
+#: auto-thickbox-options.php:159
+#: auto-thickbox.php:155
+msgid "Download"
+msgstr ""
+
+#: auto-thickbox-options.php:161
+msgid "Expand"
+msgstr ""
+
+#: auto-thickbox-options.php:161
+msgid "Shrink"
+msgstr ""
 
 #: auto-thickbox-options.php:137
 msgid "Clickable Range"
@@ -311,4 +319,26 @@ msgstr ""
 #: auto-thickbox-options.php:91
 msgid "Whole Page"
 msgstr ""
+
+#: auto-thickbox-options.php:93
+msgid "Disabled"
+msgstr ""
+
+#: auto-thickbox.php:157
+msgid "Actual Size"
+msgstr ""
+
+#: auto-thickbox.php:158
+msgid "Fit to Window"
+msgstr ""
+
+## Extra Translations ##
+
+#: auto-thickbox.php:531
+msgid "Loop"
+msgstr "Herhaal"
+
+#: auto-thickbox.php:536
+msgid "Contact"
+msgstr "Neem contact op (Engels)"
 

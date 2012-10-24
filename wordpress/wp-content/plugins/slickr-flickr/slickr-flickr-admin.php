@@ -2,7 +2,7 @@
 /*
 Author: Russell Jamieson
 Author URI: http://www.russelljamieson.com
-Copyright &copy; 2010-2011 &nbsp; Russell Jamieson
+Copyright &copy; 2010-2012 &nbsp; Russell Jamieson
 */
 
 define('SLICKR_FLICKR_ADMIN', 'slickr-flickr-admin');
@@ -16,7 +16,6 @@ class slickr_flickr_admin {
 	function __construct() {
 		add_filter('screen_layout_columns', array(&$this, 'screen_layout_columns'), 10, 2);
 		add_action('admin_menu', array(&$this, 'admin_menu')); 
-		add_filter( 'plugin_action_links',array(&$this, 'plugin_action_links'), 10, 2 );
 	}
 
 	function screen_layout_columns($columns, $screen) {
@@ -44,14 +43,6 @@ class slickr_flickr_admin {
     	echo('<script type="text/javascript" src="'.SLICKR_FLICKR_PLUGIN_URL.'/slickr-flickr-admin.js?ver='.SLICKR_FLICKR_VERSION.'"></script>');    
 	}	
 
-	function plugin_action_links( $links, $file ) {
-		if ( is_array($links) && (SLICKR_FLICKR_PATH == $file )) {
-			$settings_link = '<a href="' . admin_url( 'options-general.php?page='.SLICKR_FLICKR_ADMIN) . '">Settings</a>';
-			array_unshift( $links, $settings_link );
-		}
-		return $links;
-	}
-
 	function load_page() {
 		wp_enqueue_script('common');
 		wp_enqueue_script('wp-lists');
@@ -75,7 +66,7 @@ class slickr_flickr_admin {
 	}
 
    	function clear_cache() {
-   		slickr_flickr_clear_cache();
+   		SlickrFlickrUtils::clear_cache();
    		$class = "updated fade";
    		$message = __("WordPress RSS cache has been cleared successfully",SLICKR_FLICKR);
    		return '<div id="message" class="' . $class .' "><p>' . $message. '</p></div>';
@@ -86,19 +77,16 @@ class slickr_flickr_admin {
   		$options = explode(',', stripslashes($_POST['page_options']));
   		if ($options) {
   			$flickr_options = array();
-  			$slickr_options = array();
-  			$updates = false; 
-    		// retrieve option values from POST variables
+  			$updates = false;
     		foreach ($options as $option) {
        			$option = trim($option);
        			$val = array_key_exists($option, $_POST) ? trim(stripslashes($_POST[$option])) : '';
-				$flickr_options[$option] = $val;
+       			$flickr_options[$option] = $val;
     		} //end for
-
-   			$updates =  update_option("slickr_flickr_options", $flickr_options) ;
+			
+   			$updates =  SlickrFlickrUtils::save_options($flickr_options) ;
   		    $class="updated fade";
    			if ($updates)  {
-				slickr_flickr_get_options(false); //update cache
        			$message = __("Slickr Flickr Settings saved.",SLICKR_FLICKR_ADMIN);
    			} else
        			$message = __("No Slickr Flickr settings were changed since last update.",SLICKR_FLICKR_ADMIN);
@@ -110,7 +98,7 @@ class slickr_flickr_admin {
 	}
 
 	function id_panel($post, $metabox) {		
-		$options = slickr_flickr_get_options();		
+		$options = SlickrFlickrUtils::get_options();		
 		$is_user = $options['group']!='y'?'selected="selected"':"";
 		$is_group = $options['group']=='y'?'selected="selected"':"";
 		print <<< ID_PANEL
@@ -139,7 +127,7 @@ ID_PANEL;
 	}
 
 	function general_panel($post, $metabox) {		
-		$options = slickr_flickr_get_options();		
+		$options = SlickrFlickrUtils::get_options();		
 		$is_slideshow = $options['type']=="slideshow"?'selected="selected"':'';
 		$is_galleria = $options['type']=="galleria"?'selected="selected"':'';
 		$is_gallery = $options['type']=="gallery"?'selected="selected"':'';
@@ -196,7 +184,7 @@ GENERAL_PANEL;
 	}
 
 	function advanced_panel($post, $metabox) {		
-		$options = slickr_flickr_get_options();			
+		$options = SlickrFlickrUtils::get_options();			
 		$scripts_in_footer = $options['scripts_in_footer']=="1"?'checked="checked"':'';
 		$home = SLICKR_FLICKR_HOME;
 		print <<< ADVANCED_PANEL
@@ -208,7 +196,7 @@ ADVANCED_PANEL;
 	}
 
 	function lightbox_panel($post, $metabox) {		
-		$options = slickr_flickr_get_options();			
+		$options = SlickrFlickrUtils::get_options();			
 		$lightbox_auto = $options['lightbox']=="sf-lbox-auto"?'selected="selected"':'';
 		$lightbox_manual = $options['lightbox']=="sf-lbox-manual"?'selected="selected"':'';
 		$thickbox = $options['lightbox']=="thickbox"?'selected="selected"':'';
@@ -248,15 +236,15 @@ LIGHTBOX_PANEL;
 	}
 
 	function galleria_panel($post, $metabox) {		
-		$options = slickr_flickr_get_options();			
-		$galleria_10 = $options['galleria']=="galleria-1.0"?'selected="selected"':'';
-		$galleria_127 = $options['galleria']=="galleria-1.2.7"?'selected="selected"':'';
+		$options = SlickrFlickrUtils::get_options();			
+		$galleria_original = $options['galleria']=="galleria-original"?'selected="selected"':'';
+		$galleria_latest = $options['galleria']=="galleria-latest"?'selected="selected"':'';
 		$galleria_none = $options['galleria']=="galleria-none"?'selected="selected"':'';
 		$home = SLICKR_FLICKR_HOME;
 		print <<< GALLERIA_PANEL
 <h4>Galleria Version: <select name="flickr_galleria" id="flickr_galleria">
-<option {$galleria_127} value="galleria-1.2.7">Galleria 1.2.7 - latest version</option>
-<option {$galleria_10} value="galleria-1.0">Galleria 1.0 - original version</option>
+<option {$galleria_latest} value="galleria-latest">Galleria latest version</option>
+<option {$galleria_original} value="galleria-original">Galleria original version</option>
 <option {$galleria_none} value="galleria-none">Galleria not required so do not load the script</option>
 </select></h4>
 <p>Choose which version of the galleria you want to use. We recommend you use the latest version of the galleria as this has the most features.</p>
@@ -276,7 +264,7 @@ GALLERIA_PANEL;
 	}
 	
 	function help_panel($post, $metabox) {
-		$options = slickr_flickr_get_options();		
+		$options = SlickrFlickrUtils::get_options();		
 		$home = SLICKR_FLICKR_HOME;
 		print <<< HELP_PANEL
 <ul>
@@ -305,7 +293,7 @@ HELP_PANEL;
 	}	
 	
 	function lightboxes_panel($post, $metabox) {	
-		$options = slickr_flickr_get_options();		
+		$options = SlickrFlickrUtils::get_options();		
 		print <<< COMPAT_LIGHTBOX_PANEL
 <ul>
 <li><a href="http://wordpress.org/extend/plugins/fancybox-for-wordpress/" rel="external">FancyBox Lightbox for WordPress</a></li>
@@ -321,8 +309,7 @@ COMPAT_LIGHTBOX_PANEL;
 	}
 
 	function cache_panel($post, $metabox) {
-		$options = slickr_flickr_get_options();		
- 		$this_url = $_SERVER['REQUEST_URI'];	
+		$this_url = $_SERVER['REQUEST_URI'];	
 		print <<< CACHE_PANEL
 <h4>Clear RSS Cache</h4>
 <p>If you have a RSS caching issue where your Flickr updates have not yet appeared on Wordpress then click the button below to clear the RSS cache</p>

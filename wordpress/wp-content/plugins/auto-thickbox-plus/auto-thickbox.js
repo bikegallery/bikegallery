@@ -27,7 +27,7 @@ jQuery(function($) {
 
 	if ($.isFunction($().slider)) {
 		$(".opacity-slider").each(function() {
-			var text = $(this).prevAll("input:text");
+			var text = $(this).prevAll("input[type='number']");
 			$(this).slider({
 				max: 1,
 				step: 0.05,
@@ -74,6 +74,20 @@ jQuery(function($) {
 			return false;
 		});
 	});
+
+	tb_init("a.thickbox-image"); // prevent href from being modified by media-upload.js
+	var tb_position2 = tb_position;
+	tb_position = function() {
+		if ($("#TB_iframeContent").length) { // tb_position() in media-upload.js
+			tb_position2();
+		} else { // tb_position() in built-in thickbox.js
+			var isIE6 = typeof document.body.style.maxHeight === "undefined";
+			jQuery("#TB_window").css({marginLeft: '-' + parseInt((TB_WIDTH / 2),10) + 'px', width: TB_WIDTH + 'px'});
+			if ( ! isIE6 ) { // take away IE6
+				jQuery("#TB_window").css({marginTop: '-' + parseInt((TB_HEIGHT / 2),10) + 'px'});
+			}
+		}
+	};
 });
 
 function updateEffectSpeed(radio) {
@@ -100,13 +114,15 @@ function disableHideInitOption(radio) {
 	document.form[name].disabled = radio.value == 'none';
 }
 
-function disablePlaceOption(checkbox) {
+function disablePlaceOption(select) {
 	for (var i = 0; i < document.form['auto-thickbox-plus[script_place]'].length; i++)
-		document.form['auto-thickbox-plus[script_place]'][i].disabled = checkbox.checked;
+		document.form['auto-thickbox-plus[script_place]'][i].disabled = select.value == 'built-in';
+	if (select.value == 'built-in')
+		document.form['auto-thickbox-plus[script_place]'][1].checked = true;
 }
 
 function disableClickOption(radio) {
-	var disabled = radio.value == "close" || radio.value == "none";
+	var disabled = radio.value != "next" && radio.value != "prev_next";
 	for (var i = 0; i < document.form['auto-thickbox-plus[click_end]'].length; i++)
 		document.form['auto-thickbox-plus[click_end]'][i].disabled = disabled;
 

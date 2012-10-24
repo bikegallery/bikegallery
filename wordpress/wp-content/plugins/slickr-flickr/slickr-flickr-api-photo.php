@@ -11,7 +11,7 @@ class slickr_flickr_api_photo {
   var $link;
   var $original;
 
-  function __construct($user_id, $item) {
+  function __construct($user_id, $item, $must_get_dims=false) {
     $farmid = $item['farm']; 
     $serverid = $item['server'];
     $id = $item['id'];
@@ -25,7 +25,7 @@ class slickr_flickr_api_photo {
     $this->description = array_key_exists('description',$item) ? $this->cleanup($item['description']) : '' ;
     $this->height = array_key_exists('o_height',$item) ? $item['o_height'] : 0 ;
     $this->width = array_key_exists('o_width',$item) ? $item['o_width'] : 0 ;
-    if (($this->height==0) || ($this->width==0)) $this->get_dims();
+    if ($must_get_dims && (($this->height==0) || ($this->width==0))) $this->get_dims();
     $this->orientation = $this->height > $this->width ? "portrait" : "landscape" ;
   }
 
@@ -41,7 +41,7 @@ class slickr_flickr_api_photo {
 
   /* Function that removes all quotes */
   function cleanup($s = null) {
-    return $s?str_replace(array("'","\n"), array("&acute;","<br/>"),$this->handle_quotes($s)):false;
+    return $s?str_replace("\n", "<br/>",$this->handle_quotes($s)):false;
   }
   
   function handle_quotes($s='',$recurring=0) {

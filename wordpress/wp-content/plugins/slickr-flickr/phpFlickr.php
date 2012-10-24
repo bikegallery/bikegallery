@@ -285,10 +285,7 @@ if ( !class_exists('phpFlickr') ) {
 					}
 					$auth_sig .= $key . $data;
 				}
-				if (array_key_exists('token_secret',$args)) {
-					require_once(dirname(__FILE__).'/slickr-flickr-oauth.php');				
-		    		$args = slickr_flickr_oauth::append_signature('POST', $this->rest_endpoint, $args) ;
-				} elseif (!empty($this->secret)) {
+				if (!empty($this->secret)) {
 					$api_sig = md5($this->secret . $auth_sig);
 					$args['api_sig'] = $api_sig;
 				}
@@ -1690,7 +1687,7 @@ if ( !class_exists('phpFlickr_pager') ) {
 		var $total = null, $page = 0, $pages = null, $photos, $_extra = null;
 		
 		
-		function phpFlickr_pager($phpFlickr, $method = null, $args = null, $per_page = 30) {
+		function __construct($phpFlickr, $method = null, $args = null, $per_page = 30) {
 			$this->per_page = $per_page;
 			$this->method = $method;
 			$this->args = $args;

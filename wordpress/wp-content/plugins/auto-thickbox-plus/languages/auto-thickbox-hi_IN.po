@@ -17,18 +17,9 @@ msgstr ""
 "X-Poedit-Language: Hindi\n"
 "X-Poedit-Country: INDIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
-
-#: auto-thickbox-info.php:4
-msgid "Next &gt;"
-msgstr "अगला &gt;"
-
-#: auto-thickbox-info.php:6
-msgid "Image"
-msgstr "छवि"
-
-#: auto-thickbox-info.php:8
-msgid "Close"
-msgstr "बंद करना"
+"X-Poedit-KeywordsList: __;_e;esc_attr__;esc_attr_e;_s;_es\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: auto-thickbox.php:5
 msgid "Overlays linked image, inline, iFrame and AJAX content on the page in simple & fast effects. (improved version of Auto Thickbox plugin)"
@@ -92,6 +83,11 @@ msgstr ""
 
 #: auto-thickbox-options.php:134
 msgid "Mouse Click"
+msgstr ""
+
+#: auto-thickbox-options.php:159
+#: auto-thickbox.php:155
+msgid "Download"
 msgstr ""
 
 #: auto-thickbox-options.php:161
@@ -321,4 +317,22 @@ msgstr ""
 #: auto-thickbox-options.php:91
 msgid "Whole Page"
 msgstr ""
+
+#: auto-thickbox-options.php:93
+msgid "Disabled"
+msgstr ""
+
+## Extra Translations ##
+
+#: auto-thickbox-info.php:4
+msgid "Next &gt;"
+msgstr "अगला &gt;"
+
+#: auto-thickbox-info.php:6
+msgid "Image"
+msgstr "छवि"
+
+#: auto-thickbox-info.php:8
+msgid "Close"
+msgstr "बंद करना"
 

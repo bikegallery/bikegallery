@@ -130,6 +130,19 @@ msgstr "usa thickbox.js/css nativo di WordPress (alcune funzioni extra saranno d
 msgid "Mouse Click"
 msgstr "Click mouse"
 
+#: auto-thickbox-options.php:159
+#: auto-thickbox.php:155
+msgid "Download"
+msgstr ""
+
+#: auto-thickbox-options.php:161
+msgid "Expand"
+msgstr ""
+
+#: auto-thickbox-options.php:161
+msgid "Shrink"
+msgstr ""
+
 #: auto-thickbox-options.php:167
 msgid "Loop"
 msgstr "Loop"
@@ -468,6 +481,14 @@ msgstr "Le impostazioni sono state ripristinate."
 
 #: auto-thickbox.php:149
 msgid "This feature requires inline frames. You have iframes disabled or your browser does not support them."
+msgstr ""
+
+#: auto-thickbox.php:157
+msgid "Actual Size"
+msgstr ""
+
+#: auto-thickbox.php:158
+msgid "Fit to Window"
 msgstr ""
 
 #: auto-thickbox.php:497

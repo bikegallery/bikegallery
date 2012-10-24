@@ -54,7 +54,7 @@ class slickr_flickr_photo {
 
   /* Function that removes all quotes */
   function cleanup($s = null) {
-    return $s?str_replace("'", "&acute;",$this->handle_quotes($s)):false;
+    return $s?$this->handle_quotes($s):false;
   }
   
   function handle_quotes($s='',$recurring=0) {
