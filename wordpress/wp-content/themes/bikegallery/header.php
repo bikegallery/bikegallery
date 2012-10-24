@@ -6,7 +6,6 @@
  *
  * @package WordPress
  * @subpackage bikegallery
- * @since bikegallery 0.1
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>

@@ -3,8 +3,7 @@
  * The loop for search results
  *
  * @package WordPress
- * @subpackage Bikegallery
- * @since Bikegallery 0.1
+ * @subpackage bikegallery
  */
 
 	if ( have_posts() ) while ( have_posts() ) : the_post(); ?>

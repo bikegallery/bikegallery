@@ -3,8 +3,7 @@
  * The Template for displaying all single posts.
  *
  * @package WordPress
- * @subpackage Starkers
- * @since Starkers 3.0
+ * @subpackage bikegallery
  */
 
 get_header(); ?>
