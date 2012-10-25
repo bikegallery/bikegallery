@@ -861,7 +861,8 @@ img.alignright {
 }
 
 .textwidget .signup_input {
-	width: 214px;
+	margin-bottom: 5px;
+	width: 214px; /* matches up to the parent container */
 }
 
 
