@@ -196,7 +196,6 @@
 			<div class="clear">&nbsp;</div>
 
 			<?php if ( is_front_page() ) { ?>
-				<?php // if(function_exists('wp_content_slider')) { wp_content_slider(); } ?>
 				<?php echo do_shortcode('[nivoslider slug="front-page"]'); ?>
 			<?php } ?>				
 
