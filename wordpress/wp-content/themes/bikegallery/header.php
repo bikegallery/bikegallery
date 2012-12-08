@@ -145,8 +145,8 @@
 
 				<li>
 					<a href="/locations/division">
-						Division<br />
-						10950 SE Division St<br />
+						Clackamas<br />
+						9347 SE 82nd Ave<br />
 						(503) 254-2663
 					</a>
 				</li>

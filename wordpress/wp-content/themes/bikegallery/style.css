@@ -275,7 +275,6 @@ cite {
 	font-size: 1.2em;
 	font-weight: normal;
 	margin: 0 0 .25em 0;
-	padding: 2px 0;
 	text-align: center;
 }
 
@@ -315,7 +314,7 @@ cite {
 
 .left_sidebar strong {
 	display: block;
-	margin-bottom: 1.5em;
+	margin-bottom: .5em;
 }
 
 .left_sidebar img {
